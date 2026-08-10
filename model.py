@@ -34,8 +34,29 @@ class Bitmask:
     type: C_Type
     bits: str | None = None
 
+@dataclass(slots=True)
+class Enum_Value:
+    name: str
+
+    value: str | None = None
+    bitpos: int | None = None
+
+    type: C_Type | None = None
+
+    alias: str | None = None
+    comment: str | None = None
+
+@dataclass(slots=True)
+class Enums_Group:
+    name: str
+    type: str
+    comment: str | None = None
+
+    values: list[Enum_Value] = field(default_factory=list)
+
 @dataclass
 class Registry:
     handles: dict[str, Handle] = field(default_factory=dict)
     basetypes: dict[str, Base_Type] = field(default_factory=dict)
     bitmasks: dict[str, Bitmask] = field(default_factory=dict)
+    enums_groups: dict[str, Enums_Group] = field(default_factory=dict)

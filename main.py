@@ -10,16 +10,18 @@ registry_parser = Registry_Parser("vk.xml")
 types = registry_parser.root.find("types")
 num_elem = 0
 
-for element in types.findall("type"):
-    if element.get("category") == "enum":
-        print(ET.tostring(element, encoding="unicode"))
-        print("-" * 50)
-        num_elem += 1
-print(num_elem)
+# for element in types.findall("type"):
+#     if element.get("category") == "enum":
+#         print(ET.tostring(element, encoding="unicode"))
+#         print("-" * 50)
+#         num_elem += 1
+# print(num_elem)
 
 counter = Counter()
 
-print(len(registry.bitmasks))
+print(sorted(registry.enums_groups.keys())[:10])
+print("API Constants" in registry.enums_groups)
 
-# for bitmask in registry.bitmasks.values():
-#     print(bitmask)
+print(len(registry.enums_groups))
+print("------------------------------")
+print(registry.enums_groups["VkResult"].values)

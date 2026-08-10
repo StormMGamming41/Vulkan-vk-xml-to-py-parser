@@ -6,6 +6,6 @@
 # Variant:
 - Standard definition
 - stat: done => "bitvalues="
-- stat: doen =>"requies="
+- stat: doen => "requies="
 - stat: done => "alias="
 - stat: done => "api="
