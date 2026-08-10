@@ -7,9 +7,6 @@ import xml.etree.ElementTree as ET
 registry = Registry_Parser("vk.xml").parse()
 registry_parser = Registry_Parser("vk.xml")
 
-types = registry_parser.root.find("types")
-num_elem = 0
-
 # for element in types.findall("type"):
 #     if element.get("category") == "enum":
 #         print(ET.tostring(element, encoding="unicode"))
@@ -19,9 +16,11 @@ num_elem = 0
 
 counter = Counter()
 
-print(sorted(registry.enums_groups.keys())[:10])
-print("API Constants" in registry.enums_groups)
+result_group = registry.enums_groups["VkResult"]
+print(len(result_group.values))  # should jump up from the base-only count
 
-print(len(registry.enums_groups))
-print("------------------------------")
-print(registry.enums_groups["VkResult"].values)
+for ev in result_group.values:
+    if ev.name == "VK_ERROR_OUT_OF_DATE_KHR":
+        print(ev.name, ev.value)   # expect -1000001004
+    if ev.name == "VK_SUBOPTIMAL_KHR":
+        print(ev.name, ev.value)   # expect 1000001003 (positive, no dir)
