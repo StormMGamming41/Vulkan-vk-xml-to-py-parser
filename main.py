@@ -12,9 +12,9 @@ registry = Registry_Parser("vk.xml").parse()
 struct_order = topological_sort_structs(registry)
 extension_map = build_extension_map(registry)
 
-print(len(struct_order))
-print(struct_order[:5])   # should be leaf structs with no by-value struct members - e.g. VkExtent2D, VkOffset2D
-print(extension_map["VkPhysicalDeviceFeatures2"][:5])  # should list several VkPhysicalDeviceXFeatures structs
+# print(len(struct_order))
+# print(struct_order[:5])   # should be leaf structs with no by-value struct members - e.g. VkExtent2D, VkOffset2D
+# print(extension_map["VkPhysicalDeviceFeatures2"][:5])  # should list several VkPhysicalDeviceXFeatures structs
  
 # for element in types.findall("type"):
 #     if element.get("category") == "enum":
@@ -24,6 +24,8 @@ print(extension_map["VkPhysicalDeviceFeatures2"][:5])  # should list several VkP
 # print(num_elem)
 
 counter = Counter()
+
+print(registry.function_pointers["PFN_vkVoidFunction"].params)
 
 # print(len(registry.structs_unions))
 

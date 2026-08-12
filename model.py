@@ -72,6 +72,12 @@ class Struct:
     struct_extends: list[str] | None = None
     comment: str | None = None
 
+@dataclass(slots=True)
+class Function_Pointer:
+    name: str
+    return_type: C_Type
+    params: list[Member] = field(default_factory=list)
+
 @dataclass
 class Registry:
     handles: dict[str, Handle] = field(default_factory=dict)
@@ -79,3 +85,4 @@ class Registry:
     bitmasks: dict[str, Bitmask] = field(default_factory=dict)
     enums_groups: dict[str, Enums_Group] = field(default_factory=dict)
     structs_unions: dict[str, Struct] = field(default_factory=dict)
+    function_pointers: dict[str, Function_Pointer] = field(default_factory=dict)

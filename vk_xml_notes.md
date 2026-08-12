@@ -98,13 +98,23 @@ Post-processing (resolve.py, whole-registry passes, not per-element parsers):
 
 Status: ✅ implemented (Struct_Parser, Union_Parser, resolve.py)
 
+## Function Pointer — `<type category="funcpointer">`
+IMPORTANT: current vk.xml uses <proto>/<param> structure (identical shape to <command>),
+NOT the old raw-typedef-text format described in older Vulkan-Docs GitHub issues/blog
+posts from ~2016-2018. Older tutorials/examples online may describe the wrong shape.
+
+<proto> and each <param> are structurally identical to struct <member> elements (same
+const/pointer text-and-tail mixing) - reuses parse_member() from parsers/common.py
+directly, no new parsing logic needed.
+
+Return type = proto's type/pointer_level. Params = list of Member, reused as-is
+(no separate Param dataclass needed, same as struct members).
+
+Status: ✅ implemented (Function_Pointer_Parser)
+
 ---
 
 ## Not yet implemented
-
-### Funcpointer — `<type category="funcpointer">`
-Shape: raw C typedef text, not structured XML — needs manual/regex parsing of the
-function pointer signature.
 
 ### Commands — `<commands>` (top-level, NOT under `<types>`)
 Different traversal entirely — needs a new top-level `selection` parser like
