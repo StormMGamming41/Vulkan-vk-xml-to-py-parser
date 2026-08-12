@@ -78,6 +78,13 @@ class Function_Pointer:
     return_type: C_Type
     params: list[Member] = field(default_factory=list)
 
+@dataclass(slots=True)
+class Command:
+    name: str
+    return_type: C_Type | None = None
+    params: list[Member] = field(default_factory=list)
+    alias: str | None = None
+
 @dataclass
 class Registry:
     handles: dict[str, Handle] = field(default_factory=dict)
@@ -86,3 +93,4 @@ class Registry:
     enums_groups: dict[str, Enums_Group] = field(default_factory=dict)
     structs_unions: dict[str, Struct] = field(default_factory=dict)
     function_pointers: dict[str, Function_Pointer] = field(default_factory=dict)
+    commands: dict[str, Command] = field(default_factory=dict)

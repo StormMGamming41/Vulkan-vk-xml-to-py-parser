@@ -25,7 +25,7 @@ extension_map = build_extension_map(registry)
 
 counter = Counter()
 
-print(registry.function_pointers["PFN_vkVoidFunction"].params)
+print(registry.commands["vkGetPhysicalDeviceFeatures2KHR"])
 
 # print(len(registry.structs_unions))
 

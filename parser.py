@@ -9,6 +9,7 @@ from parsers.enums_group_parser import Enums_Group_Parser
 from parsers.extension_enum_parser import Extension_Enum_Parser
 from parsers.struct_union_parser import Struct_Parser, Union_Parser
 from parsers.functionpointer_parser import Function_Pointer_Parser
+from parsers.commands_parser import Command_Parser
 
 class Registry_Parser:
 
@@ -27,6 +28,7 @@ class Registry_Parser:
         self.register_parser(Struct_Parser())
         self.register_parser(Union_Parser())
         self.register_parser(Function_Pointer_Parser())
+        self.register_parser(Command_Parser())
     
     def register_parser(self, parser):
         if parser.selection == "types":

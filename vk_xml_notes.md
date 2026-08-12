@@ -112,13 +112,20 @@ Return type = proto's type/pointer_level. Params = list of Member, reused as-is
 
 Status: ✅ implemented (Function_Pointer_Parser)
 
+## Command — `<commands>` (top-level, NOT under `<types>`)
+Same <proto>/<param> shape as funcpointer - reuses parse_member() identically.
+Extra case funcpointers don't have: alias shorthand, no <proto> at all:
+  <command name="X" alias="Y"/>
+When alias is present: store name+alias only, return_type=None, params=[].
+Otherwise: resolve proto (name, return_type) + params list, same as funcpointer.
+
+Status: ✅ implemented (Command_Parser)
+
 ---
-
-## Not yet implemented
-
-### Commands — `<commands>` (top-level, NOT under `<types>`)
-Different traversal entirely — needs a new top-level `selection` parser like
-extensions/enums, not the category-dispatch path.
+## Parsing: COMPLETE
+All vk.xml categories implemented: handles, basetypes, bitmasks, enums (base +
+extension), structs/unions (+ topological sort + extension map), funcpointers,
+commands. Next phase: codegen (emit ctypes bindings from the Registry).
 
 ---
 
