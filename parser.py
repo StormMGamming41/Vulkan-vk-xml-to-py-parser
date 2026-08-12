@@ -7,6 +7,7 @@ from parsers.basetype_parser import Base_Type_Parser
 from parsers.bitmask_parser import Bitmask_Parser
 from parsers.enums_group_parser import Enums_Group_Parser
 from parsers.extension_enum_parser import Extension_Enum_Parser
+from parsers.struct_union_parser import Struct_Parser, Union_Parser
 
 class Registry_Parser:
 
@@ -22,6 +23,8 @@ class Registry_Parser:
         self.register_parser(Bitmask_Parser())
         self.register_parser(Enums_Group_Parser())
         self.register_parser(Extension_Enum_Parser())
+        self.register_parser(Struct_Parser())
+        self.register_parser(Union_Parser())
     
     def register_parser(self, parser):
         if parser.selection == "types":

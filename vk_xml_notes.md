@@ -69,16 +69,38 @@ Status: ✅ implemented (`Enums_Group_Parser`)
   VK_ERROR_OUT_OF_DATE_KHR = -1000001004 (offset=1, dir="-")
 Status: ✅ implemented (`Extension_Enum_Parser`)
 
+## Struct / Union — `<type category="struct">` / `<type category="union">`
+Stored together in `registry.structs_unions`, distinguished by `Struct.is_union` flag
+(structurally identical in vk.xml, only differ semantically at codegen time).
+
+Member parsing is the fiddly part — vk.xml mixes loose text with child elements inside
+<member>: `member_el.text` (pre-<type> text, e.g. "const "), `type_el.tail` (between
+<type> and <name>, holds pointer `*` count), `name_el.tail` (after <name>, holds fixed
+array size as "[N]", OR a member has a whole extra <enum> child instead when the array
+size is a named constant like VK_UUID_SIZE rather than a literal number).
+
+`len` attribute on a member names a sibling member holding the runtime array count
+(or the literal string "null-terminated" for C-strings) — this is a dynamic array,
+distinct from the fixed `[N]` array case.
+
+`structextends` attribute (comma-separated) lists base structs this one may extend via
+pNext. Resolved into `resolve.build_extension_map()` — inverse mapping, base struct
+name -> list of structs allowed to extend it.
+
+Post-processing (resolve.py, whole-registry passes, not per-element parsers):
+- `topological_sort_structs()` — DFS post-order. Dependency = by-value (pointer_level==0)
+  struct member, since only by-value nesting requires the dependency's Python class to
+  already exist at codegen time (pointer members don't need this). Verified against
+  real vk.xml: 1717 structs, no cycles, sort order starts with genuinely dependency-free
+  structs (VkBaseOutStructure, VkOffset2D, etc) as expected.
+- `build_extension_map()` — base struct name -> list of extending struct names.
+  Verified: VkPhysicalDeviceFeatures2 correctly returns many VkPhysicalDeviceXFeatures*.
+
+Status: ✅ implemented (Struct_Parser, Union_Parser, resolve.py)
+
 ---
 
 ## Not yet implemented
-
-### Struct / Union — `<type category="struct">` / `<type category="union">`
-Shape (not yet explored in depth): nested `<member>` elements with their own type +
-name, fixed-size arrays expressed as `[N]` in the trailing text of the member (not a
-clean attribute), `len` attribute on members describing a relationship to another
-member holding the runtime array length. Structs can reference other not-yet-defined
-structs — needs topological sort before emitting.
 
 ### Funcpointer — `<type category="funcpointer">`
 Shape: raw C typedef text, not structured XML — needs manual/regex parsing of the

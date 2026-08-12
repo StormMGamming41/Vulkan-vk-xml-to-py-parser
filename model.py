@@ -54,9 +54,28 @@ class Enums_Group:
 
     values: list[Enum_Value] = field(default_factory=list)
 
+@dataclass(slots=True)
+class Member:
+    name: str
+    type: C_Type
+    array_len: str | None = None
+    len: str | None = None
+    optional: bool = False
+    comment: str | None = None
+
+@dataclass(slots=True)
+class Struct:
+    name: str
+    is_union: bool = False
+    members: list[Member] = field(default_factory=list)
+    returnedonly: bool = False
+    struct_extends: list[str] | None = None
+    comment: str | None = None
+
 @dataclass
 class Registry:
     handles: dict[str, Handle] = field(default_factory=dict)
     basetypes: dict[str, Base_Type] = field(default_factory=dict)
     bitmasks: dict[str, Bitmask] = field(default_factory=dict)
     enums_groups: dict[str, Enums_Group] = field(default_factory=dict)
+    structs_unions: dict[str, Struct] = field(default_factory=dict)
