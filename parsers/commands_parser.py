@@ -1,4 +1,4 @@
-# parsers/command_parser.py
+
 from model import Registry, Command
 from .common import parse_member
 from .base import Base_Parser

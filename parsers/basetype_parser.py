@@ -14,7 +14,7 @@ class Base_Type_Parser(Base_Parser):
         if type_elem is None:
             return
 
-        c_type = C_Type_Parser.from_xml(element.find("text"))
+        c_type = C_Type_Parser.from_xml(type_elem)
         
         if c_type is None:
             return
