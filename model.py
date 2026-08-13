@@ -5,6 +5,8 @@ from dataclasses import dataclass, field
 class Handle:
     name: str
     parent: str | None = None
+    dispatchable: bool = True
+    alias: str | None = None
 
 @dataclass(slots=True)
 class C_Type:
