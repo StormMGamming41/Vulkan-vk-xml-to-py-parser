@@ -60,7 +60,7 @@ class Enums_Group:
 class Member:
     name: str
     type: C_Type
-    array_len: str | None = None
+    array_len: list[str] | None = None   # was: str | None
     len: str | None = None
     optional: bool = False
     comment: str | None = None

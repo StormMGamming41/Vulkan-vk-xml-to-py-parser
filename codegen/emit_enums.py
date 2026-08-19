@@ -40,10 +40,14 @@ def emit_enums(registry: Registry) -> str:
         values = resolve_group_values(group)
 
         lines.append(f"class {group.name}(IntEnum):")
+        seen = set()
         emitted = False
         for ev in group.values:
             if ev.name not in values:
-                continue  # unresolved - TODO, see below
+                continue
+            if ev.name in seen:
+                continue
+            seen.add(ev.name)
             lines.append(f"    {ev.name} = {values[ev.name]}")
             emitted = True
         if not emitted:

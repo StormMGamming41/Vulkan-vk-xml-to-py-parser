@@ -18,9 +18,53 @@ PRIMITIVE_MAP = {
     "int": "c_int",
 }
 
+EXTERNAL_VALUE_TYPES = {
+    # X11 / Xlib / Xcb
+    "VisualID": "c_uint32",
+    "Window": "c_ulong",          # Xlib XID, "unsigned long"
+    "xcb_visualid_t": "c_uint32",
+    "xcb_window_t": "c_uint32",
+
+    # Win32
+    "HANDLE": "c_void_p",
+    "HWND": "c_void_p",
+    "HINSTANCE": "c_void_p",
+    "HMONITOR": "c_void_p",
+    "DWORD": "c_uint32",
+    "LPCWSTR": "c_wchar_p",
+    "SECURITY_ATTRIBUTES": "c_void_p",
+
+    # Fuchsia
+    "zx_handle_t": "c_uint32",
+
+    # GGP (Google Games Platform)
+    "GgpStreamDescriptor": "c_uint32",
+    "GgpFrameToken": "c_uint32",
+
+    # QNX Screen
+    "screen_window_t": "c_void_p",
+    "screen_buffer_t": "c_void_p",
+
+    # NVIDIA Sci (automotive/safety-critical - realistically unused by you)
+    "NvSciBufObj": "c_void_p",
+    "NvSciBufAttrList": "c_void_p",
+    "NvSciSyncObj": "c_void_p",
+    "NvSciSyncAttrList": "c_void_p",
+
+    # Apple / Metal (objc id-typed handles, pointer-sized)
+    "MTLDevice_id": "c_void_p",
+    "MTLCommandQueue_id": "c_void_p",
+    "MTLBuffer_id": "c_void_p",
+    "MTLTexture_id": "c_void_p",
+    "MTLSharedEvent_id": "c_void_p",
+    "IOSurfaceRef": "c_void_p",
+}
+
 def resolve_type(name: str, registry: Registry) -> str:
     if name in PRIMITIVE_MAP:
         return PRIMITIVE_MAP[name]
+    if name in EXTERNAL_VALUE_TYPES:
+        return EXTERNAL_VALUE_TYPES[name]
     if name in registry.handles:
         return "c_void_p"
     if name in registry.basetypes:
@@ -36,10 +80,19 @@ def resolve_type(name: str, registry: Registry) -> str:
     raise ValueError(f"{name} type cannot be resolved as c_type object")
 
 def resolve_c_type(c_type: C_Type, registry: Registry) -> str:
-    base = resolve_type(c_type.name, registry)
+    try:
+        base = resolve_type(c_type.name, registry)
+    except ValueError:
+        if c_type.pointer_level >= 1:
+            base = "c_void_p"
+        else:
+            raise
 
     if c_type.name == "void" and c_type.pointer_level >= 1:
         result = "c_void_p"
+        remaining = c_type.pointer_level - 1
+    elif c_type.name == "char" and c_type.pointer_level >= 1:
+        result = "c_char_p"
         remaining = c_type.pointer_level - 1
     else:
         result = base

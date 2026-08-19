@@ -1,5 +1,6 @@
 
 from model import C_Type, Member
+import re
 
 def parse_member(member_el) -> Member:
     type_el = member_el.find("type")
@@ -16,9 +17,12 @@ def parse_member(member_el) -> Member:
     array_len = None
     enum_el = member_el.find("enum")
     if enum_el is not None:
-        array_len = enum_el.text          # e.g. <member>...<name>uuid</name>[<enum>VK_UUID_SIZE</enum>]</member>
-    elif after.startswith("["):
-        array_len = after.strip("[]")     # e.g. "[4]" -> "4"
+        array_len = [enum_el.text]
+    elif after:
+        dims = re.findall(r"\[([^\]]+)\]", after)
+        array_len = dims if dims else None
+    else:
+        array_len = None    # e.g. "[4]" -> "4"
 
     c_type = C_Type(name=type_el.text, pointer_level=pointer_level, const=const)
 
