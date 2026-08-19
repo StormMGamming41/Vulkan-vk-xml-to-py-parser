@@ -33,4 +33,5 @@ def parse_member(member_el) -> Member:
         len=member_el.get("len"),
         optional=member_el.get("optional") == "true",
         comment=member_el.findtext("comment"),
+        default_value = member_el.get("values")
     )

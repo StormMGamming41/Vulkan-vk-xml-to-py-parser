@@ -64,6 +64,7 @@ class Member:
     len: str | None = None
     optional: bool = False
     comment: str | None = None
+    default_value: str | None = None
 
 @dataclass(slots=True)
 class Struct:

@@ -32,25 +32,40 @@ class VkExtensionProperties(Structure):
 class VkLayerProperties(Structure):
     pass
 class VkApplicationInfo(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_APPLICATION_INFO
 class VkAllocationCallbacks(Structure):
     pass
 class VkDeviceQueueCreateInfo(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_DEVICE_QUEUE_CREATE_INFO
 class VkDeviceCreateInfo(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_DEVICE_CREATE_INFO
 class VkInstanceCreateInfo(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_INSTANCE_CREATE_INFO
 class VkQueueFamilyProperties(Structure):
     pass
-class VkMemoryHeap(Structure):
-    pass
 class VkMemoryType(Structure):
+    pass
+class VkMemoryHeap(Structure):
     pass
 class VkPhysicalDeviceMemoryProperties(Structure):
     pass
 class VkMemoryAllocateInfo(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_MEMORY_ALLOCATE_INFO
 class VkMemoryRequirements(Structure):
     pass
 class VkSparseImageFormatProperties(Structure):
@@ -58,7 +73,10 @@ class VkSparseImageFormatProperties(Structure):
 class VkSparseImageMemoryRequirements(Structure):
     pass
 class VkMappedMemoryRange(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_MAPPED_MEMORY_RANGE
 class VkFormatProperties(Structure):
     pass
 class VkImageFormatProperties(Structure):
@@ -68,17 +86,32 @@ class VkDescriptorBufferInfo(Structure):
 class VkDescriptorImageInfo(Structure):
     pass
 class VkWriteDescriptorSet(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_WRITE_DESCRIPTOR_SET
 class VkCopyDescriptorSet(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_COPY_DESCRIPTOR_SET
 class VkBufferUsageFlags2CreateInfo(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_BUFFER_USAGE_FLAGS_2_CREATE_INFO
 class VkBufferUsageFlags2CreateInfoKHR(Structure):
     pass
 class VkBufferCreateInfo(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_BUFFER_CREATE_INFO
 class VkBufferViewCreateInfo(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_BUFFER_VIEW_CREATE_INFO
 class VkImageSubresource(Structure):
     pass
 class VkImageSubresourceLayers(Structure):
@@ -86,17 +119,32 @@ class VkImageSubresourceLayers(Structure):
 class VkImageSubresourceRange(Structure):
     pass
 class VkMemoryBarrier(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_MEMORY_BARRIER
 class VkBufferMemoryBarrier(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_BUFFER_MEMORY_BARRIER
 class VkImageMemoryBarrier(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_IMAGE_MEMORY_BARRIER
 class VkImageCreateInfo(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_IMAGE_CREATE_INFO
 class VkSubresourceLayout(Structure):
     pass
 class VkImageViewCreateInfo(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_IMAGE_VIEW_CREATE_INFO
 class VkBufferCopy(Structure):
     pass
 class VkSparseMemoryBind(Structure):
@@ -110,7 +158,10 @@ class VkSparseImageOpaqueMemoryBindInfo(Structure):
 class VkSparseImageMemoryBindInfo(Structure):
     pass
 class VkBindSparseInfo(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_BIND_SPARSE_INFO
 class VkImageCopy(Structure):
     pass
 class VkImageBlit(Structure):
@@ -124,39 +175,69 @@ class VkCopyMemoryIndirectCommandKHR(Structure):
 class VkCopyMemoryIndirectCommandNV(Structure):
     pass
 class VkCopyMemoryIndirectInfoKHR(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_COPY_MEMORY_INDIRECT_INFO_KHR
 class VkCopyMemoryToImageIndirectCommandKHR(Structure):
     pass
 class VkCopyMemoryToImageIndirectCommandNV(Structure):
     pass
 class VkCopyMemoryToImageIndirectInfoKHR(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_COPY_MEMORY_TO_IMAGE_INDIRECT_INFO_KHR
 class VkImageResolve(Structure):
     pass
 class VkShaderModuleCreateInfo(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_SHADER_MODULE_CREATE_INFO
 class VkDescriptorSetLayoutBinding(Structure):
     pass
 class VkDescriptorSetLayoutCreateInfo(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_DESCRIPTOR_SET_LAYOUT_CREATE_INFO
 class VkDescriptorPoolSize(Structure):
     pass
 class VkDescriptorPoolCreateInfo(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_DESCRIPTOR_POOL_CREATE_INFO
 class VkDescriptorSetAllocateInfo(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_DESCRIPTOR_SET_ALLOCATE_INFO
 class VkSpecializationMapEntry(Structure):
     pass
 class VkSpecializationInfo(Structure):
     pass
 class VkPipelineShaderStageCreateInfo(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_PIPELINE_SHADER_STAGE_CREATE_INFO
 class VkComputePipelineCreateInfo(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_COMPUTE_PIPELINE_CREATE_INFO
 class VkComputePipelineIndirectBufferInfoNV(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_COMPUTE_PIPELINE_INDIRECT_BUFFER_INFO_NV
 class VkPipelineCreateFlags2CreateInfo(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_PIPELINE_CREATE_FLAGS_2_CREATE_INFO
 class VkPipelineCreateFlags2CreateInfoKHR(Structure):
     pass
 class VkVertexInputBindingDescription(Structure):
@@ -164,31 +245,64 @@ class VkVertexInputBindingDescription(Structure):
 class VkVertexInputAttributeDescription(Structure):
     pass
 class VkPipelineVertexInputStateCreateInfo(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_PIPELINE_VERTEX_INPUT_STATE_CREATE_INFO
 class VkPipelineInputAssemblyStateCreateInfo(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_PIPELINE_INPUT_ASSEMBLY_STATE_CREATE_INFO
 class VkPipelineTessellationStateCreateInfo(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_PIPELINE_TESSELLATION_STATE_CREATE_INFO
 class VkPipelineViewportStateCreateInfo(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_PIPELINE_VIEWPORT_STATE_CREATE_INFO
 class VkPipelineRasterizationStateCreateInfo(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_PIPELINE_RASTERIZATION_STATE_CREATE_INFO
 class VkPipelineMultisampleStateCreateInfo(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_PIPELINE_MULTISAMPLE_STATE_CREATE_INFO
 class VkPipelineColorBlendAttachmentState(Structure):
     pass
 class VkPipelineColorBlendStateCreateInfo(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_PIPELINE_COLOR_BLEND_STATE_CREATE_INFO
 class VkPipelineDynamicStateCreateInfo(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_PIPELINE_DYNAMIC_STATE_CREATE_INFO
 class VkStencilOpState(Structure):
     pass
 class VkPipelineDepthStencilStateCreateInfo(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_PIPELINE_DEPTH_STENCIL_STATE_CREATE_INFO
 class VkGraphicsPipelineCreateInfo(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_GRAPHICS_PIPELINE_CREATE_INFO
 class VkPipelineCacheCreateInfo(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_PIPELINE_CACHE_CREATE_INFO
 class VkPipelineCacheHeaderVersionOne(Structure):
     pass
 class VkPipelineCacheStageValidationIndexEntry(Structure):
@@ -202,37 +316,79 @@ class VkPipelineCacheHeaderVersionDataGraphQCOM(Structure):
 class VkPushConstantRange(Structure):
     pass
 class VkPipelineBinaryCreateInfoKHR(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_PIPELINE_BINARY_CREATE_INFO_KHR
 class VkPipelineBinaryHandlesInfoKHR(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_PIPELINE_BINARY_HANDLES_INFO_KHR
 class VkPipelineBinaryDataKHR(Structure):
     pass
 class VkPipelineBinaryKeysAndDataKHR(Structure):
     pass
 class VkPipelineBinaryKeyKHR(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_PIPELINE_BINARY_KEY_KHR
 class VkPipelineBinaryInfoKHR(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_PIPELINE_BINARY_INFO_KHR
 class VkReleaseCapturedPipelineDataInfoKHR(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_RELEASE_CAPTURED_PIPELINE_DATA_INFO_KHR
 class VkPipelineBinaryDataInfoKHR(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_PIPELINE_BINARY_DATA_INFO_KHR
 class VkPipelineCreateInfoKHR(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_PIPELINE_CREATE_INFO_KHR
 class VkPipelineLayoutCreateInfo(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_PIPELINE_LAYOUT_CREATE_INFO
 class VkSamplerCreateInfo(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_SAMPLER_CREATE_INFO
 class VkCommandPoolCreateInfo(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_COMMAND_POOL_CREATE_INFO
 class VkCommandBufferAllocateInfo(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_COMMAND_BUFFER_ALLOCATE_INFO
 class VkCommandBufferInheritanceInfo(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_COMMAND_BUFFER_INHERITANCE_INFO
 class VkCommandBufferBeginInfo(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_COMMAND_BUFFER_BEGIN_INFO
 class VkRenderPassBeginInfo(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_RENDER_PASS_BEGIN_INFO
 class VkClearColorValue(Union):
     pass
 class VkClearDepthStencilValue(Structure):
@@ -250,19 +406,37 @@ class VkSubpassDescription(Structure):
 class VkSubpassDependency(Structure):
     pass
 class VkRenderPassCreateInfo(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_RENDER_PASS_CREATE_INFO
 class VkEventCreateInfo(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_EVENT_CREATE_INFO
 class VkFenceCreateInfo(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_FENCE_CREATE_INFO
 class VkPhysicalDeviceFeatures(Structure):
     pass
 class VkSemaphoreCreateInfo(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_SEMAPHORE_CREATE_INFO
 class VkQueryPoolCreateInfo(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_QUERY_POOL_CREATE_INFO
 class VkFramebufferCreateInfo(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_FRAMEBUFFER_CREATE_INFO
 class VkDrawIndirectCommand(Structure):
     pass
 class VkDrawIndexedIndirectCommand(Structure):
@@ -274,7 +448,10 @@ class VkMultiDrawInfoEXT(Structure):
 class VkMultiDrawIndexedInfoEXT(Structure):
     pass
 class VkSubmitInfo(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_SUBMIT_INFO
 class VkDisplayPropertiesKHR(Structure):
     pass
 class VkDisplayPlanePropertiesKHR(Structure):
@@ -284,127 +461,280 @@ class VkDisplayModeParametersKHR(Structure):
 class VkDisplayModePropertiesKHR(Structure):
     pass
 class VkDisplayModeCreateInfoKHR(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_DISPLAY_MODE_CREATE_INFO_KHR
 class VkDisplayPlaneCapabilitiesKHR(Structure):
     pass
 class VkDisplaySurfaceCreateInfoKHR(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_DISPLAY_SURFACE_CREATE_INFO_KHR
 class VkDisplaySurfaceStereoCreateInfoNV(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_DISPLAY_SURFACE_STEREO_CREATE_INFO_NV
 class VkDisplayPresentInfoKHR(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_DISPLAY_PRESENT_INFO_KHR
 class VkSurfaceCapabilitiesKHR(Structure):
     pass
 class VkAndroidSurfaceCreateInfoKHR(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_ANDROID_SURFACE_CREATE_INFO_KHR
 class VkViSurfaceCreateInfoNN(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_VI_SURFACE_CREATE_INFO_NN
 class VkWaylandSurfaceCreateInfoKHR(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_WAYLAND_SURFACE_CREATE_INFO_KHR
 class VkUbmSurfaceCreateInfoSEC(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_UBM_SURFACE_CREATE_INFO_SEC
 class VkWin32SurfaceCreateInfoKHR(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_WIN32_SURFACE_CREATE_INFO_KHR
 class VkXlibSurfaceCreateInfoKHR(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_XLIB_SURFACE_CREATE_INFO_KHR
 class VkXcbSurfaceCreateInfoKHR(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_XCB_SURFACE_CREATE_INFO_KHR
 class VkDirectFBSurfaceCreateInfoEXT(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_DIRECTFB_SURFACE_CREATE_INFO_EXT
 class VkImagePipeSurfaceCreateInfoFUCHSIA(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_IMAGEPIPE_SURFACE_CREATE_INFO_FUCHSIA
 class VkStreamDescriptorSurfaceCreateInfoGGP(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_STREAM_DESCRIPTOR_SURFACE_CREATE_INFO_GGP
 class VkScreenSurfaceCreateInfoQNX(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_SCREEN_SURFACE_CREATE_INFO_QNX
 class VkSurfaceFormatKHR(Structure):
     pass
 class VkSwapchainCreateInfoKHR(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_SWAPCHAIN_CREATE_INFO_KHR
 class VkPresentInfoKHR(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_PRESENT_INFO_KHR
 class VkDebugReportCallbackCreateInfoEXT(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_DEBUG_REPORT_CALLBACK_CREATE_INFO_EXT
 class VkValidationFlagsEXT(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_VALIDATION_FLAGS_EXT
 class VkValidationFeaturesEXT(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_VALIDATION_FEATURES_EXT
 class VkLayerSettingsCreateInfoEXT(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_LAYER_SETTINGS_CREATE_INFO_EXT
 class VkLayerSettingEXT(Structure):
     pass
 class VkApplicationParametersEXT(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_APPLICATION_PARAMETERS_EXT
 class VkPipelineRasterizationStateRasterizationOrderAMD(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_PIPELINE_RASTERIZATION_STATE_RASTERIZATION_ORDER_AMD
 class VkDebugMarkerObjectNameInfoEXT(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_DEBUG_MARKER_OBJECT_NAME_INFO_EXT
 class VkDebugMarkerObjectTagInfoEXT(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_DEBUG_MARKER_OBJECT_TAG_INFO_EXT
 class VkDebugMarkerMarkerInfoEXT(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_DEBUG_MARKER_MARKER_INFO_EXT
 class VkDedicatedAllocationImageCreateInfoNV(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_DEDICATED_ALLOCATION_IMAGE_CREATE_INFO_NV
 class VkDedicatedAllocationBufferCreateInfoNV(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_DEDICATED_ALLOCATION_BUFFER_CREATE_INFO_NV
 class VkDedicatedAllocationMemoryAllocateInfoNV(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_DEDICATED_ALLOCATION_MEMORY_ALLOCATE_INFO_NV
 class VkExternalImageFormatPropertiesNV(Structure):
     pass
 class VkExternalMemoryImageCreateInfoNV(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_EXTERNAL_MEMORY_IMAGE_CREATE_INFO_NV
 class VkExportMemoryAllocateInfoNV(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_EXPORT_MEMORY_ALLOCATE_INFO_NV
 class VkImportMemoryWin32HandleInfoNV(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_IMPORT_MEMORY_WIN32_HANDLE_INFO_NV
 class VkExportMemoryWin32HandleInfoNV(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_EXPORT_MEMORY_WIN32_HANDLE_INFO_NV
 class VkExportMemorySciBufInfoNV(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_EXPORT_MEMORY_SCI_BUF_INFO_NV
 class VkImportMemorySciBufInfoNV(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_IMPORT_MEMORY_SCI_BUF_INFO_NV
 class VkMemoryGetSciBufInfoNV(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_MEMORY_GET_SCI_BUF_INFO_NV
 class VkMemorySciBufPropertiesNV(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_MEMORY_SCI_BUF_PROPERTIES_NV
 class VkPhysicalDeviceExternalMemorySciBufFeaturesNV(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_EXTERNAL_MEMORY_SCI_BUF_FEATURES_NV
 class VkPhysicalDeviceExternalSciBufFeaturesNV(Structure):
     pass
 class VkWin32KeyedMutexAcquireReleaseInfoNV(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_WIN32_KEYED_MUTEX_ACQUIRE_RELEASE_INFO_NV
 class VkPhysicalDeviceDeviceGeneratedCommandsFeaturesNV(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_DEVICE_GENERATED_COMMANDS_FEATURES_NV
 class VkPushConstantBankInfoNV(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_PUSH_CONSTANT_BANK_INFO_NV
 class VkPhysicalDevicePushConstantBankFeaturesNV(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_PUSH_CONSTANT_BANK_FEATURES_NV
 class VkPhysicalDevicePushConstantBankPropertiesNV(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_PUSH_CONSTANT_BANK_PROPERTIES_NV
 class VkPhysicalDeviceDeviceGeneratedCommandsComputeFeaturesNV(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_DEVICE_GENERATED_COMMANDS_COMPUTE_FEATURES_NV
 class VkDevicePrivateDataCreateInfo(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_DEVICE_PRIVATE_DATA_CREATE_INFO
 class VkDevicePrivateDataCreateInfoEXT(Structure):
     pass
 class VkPrivateDataSlotCreateInfo(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_PRIVATE_DATA_SLOT_CREATE_INFO
 class VkPrivateDataSlotCreateInfoEXT(Structure):
     pass
 class VkPhysicalDevicePrivateDataFeatures(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_PRIVATE_DATA_FEATURES
 class VkPhysicalDevicePrivateDataFeaturesEXT(Structure):
     pass
 class VkPhysicalDeviceDeviceGeneratedCommandsPropertiesNV(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_DEVICE_GENERATED_COMMANDS_PROPERTIES_NV
 class VkPhysicalDeviceClusterAccelerationStructureFeaturesNV(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_CLUSTER_ACCELERATION_STRUCTURE_FEATURES_NV
 class VkPhysicalDeviceClusterAccelerationStructurePropertiesNV(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_CLUSTER_ACCELERATION_STRUCTURE_PROPERTIES_NV
 class VkStridedDeviceAddressNV(Structure):
     pass
 class VkRayTracingPipelineClusterAccelerationStructureCreateInfoNV(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_RAY_TRACING_PIPELINE_CLUSTER_ACCELERATION_STRUCTURE_CREATE_INFO_NV
 class VkClusterAccelerationStructureGeometryIndexAndGeometryFlagsNV(Structure):
     pass
 class VkClusterAccelerationStructureMoveObjectsInfoNV(Structure):
@@ -420,25 +750,49 @@ class VkClusterAccelerationStructureBuildTriangleClusterTemplateInfoNV(Structure
 class VkClusterAccelerationStructureInstantiateClusterInfoNV(Structure):
     pass
 class VkClusterAccelerationStructureClustersBottomLevelInputNV(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_CLUSTER_ACCELERATION_STRUCTURE_CLUSTERS_BOTTOM_LEVEL_INPUT_NV
 class VkClusterAccelerationStructureTriangleClusterInputNV(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_CLUSTER_ACCELERATION_STRUCTURE_TRIANGLE_CLUSTER_INPUT_NV
 class VkClusterAccelerationStructureMoveObjectsInputNV(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_CLUSTER_ACCELERATION_STRUCTURE_MOVE_OBJECTS_INPUT_NV
 class VkClusterAccelerationStructureOpInputNV(Union):
     pass
 class VkClusterAccelerationStructureInputInfoNV(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_CLUSTER_ACCELERATION_STRUCTURE_INPUT_INFO_NV
 class VkStridedDeviceAddressRegionKHR(Structure):
     pass
 class VkClusterAccelerationStructureCommandsInfoNV(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_CLUSTER_ACCELERATION_STRUCTURE_COMMANDS_INFO_NV
 class VkPhysicalDeviceMultiDrawPropertiesEXT(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_MULTI_DRAW_PROPERTIES_EXT
 class VkGraphicsShaderGroupCreateInfoNV(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_GRAPHICS_SHADER_GROUP_CREATE_INFO_NV
 class VkGraphicsPipelineShaderGroupsCreateInfoNV(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_GRAPHICS_PIPELINE_SHADER_GROUPS_CREATE_INFO_NV
 class VkBindShaderGroupIndirectCommandNV(Structure):
     pass
 class VkBindIndexBufferIndirectCommandNV(Structure):
@@ -450,55 +804,100 @@ class VkSetStateFlagsIndirectCommandNV(Structure):
 class VkIndirectCommandsStreamNV(Structure):
     pass
 class VkIndirectCommandsLayoutTokenNV(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_INDIRECT_COMMANDS_LAYOUT_TOKEN_NV
 class VkIndirectCommandsLayoutCreateInfoNV(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_INDIRECT_COMMANDS_LAYOUT_CREATE_INFO_NV
 class VkGeneratedCommandsInfoNV(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_GENERATED_COMMANDS_INFO_NV
 class VkGeneratedCommandsMemoryRequirementsInfoNV(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_GENERATED_COMMANDS_MEMORY_REQUIREMENTS_INFO_NV
 class VkPipelineIndirectDeviceAddressInfoNV(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_PIPELINE_INDIRECT_DEVICE_ADDRESS_INFO_NV
 class VkBindPipelineIndirectCommandNV(Structure):
     pass
 class VkPhysicalDeviceFeatures2(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_FEATURES_2
 class VkPhysicalDeviceFeatures2KHR(Structure):
     pass
 class VkPhysicalDeviceProperties2(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_PROPERTIES_2
 class VkPhysicalDeviceProperties2KHR(Structure):
     pass
 class VkFormatProperties2(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_FORMAT_PROPERTIES_2
 class VkFormatProperties2KHR(Structure):
     pass
 class VkImageFormatProperties2(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_IMAGE_FORMAT_PROPERTIES_2
 class VkImageFormatProperties2KHR(Structure):
     pass
 class VkPhysicalDeviceImageFormatInfo2(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_IMAGE_FORMAT_INFO_2
 class VkPhysicalDeviceImageFormatInfo2KHR(Structure):
     pass
 class VkQueueFamilyProperties2(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_QUEUE_FAMILY_PROPERTIES_2
 class VkQueueFamilyProperties2KHR(Structure):
     pass
 class VkPhysicalDeviceMemoryProperties2(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_MEMORY_PROPERTIES_2
 class VkPhysicalDeviceMemoryProperties2KHR(Structure):
     pass
 class VkSparseImageFormatProperties2(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_SPARSE_IMAGE_FORMAT_PROPERTIES_2
 class VkSparseImageFormatProperties2KHR(Structure):
     pass
 class VkPhysicalDeviceSparseImageFormatInfo2(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_SPARSE_IMAGE_FORMAT_INFO_2
 class VkPhysicalDeviceSparseImageFormatInfo2KHR(Structure):
     pass
 class VkPhysicalDevicePushDescriptorProperties(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_PUSH_DESCRIPTOR_PROPERTIES
 class VkPhysicalDevicePushDescriptorPropertiesKHR(Structure):
     pass
 class VkConformanceVersion(Structure):
@@ -506,17 +905,26 @@ class VkConformanceVersion(Structure):
 class VkConformanceVersionKHR(Structure):
     pass
 class VkPhysicalDeviceDriverProperties(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_DRIVER_PROPERTIES
 class VkPhysicalDeviceDriverPropertiesKHR(Structure):
     pass
 class VkPresentRegionsKHR(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_PRESENT_REGIONS_KHR
 class VkPresentRegionKHR(Structure):
     pass
 class VkRectLayerKHR(Structure):
     pass
 class VkPhysicalDeviceVariablePointersFeatures(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_VARIABLE_POINTERS_FEATURES
 class VkPhysicalDeviceVariablePointersFeaturesKHR(Structure):
     pass
 class VkPhysicalDeviceVariablePointerFeaturesKHR(Structure):
@@ -528,697 +936,1399 @@ class VkExternalMemoryProperties(Structure):
 class VkExternalMemoryPropertiesKHR(Structure):
     pass
 class VkPhysicalDeviceExternalImageFormatInfo(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_EXTERNAL_IMAGE_FORMAT_INFO
 class VkPhysicalDeviceExternalImageFormatInfoKHR(Structure):
     pass
 class VkExternalImageFormatProperties(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_EXTERNAL_IMAGE_FORMAT_PROPERTIES
 class VkExternalImageFormatPropertiesKHR(Structure):
     pass
 class VkPhysicalDeviceExternalBufferInfo(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_EXTERNAL_BUFFER_INFO
 class VkPhysicalDeviceExternalBufferInfoKHR(Structure):
     pass
 class VkExternalBufferProperties(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_EXTERNAL_BUFFER_PROPERTIES
 class VkExternalBufferPropertiesKHR(Structure):
     pass
 class VkPhysicalDeviceIDProperties(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_ID_PROPERTIES
 class VkPhysicalDeviceIDPropertiesKHR(Structure):
     pass
 class VkExternalMemoryImageCreateInfo(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_EXTERNAL_MEMORY_IMAGE_CREATE_INFO
 class VkExternalMemoryImageCreateInfoKHR(Structure):
     pass
 class VkExternalMemoryBufferCreateInfo(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_EXTERNAL_MEMORY_BUFFER_CREATE_INFO
 class VkExternalMemoryBufferCreateInfoKHR(Structure):
     pass
 class VkExportMemoryAllocateInfo(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_EXPORT_MEMORY_ALLOCATE_INFO
 class VkExportMemoryAllocateInfoKHR(Structure):
     pass
 class VkImportMemoryWin32HandleInfoKHR(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_IMPORT_MEMORY_WIN32_HANDLE_INFO_KHR
 class VkExportMemoryWin32HandleInfoKHR(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_EXPORT_MEMORY_WIN32_HANDLE_INFO_KHR
 class VkImportMemoryZirconHandleInfoFUCHSIA(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_IMPORT_MEMORY_ZIRCON_HANDLE_INFO_FUCHSIA
 class VkMemoryZirconHandlePropertiesFUCHSIA(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_MEMORY_ZIRCON_HANDLE_PROPERTIES_FUCHSIA
 class VkMemoryGetZirconHandleInfoFUCHSIA(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_MEMORY_GET_ZIRCON_HANDLE_INFO_FUCHSIA
 class VkMemoryWin32HandlePropertiesKHR(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_MEMORY_WIN32_HANDLE_PROPERTIES_KHR
 class VkMemoryGetWin32HandleInfoKHR(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_MEMORY_GET_WIN32_HANDLE_INFO_KHR
 class VkImportMemoryFdInfoKHR(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_IMPORT_MEMORY_FD_INFO_KHR
 class VkMemoryFdPropertiesKHR(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_MEMORY_FD_PROPERTIES_KHR
 class VkMemoryGetFdInfoKHR(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_MEMORY_GET_FD_INFO_KHR
 class VkWin32KeyedMutexAcquireReleaseInfoKHR(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_WIN32_KEYED_MUTEX_ACQUIRE_RELEASE_INFO_KHR
 class VkImportMemoryMetalHandleInfoEXT(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_IMPORT_MEMORY_METAL_HANDLE_INFO_EXT
 class VkMemoryMetalHandlePropertiesEXT(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_MEMORY_METAL_HANDLE_PROPERTIES_EXT
 class VkMemoryGetMetalHandleInfoEXT(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_MEMORY_GET_METAL_HANDLE_INFO_EXT
 class VkPhysicalDeviceExternalSemaphoreInfo(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_EXTERNAL_SEMAPHORE_INFO
 class VkPhysicalDeviceExternalSemaphoreInfoKHR(Structure):
     pass
 class VkExternalSemaphoreProperties(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_EXTERNAL_SEMAPHORE_PROPERTIES
 class VkExternalSemaphorePropertiesKHR(Structure):
     pass
 class VkExportSemaphoreCreateInfo(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_EXPORT_SEMAPHORE_CREATE_INFO
 class VkExportSemaphoreCreateInfoKHR(Structure):
     pass
 class VkImportSemaphoreWin32HandleInfoKHR(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_IMPORT_SEMAPHORE_WIN32_HANDLE_INFO_KHR
 class VkExportSemaphoreWin32HandleInfoKHR(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_EXPORT_SEMAPHORE_WIN32_HANDLE_INFO_KHR
 class VkD3D12FenceSubmitInfoKHR(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_D3D12_FENCE_SUBMIT_INFO_KHR
 class VkSemaphoreGetWin32HandleInfoKHR(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_SEMAPHORE_GET_WIN32_HANDLE_INFO_KHR
 class VkImportSemaphoreFdInfoKHR(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_IMPORT_SEMAPHORE_FD_INFO_KHR
 class VkSemaphoreGetFdInfoKHR(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_SEMAPHORE_GET_FD_INFO_KHR
 class VkImportSemaphoreZirconHandleInfoFUCHSIA(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_IMPORT_SEMAPHORE_ZIRCON_HANDLE_INFO_FUCHSIA
 class VkSemaphoreGetZirconHandleInfoFUCHSIA(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_SEMAPHORE_GET_ZIRCON_HANDLE_INFO_FUCHSIA
 class VkPhysicalDeviceExternalFenceInfo(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_EXTERNAL_FENCE_INFO
 class VkPhysicalDeviceExternalFenceInfoKHR(Structure):
     pass
 class VkExternalFenceProperties(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_EXTERNAL_FENCE_PROPERTIES
 class VkExternalFencePropertiesKHR(Structure):
     pass
 class VkExportFenceCreateInfo(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_EXPORT_FENCE_CREATE_INFO
 class VkExportFenceCreateInfoKHR(Structure):
     pass
 class VkImportFenceWin32HandleInfoKHR(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_IMPORT_FENCE_WIN32_HANDLE_INFO_KHR
 class VkExportFenceWin32HandleInfoKHR(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_EXPORT_FENCE_WIN32_HANDLE_INFO_KHR
 class VkFenceGetWin32HandleInfoKHR(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_FENCE_GET_WIN32_HANDLE_INFO_KHR
 class VkImportFenceFdInfoKHR(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_IMPORT_FENCE_FD_INFO_KHR
 class VkFenceGetFdInfoKHR(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_FENCE_GET_FD_INFO_KHR
 class VkExportFenceSciSyncInfoNV(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_EXPORT_FENCE_SCI_SYNC_INFO_NV
 class VkImportFenceSciSyncInfoNV(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_IMPORT_FENCE_SCI_SYNC_INFO_NV
 class VkFenceGetSciSyncInfoNV(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_FENCE_GET_SCI_SYNC_INFO_NV
 class VkExportSemaphoreSciSyncInfoNV(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_EXPORT_SEMAPHORE_SCI_SYNC_INFO_NV
 class VkImportSemaphoreSciSyncInfoNV(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_IMPORT_SEMAPHORE_SCI_SYNC_INFO_NV
 class VkSemaphoreGetSciSyncInfoNV(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_SEMAPHORE_GET_SCI_SYNC_INFO_NV
 class VkSciSyncAttributesInfoNV(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_SCI_SYNC_ATTRIBUTES_INFO_NV
 class VkPhysicalDeviceExternalSciSyncFeaturesNV(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_EXTERNAL_SCI_SYNC_FEATURES_NV
 class VkPhysicalDeviceExternalSciSync2FeaturesNV(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_EXTERNAL_SCI_SYNC_2_FEATURES_NV
 class VkSemaphoreSciSyncPoolCreateInfoNV(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_SEMAPHORE_SCI_SYNC_POOL_CREATE_INFO_NV
 class VkSemaphoreSciSyncCreateInfoNV(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_SEMAPHORE_SCI_SYNC_CREATE_INFO_NV
 class VkDeviceSemaphoreSciSyncPoolReservationCreateInfoNV(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_DEVICE_SEMAPHORE_SCI_SYNC_POOL_RESERVATION_CREATE_INFO_NV
 class VkPhysicalDeviceMultiviewFeatures(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_MULTIVIEW_FEATURES
 class VkPhysicalDeviceMultiviewFeaturesKHR(Structure):
     pass
 class VkPhysicalDeviceMultiviewProperties(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_MULTIVIEW_PROPERTIES
 class VkPhysicalDeviceMultiviewPropertiesKHR(Structure):
     pass
 class VkRenderPassMultiviewCreateInfo(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_RENDER_PASS_MULTIVIEW_CREATE_INFO
 class VkRenderPassMultiviewCreateInfoKHR(Structure):
     pass
 class VkSurfaceCapabilities2EXT(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_SURFACE_CAPABILITIES_2_EXT
 class VkDisplayPowerInfoEXT(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_DISPLAY_POWER_INFO_EXT
 class VkDeviceEventInfoEXT(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_DEVICE_EVENT_INFO_EXT
 class VkDisplayEventInfoEXT(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_DISPLAY_EVENT_INFO_EXT
 class VkSwapchainCounterCreateInfoEXT(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_SWAPCHAIN_COUNTER_CREATE_INFO_EXT
 class VkPhysicalDeviceGroupProperties(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_GROUP_PROPERTIES
 class VkPhysicalDeviceGroupPropertiesKHR(Structure):
     pass
 class VkMemoryAllocateFlagsInfo(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_MEMORY_ALLOCATE_FLAGS_INFO
 class VkMemoryAllocateFlagsInfoKHR(Structure):
     pass
 class VkBindBufferMemoryInfo(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_BIND_BUFFER_MEMORY_INFO
 class VkBindBufferMemoryInfoKHR(Structure):
     pass
 class VkBindBufferMemoryDeviceGroupInfo(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_BIND_BUFFER_MEMORY_DEVICE_GROUP_INFO
 class VkBindBufferMemoryDeviceGroupInfoKHR(Structure):
     pass
 class VkBindImageMemoryInfo(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_BIND_IMAGE_MEMORY_INFO
 class VkBindImageMemoryInfoKHR(Structure):
     pass
 class VkBindImageMemoryDeviceGroupInfo(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_BIND_IMAGE_MEMORY_DEVICE_GROUP_INFO
 class VkBindImageMemoryDeviceGroupInfoKHR(Structure):
     pass
 class VkDeviceGroupRenderPassBeginInfo(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_DEVICE_GROUP_RENDER_PASS_BEGIN_INFO
 class VkDeviceGroupRenderPassBeginInfoKHR(Structure):
     pass
 class VkDeviceGroupCommandBufferBeginInfo(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_DEVICE_GROUP_COMMAND_BUFFER_BEGIN_INFO
 class VkDeviceGroupCommandBufferBeginInfoKHR(Structure):
     pass
 class VkDeviceGroupSubmitInfo(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_DEVICE_GROUP_SUBMIT_INFO
 class VkDeviceGroupSubmitInfoKHR(Structure):
     pass
 class VkDeviceGroupBindSparseInfo(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_DEVICE_GROUP_BIND_SPARSE_INFO
 class VkDeviceGroupBindSparseInfoKHR(Structure):
     pass
 class VkDeviceGroupPresentCapabilitiesKHR(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_DEVICE_GROUP_PRESENT_CAPABILITIES_KHR
 class VkImageSwapchainCreateInfoKHR(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_IMAGE_SWAPCHAIN_CREATE_INFO_KHR
 class VkBindImageMemorySwapchainInfoKHR(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_BIND_IMAGE_MEMORY_SWAPCHAIN_INFO_KHR
 class VkAcquireNextImageInfoKHR(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_ACQUIRE_NEXT_IMAGE_INFO_KHR
 class VkDeviceGroupPresentInfoKHR(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_DEVICE_GROUP_PRESENT_INFO_KHR
 class VkDeviceGroupDeviceCreateInfo(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_DEVICE_GROUP_DEVICE_CREATE_INFO
 class VkDeviceGroupDeviceCreateInfoKHR(Structure):
     pass
 class VkDeviceGroupSwapchainCreateInfoKHR(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_DEVICE_GROUP_SWAPCHAIN_CREATE_INFO_KHR
 class VkDescriptorUpdateTemplateEntry(Structure):
     pass
 class VkDescriptorUpdateTemplateEntryKHR(Structure):
     pass
 class VkDescriptorUpdateTemplateCreateInfo(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_DESCRIPTOR_UPDATE_TEMPLATE_CREATE_INFO
 class VkDescriptorUpdateTemplateCreateInfoKHR(Structure):
     pass
 class VkXYColorEXT(Structure):
     pass
 class VkPhysicalDevicePresentIdFeaturesKHR(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_PRESENT_ID_FEATURES_KHR
 class VkPresentIdKHR(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_PRESENT_ID_KHR
 class VkPhysicalDevicePresentId2FeaturesKHR(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_PRESENT_ID_2_FEATURES_KHR
 class VkPresentId2KHR(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_PRESENT_ID_2_KHR
 class VkPresentWait2InfoKHR(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_PRESENT_WAIT_2_INFO_KHR
 class VkPhysicalDevicePresentWaitFeaturesKHR(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_PRESENT_WAIT_FEATURES_KHR
 class VkPhysicalDevicePresentWait2FeaturesKHR(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_PRESENT_WAIT_2_FEATURES_KHR
 class VkPhysicalDevicePresentTimingFeaturesEXT(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_PRESENT_TIMING_FEATURES_EXT
 class VkPresentTimingSurfaceCapabilitiesEXT(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_PRESENT_TIMING_SURFACE_CAPABILITIES_EXT
 class VkSwapchainTimingPropertiesEXT(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_SWAPCHAIN_TIMING_PROPERTIES_EXT
 class VkSwapchainTimeDomainPropertiesEXT(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_SWAPCHAIN_TIME_DOMAIN_PROPERTIES_EXT
 class VkPresentStageTimeEXT(Structure):
     pass
 class VkPastPresentationTimingInfoEXT(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_PAST_PRESENTATION_TIMING_INFO_EXT
 class VkPastPresentationTimingPropertiesEXT(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_PAST_PRESENTATION_TIMING_PROPERTIES_EXT
 class VkPastPresentationTimingEXT(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_PAST_PRESENTATION_TIMING_EXT
 class VkPresentTimingsInfoEXT(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_PRESENT_TIMINGS_INFO_EXT
 class VkPresentTimingInfoEXT(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_PRESENT_TIMING_INFO_EXT
 class VkSwapchainCalibratedTimestampInfoEXT(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_SWAPCHAIN_CALIBRATED_TIMESTAMP_INFO_EXT
 class VkHdrMetadataEXT(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_HDR_METADATA_EXT
 class VkHdrVividDynamicMetadataHUAWEI(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_HDR_VIVID_DYNAMIC_METADATA_HUAWEI
 class VkDisplayNativeHdrSurfaceCapabilitiesAMD(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_DISPLAY_NATIVE_HDR_SURFACE_CAPABILITIES_AMD
 class VkSwapchainDisplayNativeHdrCreateInfoAMD(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_SWAPCHAIN_DISPLAY_NATIVE_HDR_CREATE_INFO_AMD
 class VkRefreshCycleDurationGOOGLE(Structure):
     pass
 class VkPastPresentationTimingGOOGLE(Structure):
     pass
 class VkPresentTimesInfoGOOGLE(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_PRESENT_TIMES_INFO_GOOGLE
 class VkPresentTimeGOOGLE(Structure):
     pass
 class VkIOSSurfaceCreateInfoMVK(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_IOS_SURFACE_CREATE_INFO_MVK
 class VkMacOSSurfaceCreateInfoMVK(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_MACOS_SURFACE_CREATE_INFO_MVK
 class VkMetalSurfaceCreateInfoEXT(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_METAL_SURFACE_CREATE_INFO_EXT
 class VkViewportWScalingNV(Structure):
     pass
 class VkPipelineViewportWScalingStateCreateInfoNV(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_PIPELINE_VIEWPORT_W_SCALING_STATE_CREATE_INFO_NV
 class VkViewportSwizzleNV(Structure):
     pass
 class VkPipelineViewportSwizzleStateCreateInfoNV(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_PIPELINE_VIEWPORT_SWIZZLE_STATE_CREATE_INFO_NV
 class VkPhysicalDeviceDiscardRectanglePropertiesEXT(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_DISCARD_RECTANGLE_PROPERTIES_EXT
 class VkPipelineDiscardRectangleStateCreateInfoEXT(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_PIPELINE_DISCARD_RECTANGLE_STATE_CREATE_INFO_EXT
 class VkPhysicalDeviceMultiviewPerViewAttributesPropertiesNVX(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_MULTIVIEW_PER_VIEW_ATTRIBUTES_PROPERTIES_NVX
 class VkInputAttachmentAspectReference(Structure):
     pass
 class VkInputAttachmentAspectReferenceKHR(Structure):
     pass
 class VkRenderPassInputAttachmentAspectCreateInfo(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_RENDER_PASS_INPUT_ATTACHMENT_ASPECT_CREATE_INFO
 class VkRenderPassInputAttachmentAspectCreateInfoKHR(Structure):
     pass
 class VkPhysicalDeviceSurfaceInfo2KHR(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_SURFACE_INFO_2_KHR
 class VkSurfaceCapabilities2KHR(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_SURFACE_CAPABILITIES_2_KHR
 class VkSurfaceFormat2KHR(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_SURFACE_FORMAT_2_KHR
 class VkDisplayProperties2KHR(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_DISPLAY_PROPERTIES_2_KHR
 class VkDisplayPlaneProperties2KHR(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_DISPLAY_PLANE_PROPERTIES_2_KHR
 class VkDisplayModeProperties2KHR(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_DISPLAY_MODE_PROPERTIES_2_KHR
 class VkDisplayModeStereoPropertiesNV(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_DISPLAY_MODE_STEREO_PROPERTIES_NV
 class VkDisplayPlaneInfo2KHR(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_DISPLAY_PLANE_INFO_2_KHR
 class VkDisplayPlaneCapabilities2KHR(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_DISPLAY_PLANE_CAPABILITIES_2_KHR
 class VkSharedPresentSurfaceCapabilitiesKHR(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_SHARED_PRESENT_SURFACE_CAPABILITIES_KHR
 class VkPhysicalDevice16BitStorageFeatures(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_16BIT_STORAGE_FEATURES
 class VkPhysicalDevice16BitStorageFeaturesKHR(Structure):
     pass
 class VkPhysicalDeviceSubgroupProperties(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_SUBGROUP_PROPERTIES
 class VkPhysicalDeviceShaderSubgroupExtendedTypesFeatures(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_SHADER_SUBGROUP_EXTENDED_TYPES_FEATURES
 class VkPhysicalDeviceShaderSubgroupExtendedTypesFeaturesKHR(Structure):
     pass
 class VkBufferMemoryRequirementsInfo2(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_BUFFER_MEMORY_REQUIREMENTS_INFO_2
 class VkBufferMemoryRequirementsInfo2KHR(Structure):
     pass
 class VkDeviceBufferMemoryRequirements(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_DEVICE_BUFFER_MEMORY_REQUIREMENTS
 class VkDeviceBufferMemoryRequirementsKHR(Structure):
     pass
 class VkImageMemoryRequirementsInfo2(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_IMAGE_MEMORY_REQUIREMENTS_INFO_2
 class VkImageMemoryRequirementsInfo2KHR(Structure):
     pass
 class VkImageSparseMemoryRequirementsInfo2(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_IMAGE_SPARSE_MEMORY_REQUIREMENTS_INFO_2
 class VkImageSparseMemoryRequirementsInfo2KHR(Structure):
     pass
 class VkDeviceImageMemoryRequirements(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_DEVICE_IMAGE_MEMORY_REQUIREMENTS
 class VkDeviceImageMemoryRequirementsKHR(Structure):
     pass
 class VkMemoryRequirements2(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_MEMORY_REQUIREMENTS_2
 class VkMemoryRequirements2KHR(Structure):
     pass
 class VkSparseImageMemoryRequirements2(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_SPARSE_IMAGE_MEMORY_REQUIREMENTS_2
 class VkSparseImageMemoryRequirements2KHR(Structure):
     pass
 class VkPhysicalDevicePointClippingProperties(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_POINT_CLIPPING_PROPERTIES
 class VkPhysicalDevicePointClippingPropertiesKHR(Structure):
     pass
 class VkMemoryDedicatedRequirements(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_MEMORY_DEDICATED_REQUIREMENTS
 class VkMemoryDedicatedRequirementsKHR(Structure):
     pass
 class VkMemoryDedicatedAllocateInfo(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_MEMORY_DEDICATED_ALLOCATE_INFO
 class VkMemoryDedicatedAllocateInfoKHR(Structure):
     pass
 class VkImageViewUsageCreateInfo(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_IMAGE_VIEW_USAGE_CREATE_INFO
 class VkImageViewSlicedCreateInfoEXT(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_IMAGE_VIEW_SLICED_CREATE_INFO_EXT
 class VkImageViewUsageCreateInfoKHR(Structure):
     pass
 class VkPipelineTessellationDomainOriginStateCreateInfo(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_PIPELINE_TESSELLATION_DOMAIN_ORIGIN_STATE_CREATE_INFO
 class VkPipelineTessellationDomainOriginStateCreateInfoKHR(Structure):
     pass
 class VkSamplerYcbcrConversionInfo(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_SAMPLER_YCBCR_CONVERSION_INFO
 class VkSamplerYcbcrConversionInfoKHR(Structure):
     pass
 class VkSamplerYcbcrConversionCreateInfo(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_SAMPLER_YCBCR_CONVERSION_CREATE_INFO
 class VkSamplerYcbcrConversionCreateInfoKHR(Structure):
     pass
 class VkBindImagePlaneMemoryInfo(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_BIND_IMAGE_PLANE_MEMORY_INFO
 class VkBindImagePlaneMemoryInfoKHR(Structure):
     pass
 class VkImagePlaneMemoryRequirementsInfo(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_IMAGE_PLANE_MEMORY_REQUIREMENTS_INFO
 class VkImagePlaneMemoryRequirementsInfoKHR(Structure):
     pass
 class VkPhysicalDeviceSamplerYcbcrConversionFeatures(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_SAMPLER_YCBCR_CONVERSION_FEATURES
 class VkPhysicalDeviceSamplerYcbcrConversionFeaturesKHR(Structure):
     pass
 class VkSamplerYcbcrConversionImageFormatProperties(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_SAMPLER_YCBCR_CONVERSION_IMAGE_FORMAT_PROPERTIES
 class VkSamplerYcbcrConversionImageFormatPropertiesKHR(Structure):
     pass
 class VkTextureLODGatherFormatPropertiesAMD(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_TEXTURE_LOD_GATHER_FORMAT_PROPERTIES_AMD
 class VkConditionalRenderingBeginInfoEXT(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_CONDITIONAL_RENDERING_BEGIN_INFO_EXT
 class VkProtectedSubmitInfo(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_PROTECTED_SUBMIT_INFO
 class VkPhysicalDeviceProtectedMemoryFeatures(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_PROTECTED_MEMORY_FEATURES
 class VkPhysicalDeviceProtectedMemoryProperties(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_PROTECTED_MEMORY_PROPERTIES
 class VkDeviceQueueInfo2(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_DEVICE_QUEUE_INFO_2
 class VkPipelineCoverageToColorStateCreateInfoNV(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_PIPELINE_COVERAGE_TO_COLOR_STATE_CREATE_INFO_NV
 class VkPhysicalDeviceSamplerFilterMinmaxProperties(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_SAMPLER_FILTER_MINMAX_PROPERTIES
 class VkPhysicalDeviceSamplerFilterMinmaxPropertiesEXT(Structure):
     pass
 class VkSampleLocationEXT(Structure):
     pass
 class VkSampleLocationsInfoEXT(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_SAMPLE_LOCATIONS_INFO_EXT
 class VkAttachmentSampleLocationsEXT(Structure):
     pass
 class VkSubpassSampleLocationsEXT(Structure):
     pass
 class VkRenderPassSampleLocationsBeginInfoEXT(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_RENDER_PASS_SAMPLE_LOCATIONS_BEGIN_INFO_EXT
 class VkPipelineSampleLocationsStateCreateInfoEXT(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_PIPELINE_SAMPLE_LOCATIONS_STATE_CREATE_INFO_EXT
 class VkPhysicalDeviceSampleLocationsPropertiesEXT(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_SAMPLE_LOCATIONS_PROPERTIES_EXT
 class VkMultisamplePropertiesEXT(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_MULTISAMPLE_PROPERTIES_EXT
 class VkSamplerReductionModeCreateInfo(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_SAMPLER_REDUCTION_MODE_CREATE_INFO
 class VkSamplerReductionModeCreateInfoEXT(Structure):
     pass
 class VkPhysicalDeviceBlendOperationAdvancedFeaturesEXT(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_BLEND_OPERATION_ADVANCED_FEATURES_EXT
 class VkPhysicalDeviceMultiDrawFeaturesEXT(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_MULTI_DRAW_FEATURES_EXT
 class VkPhysicalDeviceBlendOperationAdvancedPropertiesEXT(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_BLEND_OPERATION_ADVANCED_PROPERTIES_EXT
 class VkPipelineColorBlendAdvancedStateCreateInfoEXT(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_PIPELINE_COLOR_BLEND_ADVANCED_STATE_CREATE_INFO_EXT
 class VkPhysicalDeviceInlineUniformBlockFeatures(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_INLINE_UNIFORM_BLOCK_FEATURES
 class VkPhysicalDeviceInlineUniformBlockFeaturesEXT(Structure):
     pass
 class VkPhysicalDeviceInlineUniformBlockProperties(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_INLINE_UNIFORM_BLOCK_PROPERTIES
 class VkPhysicalDeviceInlineUniformBlockPropertiesEXT(Structure):
     pass
 class VkWriteDescriptorSetInlineUniformBlock(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_WRITE_DESCRIPTOR_SET_INLINE_UNIFORM_BLOCK
 class VkWriteDescriptorSetInlineUniformBlockEXT(Structure):
     pass
 class VkDescriptorPoolInlineUniformBlockCreateInfo(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_DESCRIPTOR_POOL_INLINE_UNIFORM_BLOCK_CREATE_INFO
 class VkDescriptorPoolInlineUniformBlockCreateInfoEXT(Structure):
     pass
 class VkPipelineCoverageModulationStateCreateInfoNV(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_PIPELINE_COVERAGE_MODULATION_STATE_CREATE_INFO_NV
 class VkImageFormatListCreateInfo(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_IMAGE_FORMAT_LIST_CREATE_INFO
 class VkImageFormatListCreateInfoKHR(Structure):
     pass
 class VkValidationCacheCreateInfoEXT(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_VALIDATION_CACHE_CREATE_INFO_EXT
 class VkShaderModuleValidationCacheCreateInfoEXT(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_SHADER_MODULE_VALIDATION_CACHE_CREATE_INFO_EXT
 class VkPhysicalDeviceMaintenance3Properties(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_MAINTENANCE_3_PROPERTIES
 class VkPhysicalDeviceMaintenance3PropertiesKHR(Structure):
     pass
 class VkPhysicalDeviceMaintenance4Features(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_MAINTENANCE_4_FEATURES
 class VkPhysicalDeviceMaintenance4FeaturesKHR(Structure):
     pass
 class VkPhysicalDeviceMaintenance4Properties(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_MAINTENANCE_4_PROPERTIES
 class VkPhysicalDeviceMaintenance4PropertiesKHR(Structure):
     pass
 class VkPhysicalDeviceMaintenance5Features(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_MAINTENANCE_5_FEATURES
 class VkPhysicalDeviceMaintenance5FeaturesKHR(Structure):
     pass
 class VkPhysicalDeviceMaintenance5Properties(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_MAINTENANCE_5_PROPERTIES
 class VkPhysicalDeviceMaintenance5PropertiesKHR(Structure):
     pass
 class VkPhysicalDeviceMaintenance6Features(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_MAINTENANCE_6_FEATURES
 class VkPhysicalDeviceMaintenance6FeaturesKHR(Structure):
     pass
 class VkPhysicalDeviceMaintenance6Properties(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_MAINTENANCE_6_PROPERTIES
 class VkPhysicalDeviceMaintenance6PropertiesKHR(Structure):
     pass
 class VkPhysicalDeviceMaintenance7FeaturesKHR(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_MAINTENANCE_7_FEATURES_KHR
 class VkPhysicalDeviceMaintenance7PropertiesKHR(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_MAINTENANCE_7_PROPERTIES_KHR
 class VkPhysicalDeviceLayeredApiPropertiesListKHR(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_LAYERED_API_PROPERTIES_LIST_KHR
 class VkPhysicalDeviceLayeredApiPropertiesKHR(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_LAYERED_API_PROPERTIES_KHR
 class VkPhysicalDeviceLayeredApiVulkanPropertiesKHR(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_LAYERED_API_VULKAN_PROPERTIES_KHR
 class VkPhysicalDeviceMaintenance8FeaturesKHR(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_MAINTENANCE_8_FEATURES_KHR
 class VkPhysicalDeviceMaintenance9FeaturesKHR(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_MAINTENANCE_9_FEATURES_KHR
 class VkPhysicalDeviceMaintenance9PropertiesKHR(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_MAINTENANCE_9_PROPERTIES_KHR
 class VkPhysicalDeviceMaintenance11FeaturesKHR(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_MAINTENANCE_11_FEATURES_KHR
 class VkPhysicalDeviceMaintenance10PropertiesKHR(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_MAINTENANCE_10_PROPERTIES_KHR
 class VkPhysicalDeviceMaintenance10FeaturesKHR(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_MAINTENANCE_10_FEATURES_KHR
 class VkQueueFamilyOwnershipTransferPropertiesKHR(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_QUEUE_FAMILY_OWNERSHIP_TRANSFER_PROPERTIES_KHR
 class VkQueueFamilyOptimalImageTransferGranularityPropertiesKHR(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_QUEUE_FAMILY_OPTIMAL_IMAGE_TRANSFER_GRANULARITY_PROPERTIES_KHR
 class VkRenderingAreaInfo(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_RENDERING_AREA_INFO
 class VkRenderingAreaInfoKHR(Structure):
     pass
 class VkDescriptorSetLayoutSupport(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_DESCRIPTOR_SET_LAYOUT_SUPPORT
 class VkDescriptorSetLayoutSupportKHR(Structure):
     pass
 class VkPhysicalDeviceShaderDrawParametersFeatures(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_SHADER_DRAW_PARAMETERS_FEATURES
 class VkPhysicalDeviceShaderDrawParameterFeatures(Structure):
     pass
 class VkPhysicalDeviceShaderFloat16Int8Features(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_SHADER_FLOAT16_INT8_FEATURES
 class VkPhysicalDeviceShaderFloat16Int8FeaturesKHR(Structure):
     pass
 class VkPhysicalDeviceFloat16Int8FeaturesKHR(Structure):
     pass
 class VkPhysicalDeviceFloatControlsProperties(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_FLOAT_CONTROLS_PROPERTIES
 class VkPhysicalDeviceFloatControlsPropertiesKHR(Structure):
     pass
 class VkPhysicalDeviceHostQueryResetFeatures(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_HOST_QUERY_RESET_FEATURES
 class VkPhysicalDeviceHostQueryResetFeaturesEXT(Structure):
     pass
 class VkNativeBufferUsage2ANDROID(Structure):
     pass
 class VkNativeBufferANDROID(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_NATIVE_BUFFER_ANDROID
 class VkSwapchainImageCreateInfoANDROID(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_SWAPCHAIN_IMAGE_CREATE_INFO_ANDROID
 class VkPhysicalDevicePresentationPropertiesANDROID(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_PRESENTATION_PROPERTIES_ANDROID
 class VkShaderResourceUsageAMD(Structure):
     pass
 class VkShaderStatisticsInfoAMD(Structure):
     pass
 class VkDeviceQueueGlobalPriorityCreateInfo(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_DEVICE_QUEUE_GLOBAL_PRIORITY_CREATE_INFO
 class VkDeviceQueueGlobalPriorityCreateInfoKHR(Structure):
     pass
 class VkDeviceQueueGlobalPriorityCreateInfoEXT(Structure):
     pass
 class VkPhysicalDeviceGlobalPriorityQueryFeatures(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_GLOBAL_PRIORITY_QUERY_FEATURES
 class VkPhysicalDeviceGlobalPriorityQueryFeaturesKHR(Structure):
     pass
 class VkPhysicalDeviceGlobalPriorityQueryFeaturesEXT(Structure):
     pass
 class VkQueueFamilyGlobalPriorityProperties(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_QUEUE_FAMILY_GLOBAL_PRIORITY_PROPERTIES
 class VkQueueFamilyGlobalPriorityPropertiesKHR(Structure):
     pass
 class VkQueueFamilyGlobalPriorityPropertiesEXT(Structure):
     pass
 class VkDebugUtilsObjectNameInfoEXT(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_DEBUG_UTILS_OBJECT_NAME_INFO_EXT
 class VkDebugUtilsObjectTagInfoEXT(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_DEBUG_UTILS_OBJECT_TAG_INFO_EXT
 class VkDebugUtilsLabelEXT(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_DEBUG_UTILS_LABEL_EXT
 class VkDebugUtilsMessengerCreateInfoEXT(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_DEBUG_UTILS_MESSENGER_CREATE_INFO_EXT
 class VkDebugUtilsMessengerCallbackDataEXT(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_DEBUG_UTILS_MESSENGER_CALLBACK_DATA_EXT
 class VkPhysicalDeviceDeviceMemoryReportFeaturesEXT(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_DEVICE_MEMORY_REPORT_FEATURES_EXT
 class VkDeviceDeviceMemoryReportCreateInfoEXT(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_DEVICE_DEVICE_MEMORY_REPORT_CREATE_INFO_EXT
 class VkDeviceMemoryReportCallbackDataEXT(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_DEVICE_MEMORY_REPORT_CALLBACK_DATA_EXT
 class VkImportMemoryHostPointerInfoEXT(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_IMPORT_MEMORY_HOST_POINTER_INFO_EXT
 class VkMemoryHostPointerPropertiesEXT(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_MEMORY_HOST_POINTER_PROPERTIES_EXT
 class VkPhysicalDeviceExternalMemoryHostPropertiesEXT(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_EXTERNAL_MEMORY_HOST_PROPERTIES_EXT
 class VkPhysicalDeviceConservativeRasterizationPropertiesEXT(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_CONSERVATIVE_RASTERIZATION_PROPERTIES_EXT
 class VkCalibratedTimestampInfoKHR(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_CALIBRATED_TIMESTAMP_INFO_KHR
 class VkCalibratedTimestampInfoEXT(Structure):
     pass
 class VkPhysicalDeviceShaderCorePropertiesAMD(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_SHADER_CORE_PROPERTIES_AMD
 class VkPhysicalDeviceShaderCoreProperties2AMD(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_SHADER_CORE_PROPERTIES_2_AMD
 class VkPipelineRasterizationConservativeStateCreateInfoEXT(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_PIPELINE_RASTERIZATION_CONSERVATIVE_STATE_CREATE_INFO_EXT
 class VkPhysicalDeviceDescriptorIndexingFeatures(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_DESCRIPTOR_INDEXING_FEATURES
 class VkPhysicalDeviceDescriptorIndexingFeaturesEXT(Structure):
     pass
 class VkPhysicalDeviceDescriptorIndexingProperties(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_DESCRIPTOR_INDEXING_PROPERTIES
 class VkPhysicalDeviceDescriptorIndexingPropertiesEXT(Structure):
     pass
 class VkDescriptorSetLayoutBindingFlagsCreateInfo(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_DESCRIPTOR_SET_LAYOUT_BINDING_FLAGS_CREATE_INFO
 class VkDescriptorSetLayoutBindingFlagsCreateInfoEXT(Structure):
     pass
 class VkDescriptorSetVariableDescriptorCountAllocateInfo(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_DESCRIPTOR_SET_VARIABLE_DESCRIPTOR_COUNT_ALLOCATE_INFO
 class VkDescriptorSetVariableDescriptorCountAllocateInfoEXT(Structure):
     pass
 class VkDescriptorSetVariableDescriptorCountLayoutSupport(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_DESCRIPTOR_SET_VARIABLE_DESCRIPTOR_COUNT_LAYOUT_SUPPORT
 class VkDescriptorSetVariableDescriptorCountLayoutSupportEXT(Structure):
     pass
 class VkAttachmentDescription2(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_ATTACHMENT_DESCRIPTION_2
 class VkAttachmentDescription2KHR(Structure):
     pass
 class VkAttachmentReference2(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_ATTACHMENT_REFERENCE_2
 class VkAttachmentReference2KHR(Structure):
     pass
 class VkSubpassDescription2(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_SUBPASS_DESCRIPTION_2
 class VkSubpassDescription2KHR(Structure):
     pass
 class VkSubpassDependency2(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_SUBPASS_DEPENDENCY_2
 class VkSubpassDependency2KHR(Structure):
     pass
 class VkRenderPassCreateInfo2(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_RENDER_PASS_CREATE_INFO_2
 class VkRenderPassCreateInfo2KHR(Structure):
     pass
 class VkSubpassBeginInfo(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_SUBPASS_BEGIN_INFO
 class VkSubpassBeginInfoKHR(Structure):
     pass
 class VkSubpassEndInfo(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_SUBPASS_END_INFO
 class VkSubpassEndInfoKHR(Structure):
     pass
 class VkPhysicalDeviceTimelineSemaphoreFeatures(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_TIMELINE_SEMAPHORE_FEATURES
 class VkPhysicalDeviceTimelineSemaphoreFeaturesKHR(Structure):
     pass
 class VkPhysicalDeviceTimelineSemaphoreProperties(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_TIMELINE_SEMAPHORE_PROPERTIES
 class VkPhysicalDeviceTimelineSemaphorePropertiesKHR(Structure):
     pass
 class VkSemaphoreTypeCreateInfo(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_SEMAPHORE_TYPE_CREATE_INFO
 class VkSemaphoreTypeCreateInfoKHR(Structure):
     pass
 class VkTimelineSemaphoreSubmitInfo(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_TIMELINE_SEMAPHORE_SUBMIT_INFO
 class VkTimelineSemaphoreSubmitInfoKHR(Structure):
     pass
 class VkSemaphoreWaitInfo(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_SEMAPHORE_WAIT_INFO
 class VkSemaphoreWaitInfoKHR(Structure):
     pass
 class VkSemaphoreSignalInfo(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_SEMAPHORE_SIGNAL_INFO
 class VkSemaphoreSignalInfoKHR(Structure):
     pass
 class VkVertexInputBindingDivisorDescription(Structure):
@@ -1228,519 +2338,1080 @@ class VkVertexInputBindingDivisorDescriptionKHR(Structure):
 class VkVertexInputBindingDivisorDescriptionEXT(Structure):
     pass
 class VkPipelineVertexInputDivisorStateCreateInfo(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_PIPELINE_VERTEX_INPUT_DIVISOR_STATE_CREATE_INFO
 class VkPipelineVertexInputDivisorStateCreateInfoKHR(Structure):
     pass
 class VkPipelineVertexInputDivisorStateCreateInfoEXT(Structure):
     pass
 class VkPhysicalDeviceVertexAttributeDivisorPropertiesEXT(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_VERTEX_ATTRIBUTE_DIVISOR_PROPERTIES_EXT
 class VkPhysicalDeviceVertexAttributeDivisorProperties(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_VERTEX_ATTRIBUTE_DIVISOR_PROPERTIES
 class VkPhysicalDeviceVertexAttributeDivisorPropertiesKHR(Structure):
     pass
 class VkPhysicalDevicePCIBusInfoPropertiesEXT(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_PCI_BUS_INFO_PROPERTIES_EXT
 class VkImportAndroidHardwareBufferInfoANDROID(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_IMPORT_ANDROID_HARDWARE_BUFFER_INFO_ANDROID
 class VkAndroidHardwareBufferUsageANDROID(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_ANDROID_HARDWARE_BUFFER_USAGE_ANDROID
 class VkAndroidHardwareBufferPropertiesANDROID(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_ANDROID_HARDWARE_BUFFER_PROPERTIES_ANDROID
 class VkMemoryGetAndroidHardwareBufferInfoANDROID(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_MEMORY_GET_ANDROID_HARDWARE_BUFFER_INFO_ANDROID
 class VkAndroidHardwareBufferFormatPropertiesANDROID(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_ANDROID_HARDWARE_BUFFER_FORMAT_PROPERTIES_ANDROID
 class VkCommandBufferInheritanceConditionalRenderingInfoEXT(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_COMMAND_BUFFER_INHERITANCE_CONDITIONAL_RENDERING_INFO_EXT
 class VkExternalFormatANDROID(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_EXTERNAL_FORMAT_ANDROID
 class VkPhysicalDevice8BitStorageFeatures(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_8BIT_STORAGE_FEATURES
 class VkPhysicalDevice8BitStorageFeaturesKHR(Structure):
     pass
 class VkPhysicalDeviceConditionalRenderingFeaturesEXT(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_CONDITIONAL_RENDERING_FEATURES_EXT
 class VkPhysicalDeviceVulkanMemoryModelFeatures(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_VULKAN_MEMORY_MODEL_FEATURES
 class VkPhysicalDeviceVulkanMemoryModelFeaturesKHR(Structure):
     pass
 class VkPhysicalDeviceShaderAtomicInt64Features(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_SHADER_ATOMIC_INT64_FEATURES
 class VkPhysicalDeviceShaderAtomicInt64FeaturesKHR(Structure):
     pass
 class VkPhysicalDeviceShaderAtomicFloatFeaturesEXT(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_SHADER_ATOMIC_FLOAT_FEATURES_EXT
 class VkPhysicalDeviceShaderAtomicFloat2FeaturesEXT(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_SHADER_ATOMIC_FLOAT_2_FEATURES_EXT
 class VkPhysicalDeviceVertexAttributeDivisorFeatures(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_VERTEX_ATTRIBUTE_DIVISOR_FEATURES
 class VkPhysicalDeviceVertexAttributeDivisorFeaturesKHR(Structure):
     pass
 class VkPhysicalDeviceVertexAttributeDivisorFeaturesEXT(Structure):
     pass
 class VkQueueFamilyCheckpointPropertiesNV(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_QUEUE_FAMILY_CHECKPOINT_PROPERTIES_NV
 class VkCheckpointDataNV(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_CHECKPOINT_DATA_NV
 class VkPhysicalDeviceDepthStencilResolveProperties(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_DEPTH_STENCIL_RESOLVE_PROPERTIES
 class VkPhysicalDeviceDepthStencilResolvePropertiesKHR(Structure):
     pass
 class VkSubpassDescriptionDepthStencilResolve(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_SUBPASS_DESCRIPTION_DEPTH_STENCIL_RESOLVE
 class VkSubpassDescriptionDepthStencilResolveKHR(Structure):
     pass
 class VkImageViewASTCDecodeModeEXT(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_IMAGE_VIEW_ASTC_DECODE_MODE_EXT
 class VkPhysicalDeviceASTCDecodeFeaturesEXT(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_ASTC_DECODE_FEATURES_EXT
 class VkPhysicalDeviceTransformFeedbackFeaturesEXT(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_TRANSFORM_FEEDBACK_FEATURES_EXT
 class VkPhysicalDeviceTransformFeedbackPropertiesEXT(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_TRANSFORM_FEEDBACK_PROPERTIES_EXT
 class VkPipelineRasterizationStateStreamCreateInfoEXT(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_PIPELINE_RASTERIZATION_STATE_STREAM_CREATE_INFO_EXT
 class VkPhysicalDeviceRepresentativeFragmentTestFeaturesNV(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_REPRESENTATIVE_FRAGMENT_TEST_FEATURES_NV
 class VkPipelineRepresentativeFragmentTestStateCreateInfoNV(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_PIPELINE_REPRESENTATIVE_FRAGMENT_TEST_STATE_CREATE_INFO_NV
 class VkPhysicalDeviceExclusiveScissorFeaturesNV(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_EXCLUSIVE_SCISSOR_FEATURES_NV
 class VkPipelineViewportExclusiveScissorStateCreateInfoNV(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_PIPELINE_VIEWPORT_EXCLUSIVE_SCISSOR_STATE_CREATE_INFO_NV
 class VkPhysicalDeviceCornerSampledImageFeaturesNV(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_CORNER_SAMPLED_IMAGE_FEATURES_NV
 class VkPhysicalDeviceComputeShaderDerivativesFeaturesKHR(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_COMPUTE_SHADER_DERIVATIVES_FEATURES_KHR
 class VkPhysicalDeviceComputeShaderDerivativesFeaturesNV(Structure):
     pass
 class VkPhysicalDeviceComputeShaderDerivativesPropertiesKHR(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_COMPUTE_SHADER_DERIVATIVES_PROPERTIES_KHR
 class VkPhysicalDeviceFragmentShaderBarycentricFeaturesNV(Structure):
     pass
 class VkPhysicalDeviceShaderImageFootprintFeaturesNV(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_SHADER_IMAGE_FOOTPRINT_FEATURES_NV
 class VkPhysicalDeviceDedicatedAllocationImageAliasingFeaturesNV(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_DEDICATED_ALLOCATION_IMAGE_ALIASING_FEATURES_NV
 class VkPhysicalDeviceCopyMemoryIndirectFeaturesKHR(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_COPY_MEMORY_INDIRECT_FEATURES_KHR
 class VkPhysicalDeviceCopyMemoryIndirectFeaturesNV(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_COPY_MEMORY_INDIRECT_FEATURES_NV
 class VkPhysicalDeviceCopyMemoryIndirectPropertiesKHR(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_COPY_MEMORY_INDIRECT_PROPERTIES_KHR
 class VkPhysicalDeviceCopyMemoryIndirectPropertiesNV(Structure):
     pass
 class VkPhysicalDeviceMemoryDecompressionFeaturesEXT(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_MEMORY_DECOMPRESSION_FEATURES_EXT
 class VkPhysicalDeviceMemoryDecompressionFeaturesNV(Structure):
     pass
 class VkPhysicalDeviceMemoryDecompressionPropertiesEXT(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_MEMORY_DECOMPRESSION_PROPERTIES_EXT
 class VkPhysicalDeviceMemoryDecompressionPropertiesNV(Structure):
     pass
 class VkShadingRatePaletteNV(Structure):
     pass
 class VkPipelineViewportShadingRateImageStateCreateInfoNV(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_PIPELINE_VIEWPORT_SHADING_RATE_IMAGE_STATE_CREATE_INFO_NV
 class VkPhysicalDeviceShadingRateImageFeaturesNV(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_SHADING_RATE_IMAGE_FEATURES_NV
 class VkPhysicalDeviceShadingRateImagePropertiesNV(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_SHADING_RATE_IMAGE_PROPERTIES_NV
 class VkPhysicalDeviceInvocationMaskFeaturesHUAWEI(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_INVOCATION_MASK_FEATURES_HUAWEI
 class VkCoarseSampleLocationNV(Structure):
     pass
 class VkCoarseSampleOrderCustomNV(Structure):
     pass
 class VkPipelineViewportCoarseSampleOrderStateCreateInfoNV(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_PIPELINE_VIEWPORT_COARSE_SAMPLE_ORDER_STATE_CREATE_INFO_NV
 class VkPhysicalDeviceMeshShaderFeaturesNV(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_MESH_SHADER_FEATURES_NV
 class VkPhysicalDeviceMeshShaderPropertiesNV(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_MESH_SHADER_PROPERTIES_NV
 class VkDrawMeshTasksIndirectCommandNV(Structure):
     pass
 class VkPhysicalDeviceMeshShaderFeaturesEXT(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_MESH_SHADER_FEATURES_EXT
 class VkPhysicalDeviceMeshShaderPropertiesEXT(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_MESH_SHADER_PROPERTIES_EXT
 class VkDrawMeshTasksIndirectCommandEXT(Structure):
     pass
 class VkRayTracingShaderGroupCreateInfoNV(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_RAY_TRACING_SHADER_GROUP_CREATE_INFO_NV
 class VkRayTracingShaderGroupCreateInfoKHR(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_RAY_TRACING_SHADER_GROUP_CREATE_INFO_KHR
 class VkRayTracingPipelineCreateInfoNV(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_RAY_TRACING_PIPELINE_CREATE_INFO_NV
 class VkRayTracingPipelineCreateInfoKHR(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_RAY_TRACING_PIPELINE_CREATE_INFO_KHR
 class VkGeometryTrianglesNV(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_GEOMETRY_TRIANGLES_NV
 class VkGeometryAABBNV(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_GEOMETRY_AABB_NV
 class VkGeometryDataNV(Structure):
     pass
 class VkGeometryNV(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_GEOMETRY_NV
 class VkAccelerationStructureInfoNV(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_ACCELERATION_STRUCTURE_INFO_NV
 class VkAccelerationStructureCreateInfoNV(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_ACCELERATION_STRUCTURE_CREATE_INFO_NV
 class VkBindAccelerationStructureMemoryInfoNV(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_BIND_ACCELERATION_STRUCTURE_MEMORY_INFO_NV
 class VkWriteDescriptorSetAccelerationStructureKHR(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_WRITE_DESCRIPTOR_SET_ACCELERATION_STRUCTURE_KHR
 class VkWriteDescriptorSetAccelerationStructureNV(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_WRITE_DESCRIPTOR_SET_ACCELERATION_STRUCTURE_NV
 class VkAccelerationStructureMemoryRequirementsInfoNV(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_ACCELERATION_STRUCTURE_MEMORY_REQUIREMENTS_INFO_NV
 class VkPhysicalDeviceAccelerationStructureFeaturesKHR(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_ACCELERATION_STRUCTURE_FEATURES_KHR
 class VkPhysicalDeviceRayTracingPipelineFeaturesKHR(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_RAY_TRACING_PIPELINE_FEATURES_KHR
 class VkPhysicalDeviceRayQueryFeaturesKHR(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_RAY_QUERY_FEATURES_KHR
 class VkPhysicalDeviceAccelerationStructurePropertiesKHR(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_ACCELERATION_STRUCTURE_PROPERTIES_KHR
 class VkPhysicalDeviceRayTracingPipelinePropertiesKHR(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_RAY_TRACING_PIPELINE_PROPERTIES_KHR
 class VkPhysicalDeviceRayTracingPropertiesNV(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_RAY_TRACING_PROPERTIES_NV
 class VkTraceRaysIndirectCommandKHR(Structure):
     pass
 class VkTraceRaysIndirectCommand2KHR(Structure):
     pass
 class VkPhysicalDeviceRayTracingMaintenance1FeaturesKHR(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_RAY_TRACING_MAINTENANCE_1_FEATURES_KHR
 class VkDrmFormatModifierPropertiesListEXT(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_DRM_FORMAT_MODIFIER_PROPERTIES_LIST_EXT
 class VkDrmFormatModifierPropertiesEXT(Structure):
     pass
 class VkPhysicalDeviceImageDrmFormatModifierInfoEXT(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_IMAGE_DRM_FORMAT_MODIFIER_INFO_EXT
 class VkImageDrmFormatModifierListCreateInfoEXT(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_IMAGE_DRM_FORMAT_MODIFIER_LIST_CREATE_INFO_EXT
 class VkImageDrmFormatModifierExplicitCreateInfoEXT(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_IMAGE_DRM_FORMAT_MODIFIER_EXPLICIT_CREATE_INFO_EXT
 class VkImageDrmFormatModifierPropertiesEXT(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_IMAGE_DRM_FORMAT_MODIFIER_PROPERTIES_EXT
 class VkImageStencilUsageCreateInfo(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_IMAGE_STENCIL_USAGE_CREATE_INFO
 class VkImageStencilUsageCreateInfoEXT(Structure):
     pass
 class VkDeviceMemoryOverallocationCreateInfoAMD(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_DEVICE_MEMORY_OVERALLOCATION_CREATE_INFO_AMD
 class VkPhysicalDeviceFragmentDensityMapFeaturesEXT(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_FRAGMENT_DENSITY_MAP_FEATURES_EXT
 class VkPhysicalDeviceFragmentDensityMap2FeaturesEXT(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_FRAGMENT_DENSITY_MAP_2_FEATURES_EXT
 class VkPhysicalDeviceFragmentDensityMapOffsetFeaturesEXT(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_FRAGMENT_DENSITY_MAP_OFFSET_FEATURES_EXT
 class VkPhysicalDeviceFragmentDensityMapOffsetFeaturesQCOM(Structure):
     pass
 class VkPhysicalDeviceFragmentDensityMapPropertiesEXT(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_FRAGMENT_DENSITY_MAP_PROPERTIES_EXT
 class VkPhysicalDeviceFragmentDensityMap2PropertiesEXT(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_FRAGMENT_DENSITY_MAP_2_PROPERTIES_EXT
 class VkPhysicalDeviceFragmentDensityMapOffsetPropertiesEXT(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_FRAGMENT_DENSITY_MAP_OFFSET_PROPERTIES_EXT
 class VkPhysicalDeviceFragmentDensityMapOffsetPropertiesQCOM(Structure):
     pass
 class VkRenderPassFragmentDensityMapCreateInfoEXT(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_RENDER_PASS_FRAGMENT_DENSITY_MAP_CREATE_INFO_EXT
 class VkRenderPassFragmentDensityMapOffsetEndInfoEXT(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_RENDER_PASS_FRAGMENT_DENSITY_MAP_OFFSET_END_INFO_EXT
 class VkSubpassFragmentDensityMapOffsetEndInfoQCOM(Structure):
     pass
 class VkPhysicalDeviceScalarBlockLayoutFeatures(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_SCALAR_BLOCK_LAYOUT_FEATURES
 class VkPhysicalDeviceScalarBlockLayoutFeaturesEXT(Structure):
     pass
 class VkSurfaceProtectedCapabilitiesKHR(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_SURFACE_PROTECTED_CAPABILITIES_KHR
 class VkPhysicalDeviceUniformBufferStandardLayoutFeatures(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_UNIFORM_BUFFER_STANDARD_LAYOUT_FEATURES
 class VkPhysicalDeviceUniformBufferStandardLayoutFeaturesKHR(Structure):
     pass
 class VkPhysicalDeviceDepthClipEnableFeaturesEXT(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_DEPTH_CLIP_ENABLE_FEATURES_EXT
 class VkPipelineRasterizationDepthClipStateCreateInfoEXT(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_PIPELINE_RASTERIZATION_DEPTH_CLIP_STATE_CREATE_INFO_EXT
 class VkPhysicalDeviceMemoryBudgetPropertiesEXT(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_MEMORY_BUDGET_PROPERTIES_EXT
 class VkPhysicalDeviceMemoryPriorityFeaturesEXT(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_MEMORY_PRIORITY_FEATURES_EXT
 class VkMemoryPriorityAllocateInfoEXT(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_MEMORY_PRIORITY_ALLOCATE_INFO_EXT
 class VkPhysicalDevicePageableDeviceLocalMemoryFeaturesEXT(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_PAGEABLE_DEVICE_LOCAL_MEMORY_FEATURES_EXT
 class VkPhysicalDeviceBufferDeviceAddressFeatures(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_BUFFER_DEVICE_ADDRESS_FEATURES
 class VkPhysicalDeviceBufferDeviceAddressFeaturesKHR(Structure):
     pass
 class VkPhysicalDeviceBufferDeviceAddressFeaturesEXT(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_BUFFER_DEVICE_ADDRESS_FEATURES_EXT
 class VkPhysicalDeviceBufferAddressFeaturesEXT(Structure):
     pass
 class VkBufferDeviceAddressInfo(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_BUFFER_DEVICE_ADDRESS_INFO
 class VkBufferDeviceAddressInfoKHR(Structure):
     pass
 class VkBufferDeviceAddressInfoEXT(Structure):
     pass
 class VkBufferOpaqueCaptureAddressCreateInfo(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_BUFFER_OPAQUE_CAPTURE_ADDRESS_CREATE_INFO
 class VkBufferOpaqueCaptureAddressCreateInfoKHR(Structure):
     pass
 class VkBufferDeviceAddressCreateInfoEXT(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_BUFFER_DEVICE_ADDRESS_CREATE_INFO_EXT
 class VkPhysicalDeviceImageViewImageFormatInfoEXT(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_IMAGE_VIEW_IMAGE_FORMAT_INFO_EXT
 class VkFilterCubicImageViewImageFormatPropertiesEXT(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_FILTER_CUBIC_IMAGE_VIEW_IMAGE_FORMAT_PROPERTIES_EXT
 class VkPhysicalDeviceImagelessFramebufferFeatures(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_IMAGELESS_FRAMEBUFFER_FEATURES
 class VkPhysicalDeviceImagelessFramebufferFeaturesKHR(Structure):
     pass
 class VkFramebufferAttachmentsCreateInfo(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_FRAMEBUFFER_ATTACHMENTS_CREATE_INFO
 class VkFramebufferAttachmentsCreateInfoKHR(Structure):
     pass
 class VkFramebufferAttachmentImageInfo(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_FRAMEBUFFER_ATTACHMENT_IMAGE_INFO
 class VkFramebufferAttachmentImageInfoKHR(Structure):
     pass
 class VkRenderPassAttachmentBeginInfo(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_RENDER_PASS_ATTACHMENT_BEGIN_INFO
 class VkRenderPassAttachmentBeginInfoKHR(Structure):
     pass
 class VkPhysicalDeviceTextureCompressionASTCHDRFeatures(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_TEXTURE_COMPRESSION_ASTC_HDR_FEATURES
 class VkPhysicalDeviceTextureCompressionASTCHDRFeaturesEXT(Structure):
     pass
 class VkPhysicalDeviceCooperativeMatrixFeaturesNV(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_COOPERATIVE_MATRIX_FEATURES_NV
 class VkPhysicalDeviceCooperativeMatrixPropertiesNV(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_COOPERATIVE_MATRIX_PROPERTIES_NV
 class VkCooperativeMatrixPropertiesNV(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_COOPERATIVE_MATRIX_PROPERTIES_NV
 class VkPhysicalDeviceYcbcrImageArraysFeaturesEXT(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_YCBCR_IMAGE_ARRAYS_FEATURES_EXT
 class VkImageViewHandleInfoNVX(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_IMAGE_VIEW_HANDLE_INFO_NVX
 class VkImageViewAddressPropertiesNVX(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_IMAGE_VIEW_ADDRESS_PROPERTIES_NVX
 class VkPresentFrameTokenGGP(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_PRESENT_FRAME_TOKEN_GGP
 class VkPipelineCreationFeedback(Structure):
     pass
 class VkPipelineCreationFeedbackEXT(Structure):
     pass
 class VkPipelineCreationFeedbackCreateInfo(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_PIPELINE_CREATION_FEEDBACK_CREATE_INFO
 class VkPipelineCreationFeedbackCreateInfoEXT(Structure):
     pass
 class VkSurfaceFullScreenExclusiveInfoEXT(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_SURFACE_FULL_SCREEN_EXCLUSIVE_INFO_EXT
 class VkSurfaceFullScreenExclusiveWin32InfoEXT(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_SURFACE_FULL_SCREEN_EXCLUSIVE_WIN32_INFO_EXT
 class VkSurfaceCapabilitiesFullScreenExclusiveEXT(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_SURFACE_CAPABILITIES_FULL_SCREEN_EXCLUSIVE_EXT
 class VkPhysicalDevicePresentBarrierFeaturesNV(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_PRESENT_BARRIER_FEATURES_NV
 class VkSurfaceCapabilitiesPresentBarrierNV(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_SURFACE_CAPABILITIES_PRESENT_BARRIER_NV
 class VkSwapchainPresentBarrierCreateInfoNV(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_SWAPCHAIN_PRESENT_BARRIER_CREATE_INFO_NV
 class VkPhysicalDevicePerformanceQueryFeaturesKHR(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_PERFORMANCE_QUERY_FEATURES_KHR
 class VkPhysicalDevicePerformanceQueryPropertiesKHR(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_PERFORMANCE_QUERY_PROPERTIES_KHR
 class VkPerformanceCounterKHR(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_PERFORMANCE_COUNTER_KHR
 class VkPerformanceCounterDescriptionKHR(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_PERFORMANCE_COUNTER_DESCRIPTION_KHR
 class VkQueryPoolPerformanceCreateInfoKHR(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_QUERY_POOL_PERFORMANCE_CREATE_INFO_KHR
 class VkPerformanceCounterResultKHR(Union):
     pass
 class VkAcquireProfilingLockInfoKHR(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_ACQUIRE_PROFILING_LOCK_INFO_KHR
 class VkPerformanceQuerySubmitInfoKHR(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_PERFORMANCE_QUERY_SUBMIT_INFO_KHR
 class VkPerformanceQueryReservationInfoKHR(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_PERFORMANCE_QUERY_RESERVATION_INFO_KHR
 class VkHeadlessSurfaceCreateInfoEXT(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_HEADLESS_SURFACE_CREATE_INFO_EXT
 class VkPhysicalDeviceCoverageReductionModeFeaturesNV(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_COVERAGE_REDUCTION_MODE_FEATURES_NV
 class VkPipelineCoverageReductionStateCreateInfoNV(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_PIPELINE_COVERAGE_REDUCTION_STATE_CREATE_INFO_NV
 class VkFramebufferMixedSamplesCombinationNV(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_FRAMEBUFFER_MIXED_SAMPLES_COMBINATION_NV
 class VkPhysicalDeviceShaderIntegerFunctions2FeaturesINTEL(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_SHADER_INTEGER_FUNCTIONS_2_FEATURES_INTEL
 class VkPerformanceValueDataINTEL(Union):
     pass
 class VkPerformanceValueINTEL(Structure):
     pass
 class VkInitializePerformanceApiInfoINTEL(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_INITIALIZE_PERFORMANCE_API_INFO_INTEL
 class VkQueryPoolPerformanceQueryCreateInfoINTEL(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_QUERY_POOL_PERFORMANCE_QUERY_CREATE_INFO_INTEL
 class VkQueryPoolCreateInfoINTEL(Structure):
     pass
 class VkPerformanceMarkerInfoINTEL(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_PERFORMANCE_MARKER_INFO_INTEL
 class VkPerformanceStreamMarkerInfoINTEL(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_PERFORMANCE_STREAM_MARKER_INFO_INTEL
 class VkPerformanceOverrideInfoINTEL(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_PERFORMANCE_OVERRIDE_INFO_INTEL
 class VkPerformanceConfigurationAcquireInfoINTEL(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_PERFORMANCE_CONFIGURATION_ACQUIRE_INFO_INTEL
 class VkPhysicalDeviceShaderClockFeaturesKHR(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_SHADER_CLOCK_FEATURES_KHR
 class VkPhysicalDeviceIndexTypeUint8Features(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_INDEX_TYPE_UINT8_FEATURES
 class VkPhysicalDeviceIndexTypeUint8FeaturesKHR(Structure):
     pass
 class VkPhysicalDeviceIndexTypeUint8FeaturesEXT(Structure):
     pass
 class VkPhysicalDeviceShaderSMBuiltinsPropertiesNV(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_SHADER_SM_BUILTINS_PROPERTIES_NV
 class VkPhysicalDeviceShaderSMBuiltinsFeaturesNV(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_SHADER_SM_BUILTINS_FEATURES_NV
 class VkPhysicalDeviceFragmentShaderInterlockFeaturesEXT(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_FRAGMENT_SHADER_INTERLOCK_FEATURES_EXT
 class VkPhysicalDeviceSeparateDepthStencilLayoutsFeatures(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_SEPARATE_DEPTH_STENCIL_LAYOUTS_FEATURES
 class VkPhysicalDeviceSeparateDepthStencilLayoutsFeaturesKHR(Structure):
     pass
 class VkAttachmentReferenceStencilLayout(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_ATTACHMENT_REFERENCE_STENCIL_LAYOUT
 class VkPhysicalDevicePrimitiveTopologyListRestartFeaturesEXT(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_PRIMITIVE_TOPOLOGY_LIST_RESTART_FEATURES_EXT
 class VkAttachmentReferenceStencilLayoutKHR(Structure):
     pass
 class VkAttachmentDescriptionStencilLayout(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_ATTACHMENT_DESCRIPTION_STENCIL_LAYOUT
 class VkAttachmentDescriptionStencilLayoutKHR(Structure):
     pass
 class VkPhysicalDevicePipelineExecutablePropertiesFeaturesKHR(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_PIPELINE_EXECUTABLE_PROPERTIES_FEATURES_KHR
 class VkPipelineInfoKHR(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_PIPELINE_INFO_KHR
 class VkPipelineInfoEXT(Structure):
     pass
 class VkPipelineExecutablePropertiesKHR(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_PIPELINE_EXECUTABLE_PROPERTIES_KHR
 class VkPipelineExecutableInfoKHR(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_PIPELINE_EXECUTABLE_INFO_KHR
 class VkPipelineExecutableStatisticValueKHR(Union):
     pass
 class VkPipelineExecutableStatisticKHR(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_PIPELINE_EXECUTABLE_STATISTIC_KHR
 class VkPipelineExecutableInternalRepresentationKHR(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_PIPELINE_EXECUTABLE_INTERNAL_REPRESENTATION_KHR
 class VkPhysicalDeviceShaderDemoteToHelperInvocationFeatures(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_SHADER_DEMOTE_TO_HELPER_INVOCATION_FEATURES
 class VkPhysicalDeviceShaderDemoteToHelperInvocationFeaturesEXT(Structure):
     pass
 class VkPhysicalDeviceTexelBufferAlignmentFeaturesEXT(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_TEXEL_BUFFER_ALIGNMENT_FEATURES_EXT
 class VkPhysicalDeviceTexelBufferAlignmentProperties(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_TEXEL_BUFFER_ALIGNMENT_PROPERTIES
 class VkPhysicalDeviceTexelBufferAlignmentPropertiesEXT(Structure):
     pass
 class VkPhysicalDeviceSubgroupSizeControlFeatures(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_SUBGROUP_SIZE_CONTROL_FEATURES
 class VkPhysicalDeviceSubgroupSizeControlFeaturesEXT(Structure):
     pass
 class VkPhysicalDeviceSubgroupSizeControlProperties(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_SUBGROUP_SIZE_CONTROL_PROPERTIES
 class VkPhysicalDeviceSubgroupSizeControlPropertiesEXT(Structure):
     pass
 class VkPipelineShaderStageRequiredSubgroupSizeCreateInfo(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_PIPELINE_SHADER_STAGE_REQUIRED_SUBGROUP_SIZE_CREATE_INFO
 class VkPipelineShaderStageRequiredSubgroupSizeCreateInfoEXT(Structure):
     pass
 class VkShaderRequiredSubgroupSizeCreateInfoEXT(Structure):
     pass
 class VkSubpassShadingPipelineCreateInfoHUAWEI(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_SUBPASS_SHADING_PIPELINE_CREATE_INFO_HUAWEI
 class VkPhysicalDeviceSubpassShadingPropertiesHUAWEI(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_SUBPASS_SHADING_PROPERTIES_HUAWEI
 class VkPhysicalDeviceClusterCullingShaderPropertiesHUAWEI(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_CLUSTER_CULLING_SHADER_PROPERTIES_HUAWEI
 class VkMemoryOpaqueCaptureAddressAllocateInfo(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_MEMORY_OPAQUE_CAPTURE_ADDRESS_ALLOCATE_INFO
 class VkMemoryOpaqueCaptureAddressAllocateInfoKHR(Structure):
     pass
 class VkDeviceMemoryOpaqueCaptureAddressInfo(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_DEVICE_MEMORY_OPAQUE_CAPTURE_ADDRESS_INFO
 class VkDeviceMemoryOpaqueCaptureAddressInfoKHR(Structure):
     pass
 class VkPhysicalDeviceLineRasterizationFeatures(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_LINE_RASTERIZATION_FEATURES
 class VkPhysicalDeviceLineRasterizationFeaturesKHR(Structure):
     pass
 class VkPhysicalDeviceLineRasterizationFeaturesEXT(Structure):
     pass
 class VkPhysicalDeviceLineRasterizationProperties(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_LINE_RASTERIZATION_PROPERTIES
 class VkPhysicalDeviceLineRasterizationPropertiesKHR(Structure):
     pass
 class VkPhysicalDeviceLineRasterizationPropertiesEXT(Structure):
     pass
 class VkPipelineRasterizationLineStateCreateInfo(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_PIPELINE_RASTERIZATION_LINE_STATE_CREATE_INFO
 class VkPipelineRasterizationLineStateCreateInfoKHR(Structure):
     pass
 class VkPipelineRasterizationLineStateCreateInfoEXT(Structure):
     pass
 class VkPhysicalDevicePipelineCreationCacheControlFeatures(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_PIPELINE_CREATION_CACHE_CONTROL_FEATURES
 class VkPhysicalDevicePipelineCreationCacheControlFeaturesEXT(Structure):
     pass
 class VkPhysicalDeviceVulkan11Features(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_VULKAN_1_1_FEATURES
 class VkPhysicalDeviceVulkan11Properties(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_VULKAN_1_1_PROPERTIES
 class VkPhysicalDeviceVulkan12Features(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_VULKAN_1_2_FEATURES
 class VkPhysicalDeviceVulkan12Properties(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_VULKAN_1_2_PROPERTIES
 class VkPhysicalDeviceVulkan13Features(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_VULKAN_1_3_FEATURES
 class VkPhysicalDeviceVulkan13Properties(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_VULKAN_1_3_PROPERTIES
 class VkPhysicalDeviceVulkan14Features(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_VULKAN_1_4_FEATURES
 class VkPhysicalDeviceVulkan14Properties(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_VULKAN_1_4_PROPERTIES
 class VkPipelineCompilerControlCreateInfoAMD(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_PIPELINE_COMPILER_CONTROL_CREATE_INFO_AMD
 class VkPhysicalDeviceCoherentMemoryFeaturesAMD(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_COHERENT_MEMORY_FEATURES_AMD
 class VkFaultData(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_FAULT_DATA
 class VkFaultCallbackInfo(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_FAULT_CALLBACK_INFO
 class VkPhysicalDeviceToolProperties(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_TOOL_PROPERTIES
 class VkPhysicalDeviceToolPropertiesEXT(Structure):
     pass
 class VkSamplerCustomBorderColorCreateInfoEXT(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_SAMPLER_CUSTOM_BORDER_COLOR_CREATE_INFO_EXT
 class VkPhysicalDeviceCustomBorderColorPropertiesEXT(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_CUSTOM_BORDER_COLOR_PROPERTIES_EXT
 class VkPhysicalDeviceCustomBorderColorFeaturesEXT(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_CUSTOM_BORDER_COLOR_FEATURES_EXT
 class VkSamplerBorderColorComponentMappingCreateInfoEXT(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_SAMPLER_BORDER_COLOR_COMPONENT_MAPPING_CREATE_INFO_EXT
 class VkPhysicalDeviceBorderColorSwizzleFeaturesEXT(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_BORDER_COLOR_SWIZZLE_FEATURES_EXT
 class VkDeviceOrHostAddressKHR(Union):
     pass
 class VkDeviceOrHostAddressConstKHR(Union):
@@ -1748,25 +3419,49 @@ class VkDeviceOrHostAddressConstKHR(Union):
 class VkDeviceOrHostAddressConstAMDX(Union):
     pass
 class VkAccelerationStructureGeometryTrianglesDataKHR(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_ACCELERATION_STRUCTURE_GEOMETRY_TRIANGLES_DATA_KHR
 class VkAccelerationStructureGeometryAabbsDataKHR(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_ACCELERATION_STRUCTURE_GEOMETRY_AABBS_DATA_KHR
 class VkAccelerationStructureGeometryInstancesDataKHR(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_ACCELERATION_STRUCTURE_GEOMETRY_INSTANCES_DATA_KHR
 class VkAccelerationStructureGeometryLinearSweptSpheresDataNV(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_ACCELERATION_STRUCTURE_GEOMETRY_LINEAR_SWEPT_SPHERES_DATA_NV
 class VkAccelerationStructureGeometrySpheresDataNV(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_ACCELERATION_STRUCTURE_GEOMETRY_SPHERES_DATA_NV
 class VkAccelerationStructureGeometryDataKHR(Union):
     pass
 class VkAccelerationStructureGeometryKHR(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_ACCELERATION_STRUCTURE_GEOMETRY_KHR
 class VkAccelerationStructureBuildGeometryInfoKHR(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_ACCELERATION_STRUCTURE_BUILD_GEOMETRY_INFO_KHR
 class VkAccelerationStructureBuildRangeInfoKHR(Structure):
     pass
 class VkAccelerationStructureCreateInfoKHR(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_ACCELERATION_STRUCTURE_CREATE_INFO_KHR
 class VkAabbPositionsKHR(Structure):
     pass
 class VkAabbPositionsNV(Structure):
@@ -1780,49 +3475,103 @@ class VkAccelerationStructureInstanceKHR(Structure):
 class VkAccelerationStructureInstanceNV(Structure):
     pass
 class VkAccelerationStructureDeviceAddressInfoKHR(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_ACCELERATION_STRUCTURE_DEVICE_ADDRESS_INFO_KHR
 class VkAccelerationStructureVersionInfoKHR(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_ACCELERATION_STRUCTURE_VERSION_INFO_KHR
 class VkCopyAccelerationStructureInfoKHR(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_COPY_ACCELERATION_STRUCTURE_INFO_KHR
 class VkCopyAccelerationStructureToMemoryInfoKHR(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_COPY_ACCELERATION_STRUCTURE_TO_MEMORY_INFO_KHR
 class VkCopyMemoryToAccelerationStructureInfoKHR(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_COPY_MEMORY_TO_ACCELERATION_STRUCTURE_INFO_KHR
 class VkRayTracingPipelineInterfaceCreateInfoKHR(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_RAY_TRACING_PIPELINE_INTERFACE_CREATE_INFO_KHR
 class VkPipelineLibraryCreateInfoKHR(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_PIPELINE_LIBRARY_CREATE_INFO_KHR
 class VkRefreshObjectKHR(Structure):
     pass
 class VkRefreshObjectListKHR(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_REFRESH_OBJECT_LIST_KHR
 class VkPhysicalDeviceExtendedDynamicStateFeaturesEXT(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_EXTENDED_DYNAMIC_STATE_FEATURES_EXT
 class VkPhysicalDeviceExtendedDynamicState2FeaturesEXT(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_EXTENDED_DYNAMIC_STATE_2_FEATURES_EXT
 class VkPhysicalDeviceExtendedDynamicState3FeaturesEXT(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_EXTENDED_DYNAMIC_STATE_3_FEATURES_EXT
 class VkPhysicalDeviceExtendedDynamicState3PropertiesEXT(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_EXTENDED_DYNAMIC_STATE_3_PROPERTIES_EXT
 class VkColorBlendEquationEXT(Structure):
     pass
 class VkColorBlendAdvancedEXT(Structure):
     pass
 class VkRenderPassTransformBeginInfoQCOM(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_RENDER_PASS_TRANSFORM_BEGIN_INFO_QCOM
 class VkCopyCommandTransformInfoQCOM(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_COPY_COMMAND_TRANSFORM_INFO_QCOM
 class VkCommandBufferInheritanceRenderPassTransformInfoQCOM(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_COMMAND_BUFFER_INHERITANCE_RENDER_PASS_TRANSFORM_INFO_QCOM
 class VkPhysicalDevicePartitionedAccelerationStructureFeaturesNV(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_PARTITIONED_ACCELERATION_STRUCTURE_FEATURES_NV
 class VkPhysicalDevicePartitionedAccelerationStructurePropertiesNV(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_PARTITIONED_ACCELERATION_STRUCTURE_PROPERTIES_NV
 class VkBuildPartitionedAccelerationStructureIndirectCommandNV(Structure):
     pass
 class VkPartitionedAccelerationStructureFlagsNV(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_PARTITIONED_ACCELERATION_STRUCTURE_FLAGS_NV
 class VkPartitionedAccelerationStructureWriteInstanceDataNV(Structure):
     pass
 class VkPartitionedAccelerationStructureUpdateInstanceDataNV(Structure):
@@ -1830,129 +3579,267 @@ class VkPartitionedAccelerationStructureUpdateInstanceDataNV(Structure):
 class VkPartitionedAccelerationStructureWritePartitionTranslationDataNV(Structure):
     pass
 class VkWriteDescriptorSetPartitionedAccelerationStructureNV(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_WRITE_DESCRIPTOR_SET_PARTITIONED_ACCELERATION_STRUCTURE_NV
 class VkPartitionedAccelerationStructureInstancesInputNV(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_PARTITIONED_ACCELERATION_STRUCTURE_INSTANCES_INPUT_NV
 class VkBuildPartitionedAccelerationStructureInfoNV(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_BUILD_PARTITIONED_ACCELERATION_STRUCTURE_INFO_NV
 class VkPhysicalDeviceDiagnosticsConfigFeaturesNV(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_DIAGNOSTICS_CONFIG_FEATURES_NV
 class VkDeviceDiagnosticsConfigCreateInfoNV(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_DEVICE_DIAGNOSTICS_CONFIG_CREATE_INFO_NV
 class VkPipelineOfflineCreateInfo(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_PIPELINE_OFFLINE_CREATE_INFO
 class VkPhysicalDeviceZeroInitializeWorkgroupMemoryFeatures(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_ZERO_INITIALIZE_WORKGROUP_MEMORY_FEATURES
 class VkPhysicalDeviceZeroInitializeWorkgroupMemoryFeaturesKHR(Structure):
     pass
 class VkPhysicalDeviceShaderSubgroupUniformControlFlowFeaturesKHR(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_SHADER_SUBGROUP_UNIFORM_CONTROL_FLOW_FEATURES_KHR
 class VkPhysicalDeviceRobustness2FeaturesKHR(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_ROBUSTNESS_2_FEATURES_KHR
 class VkPhysicalDeviceRobustness2FeaturesEXT(Structure):
     pass
 class VkPhysicalDeviceRobustness2PropertiesKHR(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_ROBUSTNESS_2_PROPERTIES_KHR
 class VkPhysicalDeviceRobustness2PropertiesEXT(Structure):
     pass
 class VkPhysicalDeviceImageRobustnessFeatures(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_IMAGE_ROBUSTNESS_FEATURES
 class VkPhysicalDeviceImageRobustnessFeaturesEXT(Structure):
     pass
 class VkPhysicalDeviceWorkgroupMemoryExplicitLayoutFeaturesKHR(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_WORKGROUP_MEMORY_EXPLICIT_LAYOUT_FEATURES_KHR
 class VkPhysicalDevicePortabilitySubsetFeaturesKHR(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_PORTABILITY_SUBSET_FEATURES_KHR
 class VkPhysicalDevicePortabilitySubsetPropertiesKHR(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_PORTABILITY_SUBSET_PROPERTIES_KHR
 class VkPhysicalDevice4444FormatsFeaturesEXT(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_4444_FORMATS_FEATURES_EXT
 class VkPhysicalDeviceSubpassShadingFeaturesHUAWEI(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_SUBPASS_SHADING_FEATURES_HUAWEI
 class VkPhysicalDeviceClusterCullingShaderFeaturesHUAWEI(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_CLUSTER_CULLING_SHADER_FEATURES_HUAWEI
 class VkPhysicalDeviceClusterCullingShaderVrsFeaturesHUAWEI(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_CLUSTER_CULLING_SHADER_VRS_FEATURES_HUAWEI
 class VkBufferCopy2(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_BUFFER_COPY_2
 class VkBufferCopy2KHR(Structure):
     pass
 class VkImageCopy2(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_IMAGE_COPY_2
 class VkImageCopy2KHR(Structure):
     pass
 class VkImageBlit2(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_IMAGE_BLIT_2
 class VkImageBlit2KHR(Structure):
     pass
 class VkBufferImageCopy2(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_BUFFER_IMAGE_COPY_2
 class VkBufferImageCopy2KHR(Structure):
     pass
 class VkImageResolve2(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_IMAGE_RESOLVE_2
 class VkImageResolve2KHR(Structure):
     pass
 class VkCopyBufferInfo2(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_COPY_BUFFER_INFO_2
 class VkCopyBufferInfo2KHR(Structure):
     pass
 class VkCopyImageInfo2(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_COPY_IMAGE_INFO_2
 class VkCopyImageInfo2KHR(Structure):
     pass
 class VkBlitImageInfo2(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_BLIT_IMAGE_INFO_2
 class VkBlitImageInfo2KHR(Structure):
     pass
 class VkCopyBufferToImageInfo2(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_COPY_BUFFER_TO_IMAGE_INFO_2
 class VkCopyBufferToImageInfo2KHR(Structure):
     pass
 class VkCopyImageToBufferInfo2(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_COPY_IMAGE_TO_BUFFER_INFO_2
 class VkCopyImageToBufferInfo2KHR(Structure):
     pass
 class VkResolveImageInfo2(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_RESOLVE_IMAGE_INFO_2
 class VkResolveImageInfo2KHR(Structure):
     pass
 class VkPhysicalDeviceShaderImageAtomicInt64FeaturesEXT(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_SHADER_IMAGE_ATOMIC_INT64_FEATURES_EXT
 class VkFragmentShadingRateAttachmentInfoKHR(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_FRAGMENT_SHADING_RATE_ATTACHMENT_INFO_KHR
 class VkPipelineFragmentShadingRateStateCreateInfoKHR(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_PIPELINE_FRAGMENT_SHADING_RATE_STATE_CREATE_INFO_KHR
 class VkPhysicalDeviceFragmentShadingRateFeaturesKHR(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_FRAGMENT_SHADING_RATE_FEATURES_KHR
 class VkPhysicalDeviceFragmentShadingRatePropertiesKHR(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_FRAGMENT_SHADING_RATE_PROPERTIES_KHR
 class VkPhysicalDeviceFragmentShadingRateKHR(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_FRAGMENT_SHADING_RATE_KHR
 class VkPhysicalDeviceShaderTerminateInvocationFeatures(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_SHADER_TERMINATE_INVOCATION_FEATURES
 class VkPhysicalDeviceShaderTerminateInvocationFeaturesKHR(Structure):
     pass
 class VkPhysicalDeviceFragmentShadingRateEnumsFeaturesNV(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_FRAGMENT_SHADING_RATE_ENUMS_FEATURES_NV
 class VkPhysicalDeviceFragmentShadingRateEnumsPropertiesNV(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_FRAGMENT_SHADING_RATE_ENUMS_PROPERTIES_NV
 class VkPipelineFragmentShadingRateEnumStateCreateInfoNV(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_PIPELINE_FRAGMENT_SHADING_RATE_ENUM_STATE_CREATE_INFO_NV
 class VkAccelerationStructureBuildSizesInfoKHR(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_ACCELERATION_STRUCTURE_BUILD_SIZES_INFO_KHR
 class VkPhysicalDeviceImage2DViewOf3DFeaturesEXT(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_IMAGE_2D_VIEW_OF_3D_FEATURES_EXT
 class VkPhysicalDeviceImageSlicedViewOf3DFeaturesEXT(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_IMAGE_SLICED_VIEW_OF_3D_FEATURES_EXT
 class VkPhysicalDeviceAttachmentFeedbackLoopDynamicStateFeaturesEXT(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_ATTACHMENT_FEEDBACK_LOOP_DYNAMIC_STATE_FEATURES_EXT
 class VkPhysicalDeviceLegacyVertexAttributesFeaturesEXT(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_LEGACY_VERTEX_ATTRIBUTES_FEATURES_EXT
 class VkPhysicalDeviceLegacyVertexAttributesPropertiesEXT(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_LEGACY_VERTEX_ATTRIBUTES_PROPERTIES_EXT
 class VkPhysicalDeviceMutableDescriptorTypeFeaturesEXT(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_MUTABLE_DESCRIPTOR_TYPE_FEATURES_EXT
 class VkPhysicalDeviceMutableDescriptorTypeFeaturesVALVE(Structure):
     pass
 class VkMutableDescriptorTypeListEXT(Structure):
@@ -1960,51 +3847,111 @@ class VkMutableDescriptorTypeListEXT(Structure):
 class VkMutableDescriptorTypeListVALVE(Structure):
     pass
 class VkMutableDescriptorTypeCreateInfoEXT(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_MUTABLE_DESCRIPTOR_TYPE_CREATE_INFO_EXT
 class VkMutableDescriptorTypeCreateInfoVALVE(Structure):
     pass
 class VkPhysicalDeviceDepthClipControlFeaturesEXT(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_DEPTH_CLIP_CONTROL_FEATURES_EXT
 class VkPhysicalDeviceZeroInitializeDeviceMemoryFeaturesEXT(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_ZERO_INITIALIZE_DEVICE_MEMORY_FEATURES_EXT
 class VkBeginCustomResolveInfoEXT(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_BEGIN_CUSTOM_RESOLVE_INFO_EXT
 class VkPhysicalDeviceCustomResolveFeaturesEXT(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_CUSTOM_RESOLVE_FEATURES_EXT
 class VkCustomResolveCreateInfoEXT(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_CUSTOM_RESOLVE_CREATE_INFO_EXT
 class VkPhysicalDeviceDeviceGeneratedCommandsFeaturesEXT(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_DEVICE_GENERATED_COMMANDS_FEATURES_EXT
 class VkPhysicalDeviceDeviceGeneratedCommandsPropertiesEXT(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_DEVICE_GENERATED_COMMANDS_PROPERTIES_EXT
 class VkGeneratedCommandsPipelineInfoEXT(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_GENERATED_COMMANDS_PIPELINE_INFO_EXT
 class VkGeneratedCommandsShaderInfoEXT(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_GENERATED_COMMANDS_SHADER_INFO_EXT
 class VkGeneratedCommandsMemoryRequirementsInfoEXT(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_GENERATED_COMMANDS_MEMORY_REQUIREMENTS_INFO_EXT
 class VkIndirectExecutionSetPipelineInfoEXT(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_INDIRECT_EXECUTION_SET_PIPELINE_INFO_EXT
 class VkIndirectExecutionSetShaderLayoutInfoEXT(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_INDIRECT_EXECUTION_SET_SHADER_LAYOUT_INFO_EXT
 class VkIndirectExecutionSetShaderInfoEXT(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_INDIRECT_EXECUTION_SET_SHADER_INFO_EXT
 class VkIndirectExecutionSetInfoEXT(Union):
     pass
 class VkIndirectExecutionSetCreateInfoEXT(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_INDIRECT_EXECUTION_SET_CREATE_INFO_EXT
 class VkGeneratedCommandsInfoEXT(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_GENERATED_COMMANDS_INFO_EXT
 class VkWriteIndirectExecutionSetPipelineEXT(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_WRITE_INDIRECT_EXECUTION_SET_PIPELINE_EXT
 class VkWriteIndirectExecutionSetShaderEXT(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_WRITE_INDIRECT_EXECUTION_SET_SHADER_EXT
 class VkIndirectCommandsLayoutCreateInfoEXT(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_INDIRECT_COMMANDS_LAYOUT_CREATE_INFO_EXT
 class VkIndirectCommandsTokenDataEXT(Union):
     pass
 class VkIndirectCommandsLayoutTokenEXT(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_INDIRECT_COMMANDS_LAYOUT_TOKEN_EXT
 class VkDrawIndirectCountIndirectCommandEXT(Structure):
     pass
 class VkIndirectCommandsVertexBufferTokenEXT(Structure):
@@ -2020,445 +3967,1021 @@ class VkIndirectCommandsPushConstantTokenEXT(Structure):
 class VkIndirectCommandsExecutionSetTokenEXT(Structure):
     pass
 class VkPipelineViewportDepthClipControlCreateInfoEXT(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_PIPELINE_VIEWPORT_DEPTH_CLIP_CONTROL_CREATE_INFO_EXT
 class VkPhysicalDeviceDepthClampControlFeaturesEXT(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_DEPTH_CLAMP_CONTROL_FEATURES_EXT
 class VkPipelineViewportDepthClampControlCreateInfoEXT(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_PIPELINE_VIEWPORT_DEPTH_CLAMP_CONTROL_CREATE_INFO_EXT
 class VkPhysicalDeviceVertexInputDynamicStateFeaturesEXT(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_VERTEX_INPUT_DYNAMIC_STATE_FEATURES_EXT
 class VkPhysicalDeviceExternalMemoryRDMAFeaturesNV(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_EXTERNAL_MEMORY_RDMA_FEATURES_NV
 class VkPhysicalDeviceShaderRelaxedExtendedInstructionFeaturesKHR(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_SHADER_RELAXED_EXTENDED_INSTRUCTION_FEATURES_KHR
 class VkVertexInputBindingDescription2EXT(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_VERTEX_INPUT_BINDING_DESCRIPTION_2_EXT
 class VkVertexInputAttributeDescription2EXT(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_VERTEX_INPUT_ATTRIBUTE_DESCRIPTION_2_EXT
 class VkPhysicalDeviceColorWriteEnableFeaturesEXT(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_COLOR_WRITE_ENABLE_FEATURES_EXT
 class VkPipelineColorWriteCreateInfoEXT(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_PIPELINE_COLOR_WRITE_CREATE_INFO_EXT
 class VkMemoryBarrier2(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_MEMORY_BARRIER_2
 class VkMemoryBarrier2KHR(Structure):
     pass
 class VkImageMemoryBarrier2(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_IMAGE_MEMORY_BARRIER_2
 class VkImageMemoryBarrier2KHR(Structure):
     pass
 class VkBufferMemoryBarrier2(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_BUFFER_MEMORY_BARRIER_2
 class VkBufferMemoryBarrier2KHR(Structure):
     pass
 class VkMemoryBarrierAccessFlags3KHR(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_MEMORY_BARRIER_ACCESS_FLAGS_3_KHR
 class VkDependencyInfo(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_DEPENDENCY_INFO
 class VkDependencyInfoKHR(Structure):
     pass
 class VkSemaphoreSubmitInfo(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_SEMAPHORE_SUBMIT_INFO
 class VkSemaphoreSubmitInfoKHR(Structure):
     pass
 class VkCommandBufferSubmitInfo(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_COMMAND_BUFFER_SUBMIT_INFO
 class VkCommandBufferSubmitInfoKHR(Structure):
     pass
 class VkSubmitInfo2(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_SUBMIT_INFO_2
 class VkSubmitInfo2KHR(Structure):
     pass
 class VkQueueFamilyCheckpointProperties2NV(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_QUEUE_FAMILY_CHECKPOINT_PROPERTIES_2_NV
 class VkCheckpointData2NV(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_CHECKPOINT_DATA_2_NV
 class VkPhysicalDeviceSynchronization2Features(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_SYNCHRONIZATION_2_FEATURES
 class VkPhysicalDeviceSynchronization2FeaturesKHR(Structure):
     pass
 class VkPhysicalDeviceUnifiedImageLayoutsFeaturesKHR(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_UNIFIED_IMAGE_LAYOUTS_FEATURES_KHR
 class VkPhysicalDeviceHostImageCopyFeatures(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_HOST_IMAGE_COPY_FEATURES
 class VkPhysicalDeviceHostImageCopyFeaturesEXT(Structure):
     pass
 class VkPhysicalDeviceHostImageCopyProperties(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_HOST_IMAGE_COPY_PROPERTIES
 class VkPhysicalDeviceHostImageCopyPropertiesEXT(Structure):
     pass
 class VkMemoryToImageCopy(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_MEMORY_TO_IMAGE_COPY
 class VkMemoryToImageCopyEXT(Structure):
     pass
 class VkImageToMemoryCopy(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_IMAGE_TO_MEMORY_COPY
 class VkImageToMemoryCopyEXT(Structure):
     pass
 class VkCopyMemoryToImageInfo(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_COPY_MEMORY_TO_IMAGE_INFO
 class VkCopyMemoryToImageInfoEXT(Structure):
     pass
 class VkCopyImageToMemoryInfo(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_COPY_IMAGE_TO_MEMORY_INFO
 class VkCopyImageToMemoryInfoEXT(Structure):
     pass
 class VkCopyImageToImageInfo(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_COPY_IMAGE_TO_IMAGE_INFO
 class VkCopyImageToImageInfoEXT(Structure):
     pass
 class VkHostImageLayoutTransitionInfo(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_HOST_IMAGE_LAYOUT_TRANSITION_INFO
 class VkHostImageLayoutTransitionInfoEXT(Structure):
     pass
 class VkSubresourceHostMemcpySize(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_SUBRESOURCE_HOST_MEMCPY_SIZE
 class VkSubresourceHostMemcpySizeEXT(Structure):
     pass
 class VkHostImageCopyDevicePerformanceQuery(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_HOST_IMAGE_COPY_DEVICE_PERFORMANCE_QUERY
 class VkHostImageCopyDevicePerformanceQueryEXT(Structure):
     pass
 class VkPhysicalDeviceVulkanSC10Properties(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_VULKAN_SC_1_0_PROPERTIES
 class VkPipelinePoolSize(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_PIPELINE_POOL_SIZE
 class VkDeviceObjectReservationCreateInfo(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_DEVICE_OBJECT_RESERVATION_CREATE_INFO
 class VkCommandPoolMemoryReservationCreateInfo(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_COMMAND_POOL_MEMORY_RESERVATION_CREATE_INFO
 class VkCommandPoolMemoryConsumption(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_COMMAND_POOL_MEMORY_CONSUMPTION
 class VkPhysicalDeviceVulkanSC10Features(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_VULKAN_SC_1_0_FEATURES
 class VkPhysicalDevicePrimitivesGeneratedQueryFeaturesEXT(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_PRIMITIVES_GENERATED_QUERY_FEATURES_EXT
 class VkPhysicalDeviceLegacyDitheringFeaturesEXT(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_LEGACY_DITHERING_FEATURES_EXT
 class VkPhysicalDeviceMultisampledRenderToSingleSampledFeaturesEXT(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_MULTISAMPLED_RENDER_TO_SINGLE_SAMPLED_FEATURES_EXT
 class VkSurfaceCapabilitiesPresentId2KHR(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_SURFACE_CAPABILITIES_PRESENT_ID_2_KHR
 class VkSurfaceCapabilitiesPresentWait2KHR(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_SURFACE_CAPABILITIES_PRESENT_WAIT_2_KHR
 class VkSubpassResolvePerformanceQueryEXT(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_SUBPASS_RESOLVE_PERFORMANCE_QUERY_EXT
 class VkMultisampledRenderToSingleSampledInfoEXT(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_MULTISAMPLED_RENDER_TO_SINGLE_SAMPLED_INFO_EXT
 class VkPhysicalDevicePipelineProtectedAccessFeatures(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_PIPELINE_PROTECTED_ACCESS_FEATURES
 class VkPhysicalDevicePipelineProtectedAccessFeaturesEXT(Structure):
     pass
 class VkQueueFamilyVideoPropertiesKHR(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_QUEUE_FAMILY_VIDEO_PROPERTIES_KHR
 class VkQueueFamilyQueryResultStatusPropertiesKHR(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_QUEUE_FAMILY_QUERY_RESULT_STATUS_PROPERTIES_KHR
 class VkVideoProfileListInfoKHR(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_VIDEO_PROFILE_LIST_INFO_KHR
 class VkPhysicalDeviceVideoFormatInfoKHR(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_VIDEO_FORMAT_INFO_KHR
 class VkVideoFormatPropertiesKHR(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_VIDEO_FORMAT_PROPERTIES_KHR
 class VkVideoEncodeQuantizationMapCapabilitiesKHR(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_VIDEO_ENCODE_QUANTIZATION_MAP_CAPABILITIES_KHR
 class VkVideoEncodeH264QuantizationMapCapabilitiesKHR(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_VIDEO_ENCODE_H264_QUANTIZATION_MAP_CAPABILITIES_KHR
 class VkVideoEncodeH265QuantizationMapCapabilitiesKHR(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_VIDEO_ENCODE_H265_QUANTIZATION_MAP_CAPABILITIES_KHR
 class VkVideoEncodeAV1QuantizationMapCapabilitiesKHR(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_VIDEO_ENCODE_AV1_QUANTIZATION_MAP_CAPABILITIES_KHR
 class VkVideoFormatQuantizationMapPropertiesKHR(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_VIDEO_FORMAT_QUANTIZATION_MAP_PROPERTIES_KHR
 class VkVideoFormatH265QuantizationMapPropertiesKHR(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_VIDEO_FORMAT_H265_QUANTIZATION_MAP_PROPERTIES_KHR
 class VkVideoFormatAV1QuantizationMapPropertiesKHR(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_VIDEO_FORMAT_AV1_QUANTIZATION_MAP_PROPERTIES_KHR
 class VkVideoProfileInfoKHR(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_VIDEO_PROFILE_INFO_KHR
 class VkVideoCapabilitiesKHR(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_VIDEO_CAPABILITIES_KHR
 class VkVideoSessionMemoryRequirementsKHR(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_VIDEO_SESSION_MEMORY_REQUIREMENTS_KHR
 class VkBindVideoSessionMemoryInfoKHR(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_BIND_VIDEO_SESSION_MEMORY_INFO_KHR
 class VkVideoPictureResourceInfoKHR(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_VIDEO_PICTURE_RESOURCE_INFO_KHR
 class VkVideoReferenceSlotInfoKHR(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_VIDEO_REFERENCE_SLOT_INFO_KHR
 class VkVideoDecodeCapabilitiesKHR(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_VIDEO_DECODE_CAPABILITIES_KHR
 class VkVideoDecodeUsageInfoKHR(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_VIDEO_DECODE_USAGE_INFO_KHR
 class VkVideoDecodeInfoKHR(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_VIDEO_DECODE_INFO_KHR
 class VkPhysicalDeviceVideoMaintenance1FeaturesKHR(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_VIDEO_MAINTENANCE_1_FEATURES_KHR
 class VkPhysicalDeviceVideoMaintenance2FeaturesKHR(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_VIDEO_MAINTENANCE_2_FEATURES_KHR
 class VkVideoInlineQueryInfoKHR(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_VIDEO_INLINE_QUERY_INFO_KHR
 class VkVideoDecodeH264ProfileInfoKHR(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_VIDEO_DECODE_H264_PROFILE_INFO_KHR
 class VkVideoDecodeH264CapabilitiesKHR(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_VIDEO_DECODE_H264_CAPABILITIES_KHR
 class VkVideoDecodeH264SessionParametersAddInfoKHR(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_VIDEO_DECODE_H264_SESSION_PARAMETERS_ADD_INFO_KHR
 class VkVideoDecodeH264SessionParametersCreateInfoKHR(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_VIDEO_DECODE_H264_SESSION_PARAMETERS_CREATE_INFO_KHR
 class VkVideoDecodeH264InlineSessionParametersInfoKHR(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_VIDEO_DECODE_H264_INLINE_SESSION_PARAMETERS_INFO_KHR
 class VkVideoDecodeH264PictureInfoKHR(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_VIDEO_DECODE_H264_PICTURE_INFO_KHR
 class VkVideoDecodeH264DpbSlotInfoKHR(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_VIDEO_DECODE_H264_DPB_SLOT_INFO_KHR
 class VkVideoDecodeH265ProfileInfoKHR(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_VIDEO_DECODE_H265_PROFILE_INFO_KHR
 class VkVideoDecodeH265CapabilitiesKHR(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_VIDEO_DECODE_H265_CAPABILITIES_KHR
 class VkVideoDecodeH265SessionParametersAddInfoKHR(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_VIDEO_DECODE_H265_SESSION_PARAMETERS_ADD_INFO_KHR
 class VkVideoDecodeH265SessionParametersCreateInfoKHR(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_VIDEO_DECODE_H265_SESSION_PARAMETERS_CREATE_INFO_KHR
 class VkVideoDecodeH265InlineSessionParametersInfoKHR(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_VIDEO_DECODE_H265_INLINE_SESSION_PARAMETERS_INFO_KHR
 class VkVideoDecodeH265PictureInfoKHR(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_VIDEO_DECODE_H265_PICTURE_INFO_KHR
 class VkVideoDecodeH265DpbSlotInfoKHR(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_VIDEO_DECODE_H265_DPB_SLOT_INFO_KHR
 class VkPhysicalDeviceVideoDecodeVP9FeaturesKHR(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_VIDEO_DECODE_VP9_FEATURES_KHR
 class VkVideoDecodeVP9ProfileInfoKHR(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_VIDEO_DECODE_VP9_PROFILE_INFO_KHR
 class VkVideoDecodeVP9CapabilitiesKHR(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_VIDEO_DECODE_VP9_CAPABILITIES_KHR
 class VkVideoDecodeVP9PictureInfoKHR(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_VIDEO_DECODE_VP9_PICTURE_INFO_KHR
 class VkVideoDecodeAV1ProfileInfoKHR(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_VIDEO_DECODE_AV1_PROFILE_INFO_KHR
 class VkVideoDecodeAV1CapabilitiesKHR(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_VIDEO_DECODE_AV1_CAPABILITIES_KHR
 class VkVideoDecodeAV1SessionParametersCreateInfoKHR(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_VIDEO_DECODE_AV1_SESSION_PARAMETERS_CREATE_INFO_KHR
 class VkVideoDecodeAV1InlineSessionParametersInfoKHR(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_VIDEO_DECODE_AV1_INLINE_SESSION_PARAMETERS_INFO_KHR
 class VkVideoDecodeAV1PictureInfoKHR(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_VIDEO_DECODE_AV1_PICTURE_INFO_KHR
 class VkVideoDecodeAV1DpbSlotInfoKHR(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_VIDEO_DECODE_AV1_DPB_SLOT_INFO_KHR
 class VkVideoSessionCreateInfoKHR(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_VIDEO_SESSION_CREATE_INFO_KHR
 class VkVideoSessionParametersCreateInfoKHR(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_VIDEO_SESSION_PARAMETERS_CREATE_INFO_KHR
 class VkVideoSessionParametersUpdateInfoKHR(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_VIDEO_SESSION_PARAMETERS_UPDATE_INFO_KHR
 class VkVideoEncodeSessionParametersGetInfoKHR(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_VIDEO_ENCODE_SESSION_PARAMETERS_GET_INFO_KHR
 class VkVideoEncodeSessionParametersFeedbackInfoKHR(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_VIDEO_ENCODE_SESSION_PARAMETERS_FEEDBACK_INFO_KHR
 class VkVideoBeginCodingInfoKHR(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_VIDEO_BEGIN_CODING_INFO_KHR
 class VkVideoEndCodingInfoKHR(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_VIDEO_END_CODING_INFO_KHR
 class VkVideoCodingControlInfoKHR(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_VIDEO_CODING_CONTROL_INFO_KHR
 class VkVideoEncodeUsageInfoKHR(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_VIDEO_ENCODE_USAGE_INFO_KHR
 class VkVideoEncodeInfoKHR(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_VIDEO_ENCODE_INFO_KHR
 class VkVideoEncodeQuantizationMapInfoKHR(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_VIDEO_ENCODE_QUANTIZATION_MAP_INFO_KHR
 class VkVideoEncodeQuantizationMapSessionParametersCreateInfoKHR(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_VIDEO_ENCODE_QUANTIZATION_MAP_SESSION_PARAMETERS_CREATE_INFO_KHR
 class VkPhysicalDeviceVideoEncodeQuantizationMapFeaturesKHR(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_VIDEO_ENCODE_QUANTIZATION_MAP_FEATURES_KHR
 class VkQueryPoolVideoEncodeFeedbackCreateInfoKHR(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_QUERY_POOL_VIDEO_ENCODE_FEEDBACK_CREATE_INFO_KHR
 class VkVideoEncodeQualityLevelInfoKHR(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_VIDEO_ENCODE_QUALITY_LEVEL_INFO_KHR
 class VkPhysicalDeviceVideoEncodeQualityLevelInfoKHR(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_VIDEO_ENCODE_QUALITY_LEVEL_INFO_KHR
 class VkVideoEncodeQualityLevelPropertiesKHR(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_VIDEO_ENCODE_QUALITY_LEVEL_PROPERTIES_KHR
 class VkVideoEncodeRateControlInfoKHR(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_VIDEO_ENCODE_RATE_CONTROL_INFO_KHR
 class VkVideoEncodeRateControlLayerInfoKHR(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_VIDEO_ENCODE_RATE_CONTROL_LAYER_INFO_KHR
 class VkVideoEncodeCapabilitiesKHR(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_VIDEO_ENCODE_CAPABILITIES_KHR
 class VkVideoEncodeH264CapabilitiesKHR(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_VIDEO_ENCODE_H264_CAPABILITIES_KHR
 class VkVideoEncodeH264QpKHR(Structure):
     pass
 class VkVideoEncodeH264QualityLevelPropertiesKHR(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_VIDEO_ENCODE_H264_QUALITY_LEVEL_PROPERTIES_KHR
 class VkVideoEncodeH264SessionCreateInfoKHR(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_VIDEO_ENCODE_H264_SESSION_CREATE_INFO_KHR
 class VkVideoEncodeH264SessionParametersAddInfoKHR(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_VIDEO_ENCODE_H264_SESSION_PARAMETERS_ADD_INFO_KHR
 class VkVideoEncodeH264SessionParametersCreateInfoKHR(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_VIDEO_ENCODE_H264_SESSION_PARAMETERS_CREATE_INFO_KHR
 class VkVideoEncodeH264SessionParametersGetInfoKHR(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_VIDEO_ENCODE_H264_SESSION_PARAMETERS_GET_INFO_KHR
 class VkVideoEncodeH264SessionParametersFeedbackInfoKHR(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_VIDEO_ENCODE_H264_SESSION_PARAMETERS_FEEDBACK_INFO_KHR
 class VkVideoEncodeH264DpbSlotInfoKHR(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_VIDEO_ENCODE_H264_DPB_SLOT_INFO_KHR
 class VkVideoEncodeH264PictureInfoKHR(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_VIDEO_ENCODE_H264_PICTURE_INFO_KHR
 class VkVideoEncodeH264ProfileInfoKHR(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_VIDEO_ENCODE_H264_PROFILE_INFO_KHR
 class VkVideoEncodeH264NaluSliceInfoKHR(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_VIDEO_ENCODE_H264_NALU_SLICE_INFO_KHR
 class VkVideoEncodeH264RateControlInfoKHR(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_VIDEO_ENCODE_H264_RATE_CONTROL_INFO_KHR
 class VkVideoEncodeH264FrameSizeKHR(Structure):
     pass
 class VkVideoEncodeH264GopRemainingFrameInfoKHR(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_VIDEO_ENCODE_H264_GOP_REMAINING_FRAME_INFO_KHR
 class VkVideoEncodeH264RateControlLayerInfoKHR(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_VIDEO_ENCODE_H264_RATE_CONTROL_LAYER_INFO_KHR
 class VkVideoEncodeH265CapabilitiesKHR(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_VIDEO_ENCODE_H265_CAPABILITIES_KHR
 class VkVideoEncodeH265QpKHR(Structure):
     pass
 class VkVideoEncodeH265QualityLevelPropertiesKHR(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_VIDEO_ENCODE_H265_QUALITY_LEVEL_PROPERTIES_KHR
 class VkVideoEncodeH265SessionCreateInfoKHR(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_VIDEO_ENCODE_H265_SESSION_CREATE_INFO_KHR
 class VkVideoEncodeH265SessionParametersAddInfoKHR(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_VIDEO_ENCODE_H265_SESSION_PARAMETERS_ADD_INFO_KHR
 class VkVideoEncodeH265SessionParametersCreateInfoKHR(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_VIDEO_ENCODE_H265_SESSION_PARAMETERS_CREATE_INFO_KHR
 class VkVideoEncodeH265SessionParametersGetInfoKHR(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_VIDEO_ENCODE_H265_SESSION_PARAMETERS_GET_INFO_KHR
 class VkVideoEncodeH265SessionParametersFeedbackInfoKHR(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_VIDEO_ENCODE_H265_SESSION_PARAMETERS_FEEDBACK_INFO_KHR
 class VkVideoEncodeH265PictureInfoKHR(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_VIDEO_ENCODE_H265_PICTURE_INFO_KHR
 class VkVideoEncodeH265NaluSliceSegmentInfoKHR(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_VIDEO_ENCODE_H265_NALU_SLICE_SEGMENT_INFO_KHR
 class VkVideoEncodeH265RateControlInfoKHR(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_VIDEO_ENCODE_H265_RATE_CONTROL_INFO_KHR
 class VkVideoEncodeH265FrameSizeKHR(Structure):
     pass
 class VkVideoEncodeH265GopRemainingFrameInfoKHR(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_VIDEO_ENCODE_H265_GOP_REMAINING_FRAME_INFO_KHR
 class VkVideoEncodeH265RateControlLayerInfoKHR(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_VIDEO_ENCODE_H265_RATE_CONTROL_LAYER_INFO_KHR
 class VkVideoEncodeH265ProfileInfoKHR(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_VIDEO_ENCODE_H265_PROFILE_INFO_KHR
 class VkVideoEncodeH265DpbSlotInfoKHR(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_VIDEO_ENCODE_H265_DPB_SLOT_INFO_KHR
 class VkVideoEncodeAV1CapabilitiesKHR(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_VIDEO_ENCODE_AV1_CAPABILITIES_KHR
 class VkVideoEncodeAV1QIndexKHR(Structure):
     pass
 class VkVideoEncodeAV1QualityLevelPropertiesKHR(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_VIDEO_ENCODE_AV1_QUALITY_LEVEL_PROPERTIES_KHR
 class VkPhysicalDeviceVideoEncodeAV1FeaturesKHR(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_VIDEO_ENCODE_AV1_FEATURES_KHR
 class VkVideoEncodeAV1SessionCreateInfoKHR(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_VIDEO_ENCODE_AV1_SESSION_CREATE_INFO_KHR
 class VkVideoEncodeAV1SessionParametersCreateInfoKHR(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_VIDEO_ENCODE_AV1_SESSION_PARAMETERS_CREATE_INFO_KHR
 class VkVideoEncodeAV1DpbSlotInfoKHR(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_VIDEO_ENCODE_AV1_DPB_SLOT_INFO_KHR
 class VkVideoEncodeAV1PictureInfoKHR(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_VIDEO_ENCODE_AV1_PICTURE_INFO_KHR
 class VkVideoEncodeAV1ProfileInfoKHR(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_VIDEO_ENCODE_AV1_PROFILE_INFO_KHR
 class VkVideoEncodeAV1RateControlInfoKHR(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_VIDEO_ENCODE_AV1_RATE_CONTROL_INFO_KHR
 class VkVideoEncodeAV1FrameSizeKHR(Structure):
     pass
 class VkVideoEncodeAV1GopRemainingFrameInfoKHR(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_VIDEO_ENCODE_AV1_GOP_REMAINING_FRAME_INFO_KHR
 class VkVideoEncodeAV1RateControlLayerInfoKHR(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_VIDEO_ENCODE_AV1_RATE_CONTROL_LAYER_INFO_KHR
 class VkPhysicalDeviceInheritedViewportScissorFeaturesNV(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_INHERITED_VIEWPORT_SCISSOR_FEATURES_NV
 class VkCommandBufferInheritanceViewportScissorInfoNV(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_COMMAND_BUFFER_INHERITANCE_VIEWPORT_SCISSOR_INFO_NV
 class VkPhysicalDeviceYcbcr2Plane444FormatsFeaturesEXT(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_YCBCR_2_PLANE_444_FORMATS_FEATURES_EXT
 class VkPhysicalDeviceProvokingVertexFeaturesEXT(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_PROVOKING_VERTEX_FEATURES_EXT
 class VkPhysicalDeviceProvokingVertexPropertiesEXT(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_PROVOKING_VERTEX_PROPERTIES_EXT
 class VkPipelineRasterizationProvokingVertexStateCreateInfoEXT(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_PIPELINE_RASTERIZATION_PROVOKING_VERTEX_STATE_CREATE_INFO_EXT
 class VkVideoEncodeIntraRefreshCapabilitiesKHR(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_VIDEO_ENCODE_INTRA_REFRESH_CAPABILITIES_KHR
 class VkVideoEncodeSessionIntraRefreshCreateInfoKHR(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_VIDEO_ENCODE_SESSION_INTRA_REFRESH_CREATE_INFO_KHR
 class VkVideoEncodeIntraRefreshInfoKHR(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_VIDEO_ENCODE_INTRA_REFRESH_INFO_KHR
 class VkVideoReferenceIntraRefreshInfoKHR(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_VIDEO_REFERENCE_INTRA_REFRESH_INFO_KHR
 class VkPhysicalDeviceVideoEncodeIntraRefreshFeaturesKHR(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_VIDEO_ENCODE_INTRA_REFRESH_FEATURES_KHR
 class VkCuModuleCreateInfoNVX(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_CU_MODULE_CREATE_INFO_NVX
 class VkCuModuleTexturingModeCreateInfoNVX(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_CU_MODULE_TEXTURING_MODE_CREATE_INFO_NVX
 class VkCuFunctionCreateInfoNVX(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_CU_FUNCTION_CREATE_INFO_NVX
 class VkCuLaunchInfoNVX(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_CU_LAUNCH_INFO_NVX
 class VkPhysicalDeviceDescriptorBufferFeaturesEXT(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_DESCRIPTOR_BUFFER_FEATURES_EXT
 class VkPhysicalDeviceDescriptorBufferPropertiesEXT(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_DESCRIPTOR_BUFFER_PROPERTIES_EXT
 class VkPhysicalDeviceDescriptorBufferDensityMapPropertiesEXT(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_DESCRIPTOR_BUFFER_DENSITY_MAP_PROPERTIES_EXT
 class VkDescriptorAddressInfoEXT(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_DESCRIPTOR_ADDRESS_INFO_EXT
 class VkDescriptorBufferBindingInfoEXT(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_DESCRIPTOR_BUFFER_BINDING_INFO_EXT
 class VkDescriptorBufferBindingPushDescriptorBufferHandleEXT(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_DESCRIPTOR_BUFFER_BINDING_PUSH_DESCRIPTOR_BUFFER_HANDLE_EXT
 class VkDescriptorDataEXT(Union):
     pass
 class VkDescriptorGetInfoEXT(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_DESCRIPTOR_GET_INFO_EXT
 class VkBufferCaptureDescriptorDataInfoEXT(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_BUFFER_CAPTURE_DESCRIPTOR_DATA_INFO_EXT
 class VkImageCaptureDescriptorDataInfoEXT(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_IMAGE_CAPTURE_DESCRIPTOR_DATA_INFO_EXT
 class VkImageViewCaptureDescriptorDataInfoEXT(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_IMAGE_VIEW_CAPTURE_DESCRIPTOR_DATA_INFO_EXT
 class VkSamplerCaptureDescriptorDataInfoEXT(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_SAMPLER_CAPTURE_DESCRIPTOR_DATA_INFO_EXT
 class VkAccelerationStructureCaptureDescriptorDataInfoEXT(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_ACCELERATION_STRUCTURE_CAPTURE_DESCRIPTOR_DATA_INFO_EXT
 class VkOpaqueCaptureDescriptorDataCreateInfoEXT(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_OPAQUE_CAPTURE_DESCRIPTOR_DATA_CREATE_INFO_EXT
 class VkPhysicalDeviceShaderIntegerDotProductFeatures(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_SHADER_INTEGER_DOT_PRODUCT_FEATURES
 class VkPhysicalDeviceShaderIntegerDotProductFeaturesKHR(Structure):
     pass
 class VkPhysicalDeviceShaderIntegerDotProductProperties(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_SHADER_INTEGER_DOT_PRODUCT_PROPERTIES
 class VkPhysicalDeviceShaderIntegerDotProductPropertiesKHR(Structure):
     pass
 class VkPhysicalDeviceDrmPropertiesEXT(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_DRM_PROPERTIES_EXT
 class VkPhysicalDeviceFragmentShaderBarycentricFeaturesKHR(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_FRAGMENT_SHADER_BARYCENTRIC_FEATURES_KHR
 class VkPhysicalDeviceFragmentShaderBarycentricPropertiesKHR(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_FRAGMENT_SHADER_BARYCENTRIC_PROPERTIES_KHR
 class VkPhysicalDeviceShaderFmaFeaturesKHR(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_SHADER_FMA_FEATURES_KHR
 class VkPhysicalDeviceRayTracingMotionBlurFeaturesNV(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_RAY_TRACING_MOTION_BLUR_FEATURES_NV
 class VkPhysicalDeviceRayTracingValidationFeaturesNV(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_RAY_TRACING_VALIDATION_FEATURES_NV
 class VkPhysicalDeviceRayTracingLinearSweptSpheresFeaturesNV(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_RAY_TRACING_LINEAR_SWEPT_SPHERES_FEATURES_NV
 class VkAccelerationStructureGeometryMotionTrianglesDataNV(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_ACCELERATION_STRUCTURE_GEOMETRY_MOTION_TRIANGLES_DATA_NV
 class VkAccelerationStructureMotionInfoNV(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_ACCELERATION_STRUCTURE_MOTION_INFO_NV
 class VkSRTDataNV(Structure):
     pass
 class VkAccelerationStructureSRTMotionInstanceNV(Structure):
@@ -2470,279 +4993,624 @@ class VkAccelerationStructureMotionInstanceDataNV(Union):
 class VkAccelerationStructureMotionInstanceNV(Structure):
     pass
 class VkMemoryGetRemoteAddressInfoNV(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_MEMORY_GET_REMOTE_ADDRESS_INFO_NV
 class VkImportMemoryBufferCollectionFUCHSIA(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_IMPORT_MEMORY_BUFFER_COLLECTION_FUCHSIA
 class VkBufferCollectionImageCreateInfoFUCHSIA(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_BUFFER_COLLECTION_IMAGE_CREATE_INFO_FUCHSIA
 class VkBufferCollectionBufferCreateInfoFUCHSIA(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_BUFFER_COLLECTION_BUFFER_CREATE_INFO_FUCHSIA
 class VkBufferCollectionCreateInfoFUCHSIA(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_BUFFER_COLLECTION_CREATE_INFO_FUCHSIA
 class VkSysmemColorSpaceFUCHSIA(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_SYSMEM_COLOR_SPACE_FUCHSIA
 class VkBufferCollectionPropertiesFUCHSIA(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_BUFFER_COLLECTION_PROPERTIES_FUCHSIA
 class VkBufferCollectionConstraintsInfoFUCHSIA(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_BUFFER_COLLECTION_CONSTRAINTS_INFO_FUCHSIA
 class VkBufferConstraintsInfoFUCHSIA(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_BUFFER_CONSTRAINTS_INFO_FUCHSIA
 class VkImageFormatConstraintsInfoFUCHSIA(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_IMAGE_FORMAT_CONSTRAINTS_INFO_FUCHSIA
 class VkImageConstraintsInfoFUCHSIA(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_IMAGE_CONSTRAINTS_INFO_FUCHSIA
 class VkCudaModuleCreateInfoNV(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_CUDA_MODULE_CREATE_INFO_NV
 class VkCudaFunctionCreateInfoNV(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_CUDA_FUNCTION_CREATE_INFO_NV
 class VkCudaLaunchInfoNV(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_CUDA_LAUNCH_INFO_NV
 class VkPhysicalDeviceRGBA10X6FormatsFeaturesEXT(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_RGBA10X6_FORMATS_FEATURES_EXT
 class VkFormatProperties3(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_FORMAT_PROPERTIES_3
 class VkFormatProperties3KHR(Structure):
     pass
 class VkDrmFormatModifierPropertiesList2EXT(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_DRM_FORMAT_MODIFIER_PROPERTIES_LIST_2_EXT
 class VkDrmFormatModifierProperties2EXT(Structure):
     pass
 class VkAndroidHardwareBufferFormatProperties2ANDROID(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_ANDROID_HARDWARE_BUFFER_FORMAT_PROPERTIES_2_ANDROID
 class VkPipelineRenderingCreateInfo(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_PIPELINE_RENDERING_CREATE_INFO
 class VkPipelineRenderingCreateInfoKHR(Structure):
     pass
 class VkRenderingInfo(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_RENDERING_INFO
 class VkRenderingInfoKHR(Structure):
     pass
 class VkRenderingEndInfoKHR(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_RENDERING_END_INFO_KHR
 class VkRenderingEndInfoEXT(Structure):
     pass
 class VkRenderingAttachmentInfo(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_RENDERING_ATTACHMENT_INFO
 class VkRenderingAttachmentInfoKHR(Structure):
     pass
 class VkRenderingFragmentShadingRateAttachmentInfoKHR(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_RENDERING_FRAGMENT_SHADING_RATE_ATTACHMENT_INFO_KHR
 class VkRenderingFragmentDensityMapAttachmentInfoEXT(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_RENDERING_FRAGMENT_DENSITY_MAP_ATTACHMENT_INFO_EXT
 class VkPhysicalDeviceDynamicRenderingFeatures(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_DYNAMIC_RENDERING_FEATURES
 class VkPhysicalDeviceDynamicRenderingFeaturesKHR(Structure):
     pass
 class VkCommandBufferInheritanceRenderingInfo(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_COMMAND_BUFFER_INHERITANCE_RENDERING_INFO
 class VkCommandBufferInheritanceRenderingInfoKHR(Structure):
     pass
 class VkAttachmentSampleCountInfoAMD(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_ATTACHMENT_SAMPLE_COUNT_INFO_AMD
 class VkAttachmentSampleCountInfoNV(Structure):
     pass
 class VkMultiviewPerViewAttributesInfoNVX(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_MULTIVIEW_PER_VIEW_ATTRIBUTES_INFO_NVX
 class VkPhysicalDeviceImageViewMinLodFeaturesEXT(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_IMAGE_VIEW_MIN_LOD_FEATURES_EXT
 class VkImageViewMinLodCreateInfoEXT(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_IMAGE_VIEW_MIN_LOD_CREATE_INFO_EXT
 class VkPhysicalDeviceRasterizationOrderAttachmentAccessFeaturesEXT(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_RASTERIZATION_ORDER_ATTACHMENT_ACCESS_FEATURES_EXT
 class VkPhysicalDeviceRasterizationOrderAttachmentAccessFeaturesARM(Structure):
     pass
 class VkPhysicalDeviceLinearColorAttachmentFeaturesNV(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_LINEAR_COLOR_ATTACHMENT_FEATURES_NV
 class VkPhysicalDeviceGraphicsPipelineLibraryFeaturesEXT(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_GRAPHICS_PIPELINE_LIBRARY_FEATURES_EXT
 class VkPhysicalDevicePipelineBinaryFeaturesKHR(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_PIPELINE_BINARY_FEATURES_KHR
 class VkDevicePipelineBinaryInternalCacheControlKHR(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_DEVICE_PIPELINE_BINARY_INTERNAL_CACHE_CONTROL_KHR
 class VkPhysicalDevicePipelineBinaryPropertiesKHR(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_PIPELINE_BINARY_PROPERTIES_KHR
 class VkPhysicalDeviceGraphicsPipelineLibraryPropertiesEXT(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_GRAPHICS_PIPELINE_LIBRARY_PROPERTIES_EXT
 class VkGraphicsPipelineLibraryCreateInfoEXT(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_GRAPHICS_PIPELINE_LIBRARY_CREATE_INFO_EXT
 class VkPhysicalDeviceDataGraphNeuralAcceleratorStatisticsFeaturesARM(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_DATA_GRAPH_NEURAL_ACCELERATOR_STATISTICS_FEATURES_ARM
 class VkDataGraphPipelineNeuralStatisticsCreateInfoARM(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_DATA_GRAPH_PIPELINE_NEURAL_STATISTICS_CREATE_INFO_ARM
 class VkDataGraphPipelineSessionNeuralStatisticsCreateInfoARM(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_DATA_GRAPH_PIPELINE_SESSION_NEURAL_STATISTICS_CREATE_INFO_ARM
 class VkPhysicalDeviceDescriptorSetHostMappingFeaturesVALVE(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_DESCRIPTOR_SET_HOST_MAPPING_FEATURES_VALVE
 class VkDescriptorSetBindingReferenceVALVE(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_DESCRIPTOR_SET_BINDING_REFERENCE_VALVE
 class VkDescriptorSetLayoutHostMappingInfoVALVE(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_DESCRIPTOR_SET_LAYOUT_HOST_MAPPING_INFO_VALVE
 class VkPhysicalDeviceNestedCommandBufferFeaturesEXT(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_NESTED_COMMAND_BUFFER_FEATURES_EXT
 class VkPhysicalDeviceNestedCommandBufferPropertiesEXT(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_NESTED_COMMAND_BUFFER_PROPERTIES_EXT
 class VkPhysicalDeviceShaderModuleIdentifierFeaturesEXT(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_SHADER_MODULE_IDENTIFIER_FEATURES_EXT
 class VkPhysicalDeviceShaderModuleIdentifierPropertiesEXT(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_SHADER_MODULE_IDENTIFIER_PROPERTIES_EXT
 class VkPipelineShaderStageModuleIdentifierCreateInfoEXT(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_PIPELINE_SHADER_STAGE_MODULE_IDENTIFIER_CREATE_INFO_EXT
 class VkShaderModuleIdentifierEXT(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_SHADER_MODULE_IDENTIFIER_EXT
 class VkImageCompressionControlEXT(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_IMAGE_COMPRESSION_CONTROL_EXT
 class VkPhysicalDeviceImageCompressionControlFeaturesEXT(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_IMAGE_COMPRESSION_CONTROL_FEATURES_EXT
 class VkImageCompressionPropertiesEXT(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_IMAGE_COMPRESSION_PROPERTIES_EXT
 class VkPhysicalDeviceImageCompressionControlSwapchainFeaturesEXT(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_IMAGE_COMPRESSION_CONTROL_SWAPCHAIN_FEATURES_EXT
 class VkImageSubresource2(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_IMAGE_SUBRESOURCE_2
 class VkImageSubresource2KHR(Structure):
     pass
 class VkImageSubresource2EXT(Structure):
     pass
 class VkSubresourceLayout2(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_SUBRESOURCE_LAYOUT_2
 class VkSubresourceLayout2KHR(Structure):
     pass
 class VkSubresourceLayout2EXT(Structure):
     pass
 class VkRenderPassCreationControlEXT(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_RENDER_PASS_CREATION_CONTROL_EXT
 class VkRenderPassCreationFeedbackInfoEXT(Structure):
     pass
 class VkRenderPassCreationFeedbackCreateInfoEXT(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_RENDER_PASS_CREATION_FEEDBACK_CREATE_INFO_EXT
 class VkRenderPassSubpassFeedbackInfoEXT(Structure):
     pass
 class VkRenderPassSubpassFeedbackCreateInfoEXT(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_RENDER_PASS_SUBPASS_FEEDBACK_CREATE_INFO_EXT
 class VkPhysicalDeviceSubpassMergeFeedbackFeaturesEXT(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_SUBPASS_MERGE_FEEDBACK_FEATURES_EXT
 class VkMicromapBuildInfoEXT(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_MICROMAP_BUILD_INFO_EXT
 class VkMicromapCreateInfoEXT(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_MICROMAP_CREATE_INFO_EXT
 class VkMicromapVersionInfoEXT(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_MICROMAP_VERSION_INFO_EXT
 class VkCopyMicromapInfoEXT(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_COPY_MICROMAP_INFO_EXT
 class VkCopyMicromapToMemoryInfoEXT(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_COPY_MICROMAP_TO_MEMORY_INFO_EXT
 class VkCopyMemoryToMicromapInfoEXT(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_COPY_MEMORY_TO_MICROMAP_INFO_EXT
 class VkMicromapBuildSizesInfoEXT(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_MICROMAP_BUILD_SIZES_INFO_EXT
 class VkMicromapUsageEXT(Structure):
     pass
 class VkMicromapTriangleEXT(Structure):
     pass
 class VkPhysicalDeviceOpacityMicromapFeaturesEXT(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_OPACITY_MICROMAP_FEATURES_EXT
 class VkPhysicalDeviceOpacityMicromapPropertiesEXT(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_OPACITY_MICROMAP_PROPERTIES_EXT
 class VkAccelerationStructureTrianglesOpacityMicromapEXT(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_ACCELERATION_STRUCTURE_TRIANGLES_OPACITY_MICROMAP_EXT
 class VkPhysicalDeviceDisplacementMicromapFeaturesNV(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_DISPLACEMENT_MICROMAP_FEATURES_NV
 class VkPhysicalDeviceDisplacementMicromapPropertiesNV(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_DISPLACEMENT_MICROMAP_PROPERTIES_NV
 class VkAccelerationStructureTrianglesDisplacementMicromapNV(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_ACCELERATION_STRUCTURE_TRIANGLES_DISPLACEMENT_MICROMAP_NV
 class VkPipelinePropertiesIdentifierEXT(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_PIPELINE_PROPERTIES_IDENTIFIER_EXT
 class VkPhysicalDevicePipelinePropertiesFeaturesEXT(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_PIPELINE_PROPERTIES_FEATURES_EXT
 class VkPhysicalDeviceShaderEarlyAndLateFragmentTestsFeaturesAMD(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_SHADER_EARLY_AND_LATE_FRAGMENT_TESTS_FEATURES_AMD
 class VkExternalMemoryAcquireUnmodifiedEXT(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_EXTERNAL_MEMORY_ACQUIRE_UNMODIFIED_EXT
 class VkExportMetalObjectCreateInfoEXT(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_EXPORT_METAL_OBJECT_CREATE_INFO_EXT
 class VkExportMetalObjectsInfoEXT(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_EXPORT_METAL_OBJECTS_INFO_EXT
 class VkExportMetalDeviceInfoEXT(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_EXPORT_METAL_DEVICE_INFO_EXT
 class VkExportMetalCommandQueueInfoEXT(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_EXPORT_METAL_COMMAND_QUEUE_INFO_EXT
 class VkExportMetalBufferInfoEXT(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_EXPORT_METAL_BUFFER_INFO_EXT
 class VkImportMetalBufferInfoEXT(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_IMPORT_METAL_BUFFER_INFO_EXT
 class VkExportMetalTextureInfoEXT(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_EXPORT_METAL_TEXTURE_INFO_EXT
 class VkImportMetalTextureInfoEXT(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_IMPORT_METAL_TEXTURE_INFO_EXT
 class VkExportMetalIOSurfaceInfoEXT(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_EXPORT_METAL_IO_SURFACE_INFO_EXT
 class VkImportMetalIOSurfaceInfoEXT(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_IMPORT_METAL_IO_SURFACE_INFO_EXT
 class VkExportMetalSharedEventInfoEXT(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_EXPORT_METAL_SHARED_EVENT_INFO_EXT
 class VkImportMetalSharedEventInfoEXT(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_IMPORT_METAL_SHARED_EVENT_INFO_EXT
 class VkPhysicalDeviceNonSeamlessCubeMapFeaturesEXT(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_NON_SEAMLESS_CUBE_MAP_FEATURES_EXT
 class VkPhysicalDevicePipelineRobustnessFeatures(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_PIPELINE_ROBUSTNESS_FEATURES
 class VkPhysicalDevicePipelineRobustnessFeaturesEXT(Structure):
     pass
 class VkPipelineRobustnessCreateInfo(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_PIPELINE_ROBUSTNESS_CREATE_INFO
 class VkPipelineRobustnessCreateInfoEXT(Structure):
     pass
 class VkPhysicalDevicePipelineRobustnessProperties(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_PIPELINE_ROBUSTNESS_PROPERTIES
 class VkPhysicalDevicePipelineRobustnessPropertiesEXT(Structure):
     pass
 class VkImageViewSampleWeightCreateInfoQCOM(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_IMAGE_VIEW_SAMPLE_WEIGHT_CREATE_INFO_QCOM
 class VkPhysicalDeviceImageProcessingFeaturesQCOM(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_IMAGE_PROCESSING_FEATURES_QCOM
 class VkPhysicalDeviceImageProcessingPropertiesQCOM(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_IMAGE_PROCESSING_PROPERTIES_QCOM
 class VkPhysicalDeviceTilePropertiesFeaturesQCOM(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_TILE_PROPERTIES_FEATURES_QCOM
 class VkTilePropertiesQCOM(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_TILE_PROPERTIES_QCOM
 class VkTileMemoryBindInfoQCOM(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_TILE_MEMORY_BIND_INFO_QCOM
 class VkPhysicalDeviceAmigoProfilingFeaturesSEC(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_AMIGO_PROFILING_FEATURES_SEC
 class VkAmigoProfilingSubmitInfoSEC(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_AMIGO_PROFILING_SUBMIT_INFO_SEC
 class VkPhysicalDeviceAttachmentFeedbackLoopLayoutFeaturesEXT(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_ATTACHMENT_FEEDBACK_LOOP_LAYOUT_FEATURES_EXT
 class VkPhysicalDeviceDepthClampZeroOneFeaturesEXT(Structure):
     pass
 class VkAttachmentFeedbackLoopInfoEXT(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_ATTACHMENT_FEEDBACK_LOOP_INFO_EXT
 class VkPhysicalDeviceAddressBindingReportFeaturesEXT(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_ADDRESS_BINDING_REPORT_FEATURES_EXT
 class VkRenderingAttachmentFlagsInfoKHR(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_RENDERING_ATTACHMENT_FLAGS_INFO_KHR
 class VkResolveImageModeInfoKHR(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_RESOLVE_IMAGE_MODE_INFO_KHR
 class VkDeviceAddressBindingCallbackDataEXT(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_DEVICE_ADDRESS_BINDING_CALLBACK_DATA_EXT
 class VkPhysicalDeviceOpticalFlowFeaturesNV(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_OPTICAL_FLOW_FEATURES_NV
 class VkPhysicalDeviceOpticalFlowPropertiesNV(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_OPTICAL_FLOW_PROPERTIES_NV
 class VkOpticalFlowImageFormatInfoNV(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_OPTICAL_FLOW_IMAGE_FORMAT_INFO_NV
 class VkOpticalFlowImageFormatPropertiesNV(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_OPTICAL_FLOW_IMAGE_FORMAT_PROPERTIES_NV
 class VkOpticalFlowSessionCreateInfoNV(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_OPTICAL_FLOW_SESSION_CREATE_INFO_NV
 class VkOpticalFlowSessionCreatePrivateDataInfoNV(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_OPTICAL_FLOW_SESSION_CREATE_PRIVATE_DATA_INFO_NV
 class VkOpticalFlowExecuteInfoNV(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_OPTICAL_FLOW_EXECUTE_INFO_NV
 class VkPhysicalDeviceFaultFeaturesEXT(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_FAULT_FEATURES_EXT
 class VkDeviceFaultAddressInfoKHR(Structure):
     pass
 class VkDeviceFaultAddressInfoEXT(Structure):
@@ -2752,563 +5620,1301 @@ class VkDeviceFaultVendorInfoKHR(Structure):
 class VkDeviceFaultVendorInfoEXT(Structure):
     pass
 class VkDeviceFaultInfoKHR(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_DEVICE_FAULT_INFO_KHR
 class VkDeviceFaultDebugInfoKHR(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_DEVICE_FAULT_DEBUG_INFO_KHR
 class VkDeviceFaultCountsEXT(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_DEVICE_FAULT_COUNTS_EXT
 class VkDeviceFaultInfoEXT(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_DEVICE_FAULT_INFO_EXT
 class VkDeviceFaultVendorBinaryHeaderVersionOneKHR(Structure):
     pass
 class VkDeviceFaultVendorBinaryHeaderVersionOneEXT(Structure):
     pass
 class VkPhysicalDeviceFaultFeaturesKHR(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_FAULT_FEATURES_KHR
 class VkPhysicalDeviceFaultPropertiesKHR(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_FAULT_PROPERTIES_KHR
 class VkPhysicalDevicePipelineLibraryGroupHandlesFeaturesEXT(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_PIPELINE_LIBRARY_GROUP_HANDLES_FEATURES_EXT
 class VkDepthBiasInfoEXT(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_DEPTH_BIAS_INFO_EXT
 class VkDepthBiasRepresentationInfoEXT(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_DEPTH_BIAS_REPRESENTATION_INFO_EXT
 class VkDecompressMemoryRegionNV(Structure):
     pass
 class VkDecompressMemoryRegionEXT(Structure):
     pass
 class VkDecompressMemoryInfoEXT(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_DECOMPRESS_MEMORY_INFO_EXT
 class VkPhysicalDeviceShaderCoreBuiltinsPropertiesARM(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_SHADER_CORE_BUILTINS_PROPERTIES_ARM
 class VkPhysicalDeviceShaderCoreBuiltinsFeaturesARM(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_SHADER_CORE_BUILTINS_FEATURES_ARM
 class VkFrameBoundaryEXT(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_FRAME_BOUNDARY_EXT
 class VkPhysicalDeviceFrameBoundaryFeaturesEXT(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_FRAME_BOUNDARY_FEATURES_EXT
 class VkPhysicalDeviceDynamicRenderingUnusedAttachmentsFeaturesEXT(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_DYNAMIC_RENDERING_UNUSED_ATTACHMENTS_FEATURES_EXT
 class VkPhysicalDeviceInternallySynchronizedQueuesFeaturesKHR(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_INTERNALLY_SYNCHRONIZED_QUEUES_FEATURES_KHR
 class VkSurfacePresentModeKHR(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_SURFACE_PRESENT_MODE_KHR
 class VkSurfacePresentModeEXT(Structure):
     pass
 class VkSurfacePresentScalingCapabilitiesKHR(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_SURFACE_PRESENT_SCALING_CAPABILITIES_KHR
 class VkSurfacePresentScalingCapabilitiesEXT(Structure):
     pass
 class VkSurfacePresentModeCompatibilityKHR(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_SURFACE_PRESENT_MODE_COMPATIBILITY_KHR
 class VkSurfacePresentModeCompatibilityEXT(Structure):
     pass
 class VkPhysicalDeviceSwapchainMaintenance1FeaturesKHR(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_SWAPCHAIN_MAINTENANCE_1_FEATURES_KHR
 class VkPhysicalDeviceSwapchainMaintenance1FeaturesEXT(Structure):
     pass
 class VkSwapchainPresentFenceInfoKHR(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_SWAPCHAIN_PRESENT_FENCE_INFO_KHR
 class VkSwapchainPresentFenceInfoEXT(Structure):
     pass
 class VkSwapchainPresentModesCreateInfoKHR(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_SWAPCHAIN_PRESENT_MODES_CREATE_INFO_KHR
 class VkSwapchainPresentModesCreateInfoEXT(Structure):
     pass
 class VkSwapchainPresentModeInfoKHR(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_SWAPCHAIN_PRESENT_MODE_INFO_KHR
 class VkSwapchainPresentModeInfoEXT(Structure):
     pass
 class VkSwapchainPresentScalingCreateInfoKHR(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_SWAPCHAIN_PRESENT_SCALING_CREATE_INFO_KHR
 class VkSwapchainPresentScalingCreateInfoEXT(Structure):
     pass
 class VkReleaseSwapchainImagesInfoKHR(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_RELEASE_SWAPCHAIN_IMAGES_INFO_KHR
 class VkReleaseSwapchainImagesInfoEXT(Structure):
     pass
 class VkPhysicalDeviceDepthBiasControlFeaturesEXT(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_DEPTH_BIAS_CONTROL_FEATURES_EXT
 class VkPhysicalDeviceRayTracingInvocationReorderFeaturesEXT(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_RAY_TRACING_INVOCATION_REORDER_FEATURES_EXT
 class VkPhysicalDeviceRayTracingInvocationReorderFeaturesNV(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_RAY_TRACING_INVOCATION_REORDER_FEATURES_NV
 class VkPhysicalDeviceRayTracingInvocationReorderPropertiesEXT(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_RAY_TRACING_INVOCATION_REORDER_PROPERTIES_EXT
 class VkPhysicalDeviceRayTracingInvocationReorderPropertiesNV(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_RAY_TRACING_INVOCATION_REORDER_PROPERTIES_NV
 class VkPhysicalDeviceExtendedSparseAddressSpaceFeaturesNV(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_EXTENDED_SPARSE_ADDRESS_SPACE_FEATURES_NV
 class VkPhysicalDeviceExtendedSparseAddressSpacePropertiesNV(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_EXTENDED_SPARSE_ADDRESS_SPACE_PROPERTIES_NV
 class VkDirectDriverLoadingInfoLUNARG(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_DIRECT_DRIVER_LOADING_INFO_LUNARG
 class VkDirectDriverLoadingListLUNARG(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_DIRECT_DRIVER_LOADING_LIST_LUNARG
 class VkPhysicalDeviceMultiviewPerViewViewportsFeaturesQCOM(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_MULTIVIEW_PER_VIEW_VIEWPORTS_FEATURES_QCOM
 class VkPhysicalDeviceRayTracingPositionFetchFeaturesKHR(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_RAY_TRACING_POSITION_FETCH_FEATURES_KHR
 class VkDeviceImageSubresourceInfo(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_DEVICE_IMAGE_SUBRESOURCE_INFO
 class VkDeviceImageSubresourceInfoKHR(Structure):
     pass
 class VkPhysicalDeviceShaderCorePropertiesARM(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_SHADER_CORE_PROPERTIES_ARM
 class VkPhysicalDeviceMultiviewPerViewRenderAreasFeaturesQCOM(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_MULTIVIEW_PER_VIEW_RENDER_AREAS_FEATURES_QCOM
 class VkMultiviewPerViewRenderAreasRenderPassBeginInfoQCOM(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_MULTIVIEW_PER_VIEW_RENDER_AREAS_RENDER_PASS_BEGIN_INFO_QCOM
 class VkQueryLowLatencySupportNV(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_QUERY_LOW_LATENCY_SUPPORT_NV
 class VkMemoryMapInfo(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_MEMORY_MAP_INFO
 class VkMemoryMapInfoKHR(Structure):
     pass
 class VkMemoryUnmapInfo(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_MEMORY_UNMAP_INFO
 class VkMemoryUnmapInfoKHR(Structure):
     pass
 class VkPhysicalDeviceShaderObjectFeaturesEXT(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_SHADER_OBJECT_FEATURES_EXT
 class VkPhysicalDeviceShaderObjectPropertiesEXT(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_SHADER_OBJECT_PROPERTIES_EXT
 class VkShaderCreateInfoEXT(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_SHADER_CREATE_INFO_EXT
 class VkPhysicalDeviceShaderTileImageFeaturesEXT(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_SHADER_TILE_IMAGE_FEATURES_EXT
 class VkPhysicalDeviceShaderTileImagePropertiesEXT(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_SHADER_TILE_IMAGE_PROPERTIES_EXT
 class VkImportScreenBufferInfoQNX(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_IMPORT_SCREEN_BUFFER_INFO_QNX
 class VkScreenBufferPropertiesQNX(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_SCREEN_BUFFER_PROPERTIES_QNX
 class VkScreenBufferFormatPropertiesQNX(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_SCREEN_BUFFER_FORMAT_PROPERTIES_QNX
 class VkExternalFormatQNX(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_EXTERNAL_FORMAT_QNX
 class VkPhysicalDeviceExternalMemoryScreenBufferFeaturesQNX(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_EXTERNAL_MEMORY_SCREEN_BUFFER_FEATURES_QNX
 class VkPhysicalDeviceCooperativeMatrixFeaturesKHR(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_COOPERATIVE_MATRIX_FEATURES_KHR
 class VkCooperativeMatrixPropertiesKHR(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_COOPERATIVE_MATRIX_PROPERTIES_KHR
 class VkPhysicalDeviceCooperativeMatrixPropertiesKHR(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_COOPERATIVE_MATRIX_PROPERTIES_KHR
 class VkPhysicalDeviceCooperativeMatrixConversionFeaturesQCOM(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_COOPERATIVE_MATRIX_CONVERSION_FEATURES_QCOM
 class VkPhysicalDeviceShaderEnqueuePropertiesAMDX(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_SHADER_ENQUEUE_PROPERTIES_AMDX
 class VkPhysicalDeviceShaderEnqueueFeaturesAMDX(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_SHADER_ENQUEUE_FEATURES_AMDX
 class VkExecutionGraphPipelineCreateInfoAMDX(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_EXECUTION_GRAPH_PIPELINE_CREATE_INFO_AMDX
 class VkPipelineShaderStageNodeCreateInfoAMDX(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_PIPELINE_SHADER_STAGE_NODE_CREATE_INFO_AMDX
 class VkExecutionGraphPipelineScratchSizeAMDX(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_EXECUTION_GRAPH_PIPELINE_SCRATCH_SIZE_AMDX
 class VkDispatchGraphInfoAMDX(Structure):
     pass
 class VkDispatchGraphCountInfoAMDX(Structure):
     pass
 class VkPhysicalDeviceAntiLagFeaturesAMD(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_ANTI_LAG_FEATURES_AMD
 class VkAntiLagDataAMD(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_ANTI_LAG_DATA_AMD
 class VkAntiLagPresentationInfoAMD(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_ANTI_LAG_PRESENTATION_INFO_AMD
 class VkBindMemoryStatus(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_BIND_MEMORY_STATUS
 class VkPhysicalDeviceTileMemoryHeapFeaturesQCOM(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_TILE_MEMORY_HEAP_FEATURES_QCOM
 class VkPhysicalDeviceTileMemoryHeapPropertiesQCOM(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_TILE_MEMORY_HEAP_PROPERTIES_QCOM
 class VkTileMemorySizeInfoQCOM(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_TILE_MEMORY_SIZE_INFO_QCOM
 class VkTileMemoryRequirementsQCOM(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_TILE_MEMORY_REQUIREMENTS_QCOM
 class VkBindMemoryStatusKHR(Structure):
     pass
 class VkBindDescriptorSetsInfo(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_BIND_DESCRIPTOR_SETS_INFO
 class VkBindDescriptorSetsInfoKHR(Structure):
     pass
 class VkPushConstantsInfo(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_PUSH_CONSTANTS_INFO
 class VkPushConstantsInfoKHR(Structure):
     pass
 class VkPushDescriptorSetInfo(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_PUSH_DESCRIPTOR_SET_INFO
 class VkPushDescriptorSetInfoKHR(Structure):
     pass
 class VkPushDescriptorSetWithTemplateInfo(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_PUSH_DESCRIPTOR_SET_WITH_TEMPLATE_INFO
 class VkPushDescriptorSetWithTemplateInfoKHR(Structure):
     pass
 class VkSetDescriptorBufferOffsetsInfoEXT(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_SET_DESCRIPTOR_BUFFER_OFFSETS_INFO_EXT
 class VkBindDescriptorBufferEmbeddedSamplersInfoEXT(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_BIND_DESCRIPTOR_BUFFER_EMBEDDED_SAMPLERS_INFO_EXT
 class VkPhysicalDeviceCubicClampFeaturesQCOM(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_CUBIC_CLAMP_FEATURES_QCOM
 class VkPhysicalDeviceYcbcrDegammaFeaturesQCOM(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_YCBCR_DEGAMMA_FEATURES_QCOM
 class VkSamplerYcbcrConversionYcbcrDegammaCreateInfoQCOM(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_SAMPLER_YCBCR_CONVERSION_YCBCR_DEGAMMA_CREATE_INFO_QCOM
 class VkPhysicalDeviceCubicWeightsFeaturesQCOM(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_CUBIC_WEIGHTS_FEATURES_QCOM
 class VkSamplerCubicWeightsCreateInfoQCOM(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_SAMPLER_CUBIC_WEIGHTS_CREATE_INFO_QCOM
 class VkBlitImageCubicWeightsInfoQCOM(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_BLIT_IMAGE_CUBIC_WEIGHTS_INFO_QCOM
 class VkPhysicalDeviceImageProcessing2FeaturesQCOM(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_IMAGE_PROCESSING_2_FEATURES_QCOM
 class VkPhysicalDeviceImageProcessing2PropertiesQCOM(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_IMAGE_PROCESSING_2_PROPERTIES_QCOM
 class VkSamplerBlockMatchWindowCreateInfoQCOM(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_SAMPLER_BLOCK_MATCH_WINDOW_CREATE_INFO_QCOM
 class VkPhysicalDeviceDescriptorPoolOverallocationFeaturesNV(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_DESCRIPTOR_POOL_OVERALLOCATION_FEATURES_NV
 class VkPhysicalDeviceLayeredDriverPropertiesMSFT(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_LAYERED_DRIVER_PROPERTIES_MSFT
 class VkPhysicalDevicePerStageDescriptorSetFeaturesNV(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_PER_STAGE_DESCRIPTOR_SET_FEATURES_NV
 class VkPhysicalDeviceExternalFormatResolveFeaturesANDROID(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_EXTERNAL_FORMAT_RESOLVE_FEATURES_ANDROID
 class VkPhysicalDeviceExternalFormatResolvePropertiesANDROID(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_EXTERNAL_FORMAT_RESOLVE_PROPERTIES_ANDROID
 class VkAndroidHardwareBufferFormatResolvePropertiesANDROID(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_ANDROID_HARDWARE_BUFFER_FORMAT_RESOLVE_PROPERTIES_ANDROID
 class VkLatencySleepModeInfoNV(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_LATENCY_SLEEP_MODE_INFO_NV
 class VkLatencySleepInfoNV(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_LATENCY_SLEEP_INFO_NV
 class VkSetLatencyMarkerInfoNV(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_SET_LATENCY_MARKER_INFO_NV
 class VkGetLatencyMarkerInfoNV(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_GET_LATENCY_MARKER_INFO_NV
 class VkLatencyTimingsFrameReportNV(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_LATENCY_TIMINGS_FRAME_REPORT_NV
 class VkOutOfBandQueueTypeInfoNV(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_OUT_OF_BAND_QUEUE_TYPE_INFO_NV
 class VkLatencySubmissionPresentIdNV(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_LATENCY_SUBMISSION_PRESENT_ID_NV
 class VkSwapchainLatencyCreateInfoNV(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_SWAPCHAIN_LATENCY_CREATE_INFO_NV
 class VkLatencySurfaceCapabilitiesNV(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_LATENCY_SURFACE_CAPABILITIES_NV
 class VkPhysicalDeviceCudaKernelLaunchFeaturesNV(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_CUDA_KERNEL_LAUNCH_FEATURES_NV
 class VkPhysicalDeviceCudaKernelLaunchPropertiesNV(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_CUDA_KERNEL_LAUNCH_PROPERTIES_NV
 class VkDeviceQueueShaderCoreControlCreateInfoARM(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_DEVICE_QUEUE_SHADER_CORE_CONTROL_CREATE_INFO_ARM
 class VkPhysicalDeviceSchedulingControlsFeaturesARM(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_SCHEDULING_CONTROLS_FEATURES_ARM
 class VkPhysicalDeviceSchedulingControlsPropertiesARM(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_SCHEDULING_CONTROLS_PROPERTIES_ARM
 class VkPhysicalDeviceSchedulingControlsDispatchParametersPropertiesARM(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_SCHEDULING_CONTROLS_DISPATCH_PARAMETERS_PROPERTIES_ARM
 class VkDispatchParametersARM(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_DISPATCH_PARAMETERS_ARM
 class VkPhysicalDeviceRelaxedLineRasterizationFeaturesIMG(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_RELAXED_LINE_RASTERIZATION_FEATURES_IMG
 class VkPhysicalDeviceRenderPassStripedFeaturesARM(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_RENDER_PASS_STRIPED_FEATURES_ARM
 class VkPhysicalDeviceRenderPassStripedPropertiesARM(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_RENDER_PASS_STRIPED_PROPERTIES_ARM
 class VkRenderPassStripeInfoARM(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_RENDER_PASS_STRIPE_INFO_ARM
 class VkRenderPassStripeBeginInfoARM(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_RENDER_PASS_STRIPE_BEGIN_INFO_ARM
 class VkRenderPassStripeSubmitInfoARM(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_RENDER_PASS_STRIPE_SUBMIT_INFO_ARM
 class VkPhysicalDevicePipelineOpacityMicromapFeaturesARM(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_PIPELINE_OPACITY_MICROMAP_FEATURES_ARM
 class VkPhysicalDeviceShaderMaximalReconvergenceFeaturesKHR(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_SHADER_MAXIMAL_RECONVERGENCE_FEATURES_KHR
 class VkPhysicalDeviceShaderSubgroupRotateFeatures(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_SHADER_SUBGROUP_ROTATE_FEATURES
 class VkPhysicalDeviceShaderSubgroupRotateFeaturesKHR(Structure):
     pass
 class VkPhysicalDeviceShaderExpectAssumeFeatures(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_SHADER_EXPECT_ASSUME_FEATURES
 class VkPhysicalDeviceShaderExpectAssumeFeaturesKHR(Structure):
     pass
 class VkPhysicalDeviceShaderFloatControls2Features(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_SHADER_FLOAT_CONTROLS_2_FEATURES
 class VkPhysicalDeviceShaderFloatControls2FeaturesKHR(Structure):
     pass
 class VkPhysicalDeviceDynamicRenderingLocalReadFeatures(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_DYNAMIC_RENDERING_LOCAL_READ_FEATURES
 class VkPhysicalDeviceDynamicRenderingLocalReadFeaturesKHR(Structure):
     pass
 class VkRenderingAttachmentLocationInfo(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_RENDERING_ATTACHMENT_LOCATION_INFO
 class VkRenderingAttachmentLocationInfoKHR(Structure):
     pass
 class VkRenderingInputAttachmentIndexInfo(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_RENDERING_INPUT_ATTACHMENT_INDEX_INFO
 class VkRenderingInputAttachmentIndexInfoKHR(Structure):
     pass
 class VkPhysicalDeviceShaderQuadControlFeaturesKHR(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_SHADER_QUAD_CONTROL_FEATURES_KHR
 class VkPhysicalDeviceShaderAtomicFloat16VectorFeaturesNV(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_SHADER_ATOMIC_FLOAT16_VECTOR_FEATURES_NV
 class VkPhysicalDeviceMapMemoryPlacedFeaturesEXT(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_MAP_MEMORY_PLACED_FEATURES_EXT
 class VkPhysicalDeviceMapMemoryPlacedPropertiesEXT(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_MAP_MEMORY_PLACED_PROPERTIES_EXT
 class VkMemoryMapPlacedInfoEXT(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_MEMORY_MAP_PLACED_INFO_EXT
 class VkPhysicalDeviceShaderBfloat16FeaturesKHR(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_SHADER_BFLOAT16_FEATURES_KHR
 class VkPhysicalDeviceRawAccessChainsFeaturesNV(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_RAW_ACCESS_CHAINS_FEATURES_NV
 class VkPhysicalDeviceCommandBufferInheritanceFeaturesNV(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_COMMAND_BUFFER_INHERITANCE_FEATURES_NV
 class VkPhysicalDeviceImageAlignmentControlFeaturesMESA(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_IMAGE_ALIGNMENT_CONTROL_FEATURES_MESA
 class VkPhysicalDeviceImageAlignmentControlPropertiesMESA(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_IMAGE_ALIGNMENT_CONTROL_PROPERTIES_MESA
 class VkImageAlignmentControlCreateInfoMESA(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_IMAGE_ALIGNMENT_CONTROL_CREATE_INFO_MESA
 class VkPhysicalDeviceShaderReplicatedCompositesFeaturesEXT(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_SHADER_REPLICATED_COMPOSITES_FEATURES_EXT
 class VkPhysicalDevicePresentModeFifoLatestReadyFeaturesEXT(Structure):
     pass
 class VkPhysicalDevicePresentModeFifoLatestReadyFeaturesKHR(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_PRESENT_MODE_FIFO_LATEST_READY_FEATURES_KHR
 class VkDepthClampRangeEXT(Structure):
     pass
 class VkPhysicalDeviceCooperativeMatrix2FeaturesNV(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_COOPERATIVE_MATRIX_2_FEATURES_NV
 class VkPhysicalDeviceCooperativeMatrix2PropertiesNV(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_COOPERATIVE_MATRIX_2_PROPERTIES_NV
 class VkCooperativeMatrixFlexibleDimensionsPropertiesNV(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_COOPERATIVE_MATRIX_FLEXIBLE_DIMENSIONS_PROPERTIES_NV
 class VkPhysicalDeviceHdrVividFeaturesHUAWEI(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_HDR_VIVID_FEATURES_HUAWEI
 class VkPhysicalDeviceVertexAttributeRobustnessFeaturesEXT(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_VERTEX_ATTRIBUTE_ROBUSTNESS_FEATURES_EXT
 class VkPhysicalDeviceDenseGeometryFormatFeaturesAMDX(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_DENSE_GEOMETRY_FORMAT_FEATURES_AMDX
 class VkAccelerationStructureDenseGeometryFormatTrianglesDataAMDX(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_ACCELERATION_STRUCTURE_DENSE_GEOMETRY_FORMAT_TRIANGLES_DATA_AMDX
 class VkPhysicalDeviceDepthClampZeroOneFeaturesKHR(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_DEPTH_CLAMP_ZERO_ONE_FEATURES_KHR
 class VkPhysicalDeviceCooperativeVectorFeaturesNV(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_COOPERATIVE_VECTOR_FEATURES_NV
 class VkCooperativeVectorPropertiesNV(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_COOPERATIVE_VECTOR_PROPERTIES_NV
 class VkPhysicalDeviceCooperativeVectorPropertiesNV(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_COOPERATIVE_VECTOR_PROPERTIES_NV
 class VkConvertCooperativeVectorMatrixInfoNV(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_CONVERT_COOPERATIVE_VECTOR_MATRIX_INFO_NV
 class VkPhysicalDeviceTileShadingFeaturesQCOM(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_TILE_SHADING_FEATURES_QCOM
 class VkPhysicalDeviceTileShadingPropertiesQCOM(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_TILE_SHADING_PROPERTIES_QCOM
 class VkRenderPassTileShadingCreateInfoQCOM(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_RENDER_PASS_TILE_SHADING_CREATE_INFO_QCOM
 class VkPerTileBeginInfoQCOM(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_PER_TILE_BEGIN_INFO_QCOM
 class VkPerTileEndInfoQCOM(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_PER_TILE_END_INFO_QCOM
 class VkDispatchTileInfoQCOM(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_DISPATCH_TILE_INFO_QCOM
 class VkPhysicalDeviceFragmentDensityMapLayeredPropertiesVALVE(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_FRAGMENT_DENSITY_MAP_LAYERED_PROPERTIES_VALVE
 class VkPhysicalDeviceFragmentDensityMapLayeredFeaturesVALVE(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_FRAGMENT_DENSITY_MAP_LAYERED_FEATURES_VALVE
 class VkPipelineFragmentDensityMapLayeredCreateInfoVALVE(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_PIPELINE_FRAGMENT_DENSITY_MAP_LAYERED_CREATE_INFO_VALVE
 class VkSetPresentConfigNV(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_SET_PRESENT_CONFIG_NV
 class VkPhysicalDevicePresentMeteringFeaturesNV(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_PRESENT_METERING_FEATURES_NV
 class VkExternalComputeQueueDeviceCreateInfoNV(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_EXTERNAL_COMPUTE_QUEUE_DEVICE_CREATE_INFO_NV
 class VkExternalComputeQueueCreateInfoNV(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_EXTERNAL_COMPUTE_QUEUE_CREATE_INFO_NV
 class VkExternalComputeQueueDataParamsNV(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_EXTERNAL_COMPUTE_QUEUE_DATA_PARAMS_NV
 class VkPhysicalDeviceExternalComputeQueuePropertiesNV(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_EXTERNAL_COMPUTE_QUEUE_PROPERTIES_NV
 class VkPhysicalDeviceShaderUniformBufferUnsizedArrayFeaturesEXT(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_SHADER_UNIFORM_BUFFER_UNSIZED_ARRAY_FEATURES_EXT
 class VkPhysicalDeviceShaderMixedFloatDotProductFeaturesVALVE(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_SHADER_MIXED_FLOAT_DOT_PRODUCT_FEATURES_VALVE
 class VkPhysicalDevicePrimitiveRestartIndexFeaturesEXT(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_PRIMITIVE_RESTART_INDEX_FEATURES_EXT
 class VkPhysicalDeviceFormatPackFeaturesARM(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_FORMAT_PACK_FEATURES_ARM
 class VkPhysicalDeviceThrottleHintFeaturesSEC(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_THROTTLE_HINT_FEATURES_SEC
 class VkThrottleHintSubmitInfoSEC(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_THROTTLE_HINT_SUBMIT_INFO_SEC
 class VkTensorDescriptionARM(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_TENSOR_DESCRIPTION_ARM
 class VkTensorCreateInfoARM(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_TENSOR_CREATE_INFO_ARM
 class VkTensorViewCreateInfoARM(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_TENSOR_VIEW_CREATE_INFO_ARM
 class VkTensorMemoryRequirementsInfoARM(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_TENSOR_MEMORY_REQUIREMENTS_INFO_ARM
 class VkBindTensorMemoryInfoARM(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_BIND_TENSOR_MEMORY_INFO_ARM
 class VkWriteDescriptorSetTensorARM(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_WRITE_DESCRIPTOR_SET_TENSOR_ARM
 class VkTensorFormatPropertiesARM(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_TENSOR_FORMAT_PROPERTIES_ARM
 class VkPhysicalDeviceTensorPropertiesARM(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_TENSOR_PROPERTIES_ARM
 class VkTensorMemoryBarrierARM(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_TENSOR_MEMORY_BARRIER_ARM
 class VkTensorDependencyInfoARM(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_TENSOR_DEPENDENCY_INFO_ARM
 class VkPhysicalDeviceTensorFeaturesARM(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_TENSOR_FEATURES_ARM
 class VkDeviceTensorMemoryRequirementsARM(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_DEVICE_TENSOR_MEMORY_REQUIREMENTS_ARM
 class VkCopyTensorInfoARM(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_COPY_TENSOR_INFO_ARM
 class VkTensorCopyARM(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_TENSOR_COPY_ARM
 class VkMemoryDedicatedAllocateInfoTensorARM(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_MEMORY_DEDICATED_ALLOCATE_INFO_TENSOR_ARM
 class VkPhysicalDeviceDescriptorBufferTensorPropertiesARM(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_DESCRIPTOR_BUFFER_TENSOR_PROPERTIES_ARM
 class VkPhysicalDeviceDescriptorBufferTensorFeaturesARM(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_DESCRIPTOR_BUFFER_TENSOR_FEATURES_ARM
 class VkTensorCaptureDescriptorDataInfoARM(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_TENSOR_CAPTURE_DESCRIPTOR_DATA_INFO_ARM
 class VkTensorViewCaptureDescriptorDataInfoARM(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_TENSOR_VIEW_CAPTURE_DESCRIPTOR_DATA_INFO_ARM
 class VkDescriptorGetTensorInfoARM(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_DESCRIPTOR_GET_TENSOR_INFO_ARM
 class VkFrameBoundaryTensorsARM(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_FRAME_BOUNDARY_TENSORS_ARM
 class VkPhysicalDeviceExternalTensorInfoARM(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_EXTERNAL_TENSOR_INFO_ARM
 class VkExternalTensorPropertiesARM(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_EXTERNAL_TENSOR_PROPERTIES_ARM
 class VkExternalMemoryTensorCreateInfoARM(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_EXTERNAL_MEMORY_TENSOR_CREATE_INFO_ARM
 class VkPhysicalDeviceShaderFloat8FeaturesEXT(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_SHADER_FLOAT8_FEATURES_EXT
 class VkSurfaceCreateInfoOHOS(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_SURFACE_CREATE_INFO_OHOS
 class VkPhysicalDeviceDataGraphFeaturesARM(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_DATA_GRAPH_FEATURES_ARM
 class VkDataGraphPipelineConstantTensorSemiStructuredSparsityInfoARM(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_DATA_GRAPH_PIPELINE_CONSTANT_TENSOR_SEMI_STRUCTURED_SPARSITY_INFO_ARM
 class VkDataGraphPipelineConstantARM(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_DATA_GRAPH_PIPELINE_CONSTANT_ARM
 class VkDataGraphPipelineResourceInfoARM(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_DATA_GRAPH_PIPELINE_RESOURCE_INFO_ARM
 class VkDataGraphPipelineResourceInfoImageLayoutARM(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_DATA_GRAPH_PIPELINE_RESOURCE_INFO_IMAGE_LAYOUT_ARM
 class VkDataGraphPipelineCompilerControlCreateInfoARM(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_DATA_GRAPH_PIPELINE_COMPILER_CONTROL_CREATE_INFO_ARM
 class VkDataGraphPipelineCreateInfoARM(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_DATA_GRAPH_PIPELINE_CREATE_INFO_ARM
 class VkDataGraphPipelineShaderModuleCreateInfoARM(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_DATA_GRAPH_PIPELINE_SHADER_MODULE_CREATE_INFO_ARM
 class VkDataGraphPipelineSessionCreateInfoARM(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_DATA_GRAPH_PIPELINE_SESSION_CREATE_INFO_ARM
 class VkDataGraphPipelineSessionBindPointRequirementsInfoARM(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_DATA_GRAPH_PIPELINE_SESSION_BIND_POINT_REQUIREMENTS_INFO_ARM
 class VkDataGraphPipelineSessionBindPointRequirementARM(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_DATA_GRAPH_PIPELINE_SESSION_BIND_POINT_REQUIREMENT_ARM
 class VkDataGraphPipelineSessionMemoryRequirementsInfoARM(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_DATA_GRAPH_PIPELINE_SESSION_MEMORY_REQUIREMENTS_INFO_ARM
 class VkBindDataGraphPipelineSessionMemoryInfoARM(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_BIND_DATA_GRAPH_PIPELINE_SESSION_MEMORY_INFO_ARM
 class VkDataGraphPipelineInfoARM(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_DATA_GRAPH_PIPELINE_INFO_ARM
 class VkDataGraphPipelinePropertyQueryResultARM(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_DATA_GRAPH_PIPELINE_PROPERTY_QUERY_RESULT_ARM
 class VkDataGraphPipelineIdentifierCreateInfoARM(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_DATA_GRAPH_PIPELINE_IDENTIFIER_CREATE_INFO_ARM
 class VkDataGraphPipelineDispatchInfoARM(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_DATA_GRAPH_PIPELINE_DISPATCH_INFO_ARM
 class VkPhysicalDeviceDataGraphProcessingEngineARM(Structure):
     pass
 class VkPhysicalDeviceDataGraphOperationSupportARM(Structure):
     pass
 class VkQueueFamilyDataGraphPropertiesARM(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_QUEUE_FAMILY_DATA_GRAPH_PROPERTIES_ARM
 class VkPhysicalDeviceQueueFamilyDataGraphProcessingEngineInfoARM(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_QUEUE_FAMILY_DATA_GRAPH_PROCESSING_ENGINE_INFO_ARM
 class VkQueueFamilyDataGraphProcessingEnginePropertiesARM(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_QUEUE_FAMILY_DATA_GRAPH_PROCESSING_ENGINE_PROPERTIES_ARM
 class VkDataGraphProcessingEngineCreateInfoARM(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_DATA_GRAPH_PROCESSING_ENGINE_CREATE_INFO_ARM
 class VkPhysicalDevicePipelineCacheIncrementalModeFeaturesSEC(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_PIPELINE_CACHE_INCREMENTAL_MODE_FEATURES_SEC
 class VkDataGraphPipelineBuiltinModelCreateInfoQCOM(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_DATA_GRAPH_PIPELINE_BUILTIN_MODEL_CREATE_INFO_QCOM
 class VkPhysicalDeviceDataGraphModelFeaturesQCOM(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_DATA_GRAPH_MODEL_FEATURES_QCOM
 class VkPhysicalDeviceShaderUntypedPointersFeaturesKHR(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_SHADER_UNTYPED_POINTERS_FEATURES_KHR
 class VkNativeBufferOHOS(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_NATIVE_BUFFER_OHOS
 class VkSwapchainImageCreateInfoOHOS(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_SWAPCHAIN_IMAGE_CREATE_INFO_OHOS
 class VkPhysicalDevicePresentationPropertiesOHOS(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_PRESENTATION_PROPERTIES_OHOS
 class VkPhysicalDeviceVideoEncodeRgbConversionFeaturesVALVE(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_VIDEO_ENCODE_RGB_CONVERSION_FEATURES_VALVE
 class VkVideoEncodeRgbConversionCapabilitiesVALVE(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_VIDEO_ENCODE_RGB_CONVERSION_CAPABILITIES_VALVE
 class VkVideoEncodeProfileRgbConversionInfoVALVE(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_VIDEO_ENCODE_PROFILE_RGB_CONVERSION_INFO_VALVE
 class VkVideoEncodeSessionRgbConversionCreateInfoVALVE(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_VIDEO_ENCODE_SESSION_RGB_CONVERSION_CREATE_INFO_VALVE
 class VkPhysicalDeviceShader64BitIndexingFeaturesEXT(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_SHADER_64_BIT_INDEXING_FEATURES_EXT
 class VkNativeBufferUsageOHOS(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_NATIVE_BUFFER_USAGE_OHOS
 class VkNativeBufferPropertiesOHOS(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_NATIVE_BUFFER_PROPERTIES_OHOS
 class VkNativeBufferFormatPropertiesOHOS(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_NATIVE_BUFFER_FORMAT_PROPERTIES_OHOS
 class VkImportNativeBufferInfoOHOS(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_IMPORT_NATIVE_BUFFER_INFO_OHOS
 class VkMemoryGetNativeBufferInfoOHOS(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_MEMORY_GET_NATIVE_BUFFER_INFO_OHOS
 class VkExternalFormatOHOS(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_EXTERNAL_FORMAT_OHOS
 class VkPerfHintInfoQCOM(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_PERF_HINT_INFO_QCOM
 class VkPhysicalDeviceQueuePerfHintFeaturesQCOM(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_QUEUE_PERF_HINT_FEATURES_QCOM
 class VkPhysicalDeviceQueuePerfHintPropertiesQCOM(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_QUEUE_PERF_HINT_PROPERTIES_QCOM
 class VkPhysicalDevicePerformanceCountersByRegionFeaturesARM(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_PERFORMANCE_COUNTERS_BY_REGION_FEATURES_ARM
 class VkPhysicalDevicePerformanceCountersByRegionPropertiesARM(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_PERFORMANCE_COUNTERS_BY_REGION_PROPERTIES_ARM
 class VkPerformanceCounterARM(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_PERFORMANCE_COUNTER_ARM
 class VkPerformanceCounterDescriptionARM(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_PERFORMANCE_COUNTER_DESCRIPTION_ARM
 class VkRenderPassPerformanceCountersByRegionBeginInfoARM(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_RENDER_PASS_PERFORMANCE_COUNTERS_BY_REGION_BEGIN_INFO_ARM
 class VkComputeOccupancyPriorityParametersNV(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_COMPUTE_OCCUPANCY_PRIORITY_PARAMETERS_NV
 class VkPhysicalDeviceComputeOccupancyPriorityFeaturesNV(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_COMPUTE_OCCUPANCY_PRIORITY_FEATURES_NV
 class VkPhysicalDeviceShaderLongVectorFeaturesEXT(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_SHADER_LONG_VECTOR_FEATURES_EXT
 class VkPhysicalDeviceShaderLongVectorPropertiesEXT(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_SHADER_LONG_VECTOR_PROPERTIES_EXT
 class VkPhysicalDeviceTextureCompressionASTC3DFeaturesEXT(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_TEXTURE_COMPRESSION_ASTC_3D_FEATURES_EXT
 class VkPhysicalDeviceShaderSubgroupPartitionedFeaturesEXT(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_SHADER_SUBGROUP_PARTITIONED_FEATURES_EXT
 class VkHostAddressRangeEXT(Structure):
     pass
 class VkHostAddressRangeConstEXT(Structure):
@@ -3316,17 +6922,32 @@ class VkHostAddressRangeConstEXT(Structure):
 class VkDeviceAddressRangeEXT(Structure):
     pass
 class VkTexelBufferDescriptorInfoEXT(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_TEXEL_BUFFER_DESCRIPTOR_INFO_EXT
 class VkImageDescriptorInfoEXT(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_IMAGE_DESCRIPTOR_INFO_EXT
 class VkResourceDescriptorDataEXT(Union):
     pass
 class VkResourceDescriptorInfoEXT(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_RESOURCE_DESCRIPTOR_INFO_EXT
 class VkBindHeapInfoEXT(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_BIND_HEAP_INFO_EXT
 class VkPushDataInfoEXT(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_PUSH_DATA_INFO_EXT
 class VkDescriptorMappingSourceConstantOffsetEXT(Structure):
     pass
 class VkDescriptorMappingSourcePushIndexEXT(Structure):
@@ -3344,97 +6965,226 @@ class VkDescriptorMappingSourceIndirectAddressEXT(Structure):
 class VkDescriptorMappingSourceDataEXT(Union):
     pass
 class VkDescriptorSetAndBindingMappingEXT(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_DESCRIPTOR_SET_AND_BINDING_MAPPING_EXT
 class VkShaderDescriptorSetAndBindingMappingInfoEXT(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_SHADER_DESCRIPTOR_SET_AND_BINDING_MAPPING_INFO_EXT
 class VkSamplerCustomBorderColorIndexCreateInfoEXT(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_SAMPLER_CUSTOM_BORDER_COLOR_INDEX_CREATE_INFO_EXT
 class VkOpaqueCaptureDataCreateInfoEXT(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_OPAQUE_CAPTURE_DATA_CREATE_INFO_EXT
 class VkIndirectCommandsLayoutPushDataTokenNV(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_INDIRECT_COMMANDS_LAYOUT_PUSH_DATA_TOKEN_NV
 class VkSubsampledImageFormatPropertiesEXT(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_SUBSAMPLED_IMAGE_FORMAT_PROPERTIES_EXT
 class VkPhysicalDeviceDescriptorHeapFeaturesEXT(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_DESCRIPTOR_HEAP_FEATURES_EXT
 class VkPhysicalDeviceDescriptorHeapPropertiesEXT(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_DESCRIPTOR_HEAP_PROPERTIES_EXT
 class VkCommandBufferInheritanceDescriptorHeapInfoEXT(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_COMMAND_BUFFER_INHERITANCE_DESCRIPTOR_HEAP_INFO_EXT
 class VkPhysicalDeviceDescriptorHeapTensorPropertiesARM(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_DESCRIPTOR_HEAP_TENSOR_PROPERTIES_ARM
 class VkPhysicalDeviceShaderInstrumentationFeaturesARM(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_SHADER_INSTRUMENTATION_FEATURES_ARM
 class VkPhysicalDeviceShaderInstrumentationPropertiesARM(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_SHADER_INSTRUMENTATION_PROPERTIES_ARM
 class VkShaderInstrumentationCreateInfoARM(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_SHADER_INSTRUMENTATION_CREATE_INFO_ARM
 class VkShaderInstrumentationMetricDescriptionARM(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_SHADER_INSTRUMENTATION_METRIC_DESCRIPTION_ARM
 class VkShaderInstrumentationMetricDataHeaderARM(Structure):
     pass
 class VkDeviceAddressRangeKHR(Structure):
     pass
 class VkDeviceMemoryCopyKHR(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_DEVICE_MEMORY_COPY_KHR
 class VkCopyDeviceMemoryInfoKHR(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_COPY_DEVICE_MEMORY_INFO_KHR
 class VkDeviceMemoryImageCopyKHR(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_DEVICE_MEMORY_IMAGE_COPY_KHR
 class VkCopyDeviceMemoryImageInfoKHR(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_COPY_DEVICE_MEMORY_IMAGE_INFO_KHR
 class VkMemoryRangeBarriersInfoKHR(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_MEMORY_RANGE_BARRIERS_INFO_KHR
 class VkMemoryRangeBarrierKHR(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_MEMORY_RANGE_BARRIER_KHR
 class VkPhysicalDeviceDeviceAddressCommandsFeaturesKHR(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_DEVICE_ADDRESS_COMMANDS_FEATURES_KHR
 class VkConditionalRenderingBeginInfo2EXT(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_CONDITIONAL_RENDERING_BEGIN_INFO_2_EXT
 class VkAccelerationStructureCreateInfo2KHR(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_ACCELERATION_STRUCTURE_CREATE_INFO_2_KHR
 class VkBindIndexBuffer3InfoKHR(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_BIND_INDEX_BUFFER_3_INFO_KHR
 class VkBindVertexBuffer3InfoKHR(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_BIND_VERTEX_BUFFER_3_INFO_KHR
 class VkDrawIndirect2InfoKHR(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_DRAW_INDIRECT_2_INFO_KHR
 class VkDrawIndirectCount2InfoKHR(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_DRAW_INDIRECT_COUNT_2_INFO_KHR
 class VkDispatchIndirect2InfoKHR(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_DISPATCH_INDIRECT_2_INFO_KHR
 class VkBindTransformFeedbackBuffer2InfoEXT(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_BIND_TRANSFORM_FEEDBACK_BUFFER_2_INFO_EXT
 class VkMemoryMarkerInfoAMD(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_MEMORY_MARKER_INFO_AMD
 class VkPhysicalDeviceShaderConstantDataFeaturesKHR(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_SHADER_CONSTANT_DATA_FEATURES_KHR
 class VkPhysicalDeviceShaderAbortFeaturesKHR(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_SHADER_ABORT_FEATURES_KHR
 class VkPhysicalDeviceShaderAbortPropertiesKHR(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_SHADER_ABORT_PROPERTIES_KHR
 class VkDeviceFaultShaderAbortMessageInfoKHR(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_DEVICE_FAULT_SHADER_ABORT_MESSAGE_INFO_KHR
 class VkDataGraphTOSANameQualityARM(Structure):
     pass
 class VkQueueFamilyDataGraphTOSAPropertiesARM(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_QUEUE_FAMILY_DATA_GRAPH_TOSA_PROPERTIES_ARM
 class VkDataGraphPipelineSingleNodeConnectionARM(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_DATA_GRAPH_PIPELINE_SINGLE_NODE_CONNECTION_ARM
 class VkPhysicalDeviceDataGraphOpticalFlowFeaturesARM(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_DATA_GRAPH_OPTICAL_FLOW_FEATURES_ARM
 class VkQueueFamilyDataGraphOpticalFlowPropertiesARM(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_QUEUE_FAMILY_DATA_GRAPH_OPTICAL_FLOW_PROPERTIES_ARM
 class VkDataGraphOpticalFlowImageFormatInfoARM(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_DATA_GRAPH_OPTICAL_FLOW_IMAGE_FORMAT_INFO_ARM
 class VkDataGraphOpticalFlowImageFormatPropertiesARM(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_DATA_GRAPH_OPTICAL_FLOW_IMAGE_FORMAT_PROPERTIES_ARM
 class VkDataGraphPipelineSingleNodeCreateInfoARM(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_DATA_GRAPH_PIPELINE_SINGLE_NODE_CREATE_INFO_ARM
 class VkDataGraphPipelineOpticalFlowCreateInfoARM(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_DATA_GRAPH_PIPELINE_OPTICAL_FLOW_CREATE_INFO_ARM
 class VkDataGraphPipelineOpticalFlowDispatchInfoARM(Structure):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'sType' not in kwargs:
+            self.sType = VkStructureType.VK_STRUCTURE_TYPE_DATA_GRAPH_PIPELINE_OPTICAL_FLOW_DISPATCH_INFO_ARM
 
 PFN_vkInternalAllocationNotification = CFUNCTYPE(None, c_void_p, c_size_t, c_int32, c_int32)
 PFN_vkInternalFreeNotification = CFUNCTYPE(None, c_void_p, c_size_t, c_int32, c_int32)
@@ -3707,14 +7457,14 @@ VkQueueFamilyProperties._fields_ = [
     ("minImageTransferGranularity", VkExtent3D),
 ]
 
-VkMemoryHeap._fields_ = [
-    ("size", c_uint64),
-    ("flags", c_uint32),
-]
-
 VkMemoryType._fields_ = [
     ("propertyFlags", c_uint32),
     ("heapIndex", c_uint32),
+]
+
+VkMemoryHeap._fields_ = [
+    ("size", c_uint64),
+    ("flags", c_uint32),
 ]
 
 VkPhysicalDeviceMemoryProperties._fields_ = [

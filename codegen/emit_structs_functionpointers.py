@@ -16,7 +16,19 @@ def emit_structs_and_funcpointers(registry: Registry, order: list[str]) -> str:
         struct = registry.structs_unions[name]
         base = "Union" if struct.is_union else "Structure"
         lines.append(f"class {name}({base}):")
-        lines.append("    pass")
+
+        defaults = [m for m in struct.members if m.default_value is not None]
+
+        if not defaults:
+            lines.append("    pass")
+        else:
+            lines.append("    def __init__(self, *args, **kwargs):")
+            lines.append("        super().__init__(*args, **kwargs)")
+            for member in defaults:
+                default = member.default_value.split(",")[0]
+                qualified = f"{member.type.name}.{default}"
+                lines.append(f"        if '{member.name}' not in kwargs:")
+                lines.append(f"            self.{member.name} = {qualified}")
     lines.append("")
 
     # Phase 2: funcpointers (can reference struct stubs now)
