@@ -9,7 +9,7 @@ def emit_member_field(member: Member, registry: Registry) -> str:
     return f'    ("{member.name}", {base}),'
 
 def emit_structs_and_funcpointers(registry: Registry, order: list[str]) -> str:
-    lines = ["from ctypes import *", "from .enums import *", ""]
+    lines = ["from ctypes import *", "from .enums import *", "from .handles import *"]
 
     # Phase 1: struct/union stubs
     for name in order:

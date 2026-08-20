@@ -30,7 +30,9 @@ def emit_init() -> str:
              "from .bitmasks import *",
              "from .enums import *",
              "from .types import *",
-             "#from .commands import *",]
+             "from .commands import *",
+             "from .loader import *",
+             "from .wrapper import *"]
 
     return "\n".join(lines)
 

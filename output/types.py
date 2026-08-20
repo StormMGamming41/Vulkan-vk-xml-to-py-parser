@@ -1,5 +1,6 @@
 from ctypes import *
 from .enums import *
+from .handles import *
 
 class VkBaseOutStructure(Structure):
     pass
@@ -55,9 +56,9 @@ class VkInstanceCreateInfo(Structure):
             self.sType = VkStructureType.VK_STRUCTURE_TYPE_INSTANCE_CREATE_INFO
 class VkQueueFamilyProperties(Structure):
     pass
-class VkMemoryType(Structure):
-    pass
 class VkMemoryHeap(Structure):
+    pass
+class VkMemoryType(Structure):
     pass
 class VkPhysicalDeviceMemoryProperties(Structure):
     pass
@@ -7196,7 +7197,7 @@ PFN_vkDebugReportCallbackEXT = CFUNCTYPE(c_uint32, c_uint32, c_int32, c_uint64, 
 PFN_vkDebugUtilsMessengerCallbackEXT = CFUNCTYPE(c_uint32, c_int32, c_uint32, POINTER(VkDebugUtilsMessengerCallbackDataEXT), c_void_p)
 PFN_vkFaultCallbackFunction = CFUNCTYPE(None, c_uint32, c_uint32, POINTER(VkFaultData))
 PFN_vkDeviceMemoryReportCallbackEXT = CFUNCTYPE(None, POINTER(VkDeviceMemoryReportCallbackDataEXT), c_void_p)
-PFN_vkGetInstanceProcAddrLUNARG = CFUNCTYPE(PFN_vkVoidFunction, c_void_p, c_char_p)
+PFN_vkGetInstanceProcAddrLUNARG = CFUNCTYPE(PFN_vkVoidFunction, VkInstance, c_char_p)
 
 VkBaseOutStructure._fields_ = [
     ("sType", c_int32),
@@ -7457,14 +7458,14 @@ VkQueueFamilyProperties._fields_ = [
     ("minImageTransferGranularity", VkExtent3D),
 ]
 
-VkMemoryType._fields_ = [
-    ("propertyFlags", c_uint32),
-    ("heapIndex", c_uint32),
-]
-
 VkMemoryHeap._fields_ = [
     ("size", c_uint64),
     ("flags", c_uint32),
+]
+
+VkMemoryType._fields_ = [
+    ("propertyFlags", c_uint32),
+    ("heapIndex", c_uint32),
 ]
 
 VkPhysicalDeviceMemoryProperties._fields_ = [
@@ -7504,7 +7505,7 @@ VkSparseImageMemoryRequirements._fields_ = [
 VkMappedMemoryRange._fields_ = [
     ("sType", c_int32),
     ("pNext", c_void_p),
-    ("memory", c_void_p),
+    ("memory", VkDeviceMemory),
     ("offset", c_uint64),
     ("size", c_uint64),
 ]
@@ -7524,37 +7525,37 @@ VkImageFormatProperties._fields_ = [
 ]
 
 VkDescriptorBufferInfo._fields_ = [
-    ("buffer", c_void_p),
+    ("buffer", VkBuffer),
     ("offset", c_uint64),
     ("range", c_uint64),
 ]
 
 VkDescriptorImageInfo._fields_ = [
-    ("sampler", c_void_p),
-    ("imageView", c_void_p),
+    ("sampler", VkSampler),
+    ("imageView", VkImageView),
     ("imageLayout", c_int32),
 ]
 
 VkWriteDescriptorSet._fields_ = [
     ("sType", c_int32),
     ("pNext", c_void_p),
-    ("dstSet", c_void_p),
+    ("dstSet", VkDescriptorSet),
     ("dstBinding", c_uint32),
     ("dstArrayElement", c_uint32),
     ("descriptorCount", c_uint32),
     ("descriptorType", c_int32),
     ("pImageInfo", POINTER(VkDescriptorImageInfo)),
     ("pBufferInfo", POINTER(VkDescriptorBufferInfo)),
-    ("pTexelBufferView", POINTER(c_void_p)),
+    ("pTexelBufferView", POINTER(VkBufferView)),
 ]
 
 VkCopyDescriptorSet._fields_ = [
     ("sType", c_int32),
     ("pNext", c_void_p),
-    ("srcSet", c_void_p),
+    ("srcSet", VkDescriptorSet),
     ("srcBinding", c_uint32),
     ("srcArrayElement", c_uint32),
-    ("dstSet", c_void_p),
+    ("dstSet", VkDescriptorSet),
     ("dstBinding", c_uint32),
     ("dstArrayElement", c_uint32),
     ("descriptorCount", c_uint32),
@@ -7584,7 +7585,7 @@ VkBufferViewCreateInfo._fields_ = [
     ("sType", c_int32),
     ("pNext", c_void_p),
     ("flags", c_uint32),
-    ("buffer", c_void_p),
+    ("buffer", VkBuffer),
     ("format", c_int32),
     ("offset", c_uint64),
     ("range", c_uint64),
@@ -7625,7 +7626,7 @@ VkBufferMemoryBarrier._fields_ = [
     ("dstAccessMask", c_uint32),
     ("srcQueueFamilyIndex", c_uint32),
     ("dstQueueFamilyIndex", c_uint32),
-    ("buffer", c_void_p),
+    ("buffer", VkBuffer),
     ("offset", c_uint64),
     ("size", c_uint64),
 ]
@@ -7639,7 +7640,7 @@ VkImageMemoryBarrier._fields_ = [
     ("newLayout", c_int32),
     ("srcQueueFamilyIndex", c_uint32),
     ("dstQueueFamilyIndex", c_uint32),
-    ("image", c_void_p),
+    ("image", VkImage),
     ("subresourceRange", VkImageSubresourceRange),
 ]
 
@@ -7673,7 +7674,7 @@ VkImageViewCreateInfo._fields_ = [
     ("sType", c_int32),
     ("pNext", c_void_p),
     ("flags", c_uint32),
-    ("image", c_void_p),
+    ("image", VkImage),
     ("viewType", c_int32),
     ("format", c_int32),
     ("components", VkComponentMapping),
@@ -7689,7 +7690,7 @@ VkBufferCopy._fields_ = [
 VkSparseMemoryBind._fields_ = [
     ("resourceOffset", c_uint64),
     ("size", c_uint64),
-    ("memory", c_void_p),
+    ("memory", VkDeviceMemory),
     ("memoryOffset", c_uint64),
     ("flags", c_uint32),
 ]
@@ -7698,25 +7699,25 @@ VkSparseImageMemoryBind._fields_ = [
     ("subresource", VkImageSubresource),
     ("offset", VkOffset3D),
     ("extent", VkExtent3D),
-    ("memory", c_void_p),
+    ("memory", VkDeviceMemory),
     ("memoryOffset", c_uint64),
     ("flags", c_uint32),
 ]
 
 VkSparseBufferMemoryBindInfo._fields_ = [
-    ("buffer", c_void_p),
+    ("buffer", VkBuffer),
     ("bindCount", c_uint32),
     ("pBinds", POINTER(VkSparseMemoryBind)),
 ]
 
 VkSparseImageOpaqueMemoryBindInfo._fields_ = [
-    ("image", c_void_p),
+    ("image", VkImage),
     ("bindCount", c_uint32),
     ("pBinds", POINTER(VkSparseMemoryBind)),
 ]
 
 VkSparseImageMemoryBindInfo._fields_ = [
-    ("image", c_void_p),
+    ("image", VkImage),
     ("bindCount", c_uint32),
     ("pBinds", POINTER(VkSparseImageMemoryBind)),
 ]
@@ -7725,7 +7726,7 @@ VkBindSparseInfo._fields_ = [
     ("sType", c_int32),
     ("pNext", c_void_p),
     ("waitSemaphoreCount", c_uint32),
-    ("pWaitSemaphores", POINTER(c_void_p)),
+    ("pWaitSemaphores", POINTER(VkSemaphore)),
     ("bufferBindCount", c_uint32),
     ("pBufferBinds", POINTER(VkSparseBufferMemoryBindInfo)),
     ("imageOpaqueBindCount", c_uint32),
@@ -7733,7 +7734,7 @@ VkBindSparseInfo._fields_ = [
     ("imageBindCount", c_uint32),
     ("pImageBinds", POINTER(VkSparseImageMemoryBindInfo)),
     ("signalSemaphoreCount", c_uint32),
-    ("pSignalSemaphores", POINTER(c_void_p)),
+    ("pSignalSemaphores", POINTER(VkSemaphore)),
 ]
 
 VkImageCopy._fields_ = [
@@ -7802,7 +7803,7 @@ VkCopyMemoryToImageIndirectInfoKHR._fields_ = [
     ("srcCopyFlags", c_uint32),
     ("copyCount", c_uint32),
     ("copyAddressRange", VkStridedDeviceAddressRangeKHR),
-    ("dstImage", c_void_p),
+    ("dstImage", VkImage),
     ("dstImageLayout", c_int32),
     ("pImageSubresources", POINTER(VkImageSubresourceLayers)),
 ]
@@ -7828,7 +7829,7 @@ VkDescriptorSetLayoutBinding._fields_ = [
     ("descriptorType", c_int32),
     ("descriptorCount", c_uint32),
     ("stageFlags", c_uint32),
-    ("pImmutableSamplers", POINTER(c_void_p)),
+    ("pImmutableSamplers", POINTER(VkSampler)),
 ]
 
 VkDescriptorSetLayoutCreateInfo._fields_ = [
@@ -7856,9 +7857,9 @@ VkDescriptorPoolCreateInfo._fields_ = [
 VkDescriptorSetAllocateInfo._fields_ = [
     ("sType", c_int32),
     ("pNext", c_void_p),
-    ("descriptorPool", c_void_p),
+    ("descriptorPool", VkDescriptorPool),
     ("descriptorSetCount", c_uint32),
-    ("pSetLayouts", POINTER(c_void_p)),
+    ("pSetLayouts", POINTER(VkDescriptorSetLayout)),
 ]
 
 VkSpecializationMapEntry._fields_ = [
@@ -7879,7 +7880,7 @@ VkPipelineShaderStageCreateInfo._fields_ = [
     ("pNext", c_void_p),
     ("flags", c_uint32),
     ("stage", c_int32),
-    ("module", c_void_p),
+    ("module", VkShaderModule),
     ("pName", c_char_p),
     ("pName", c_char_p),
     ("pSpecializationInfo", POINTER(VkSpecializationInfo)),
@@ -7890,8 +7891,8 @@ VkComputePipelineCreateInfo._fields_ = [
     ("pNext", c_void_p),
     ("flags", c_uint32),
     ("stage", VkPipelineShaderStageCreateInfo),
-    ("layout", c_void_p),
-    ("basePipelineHandle", c_void_p),
+    ("layout", VkPipelineLayout),
+    ("basePipelineHandle", VkPipeline),
     ("basePipelineIndex", c_int32),
 ]
 
@@ -8059,10 +8060,10 @@ VkGraphicsPipelineCreateInfo._fields_ = [
     ("pDepthStencilState", POINTER(VkPipelineDepthStencilStateCreateInfo)),
     ("pColorBlendState", POINTER(VkPipelineColorBlendStateCreateInfo)),
     ("pDynamicState", POINTER(VkPipelineDynamicStateCreateInfo)),
-    ("layout", c_void_p),
-    ("renderPass", c_void_p),
+    ("layout", VkPipelineLayout),
+    ("renderPass", VkRenderPass),
     ("subpass", c_uint32),
-    ("basePipelineHandle", c_void_p),
+    ("basePipelineHandle", VkPipeline),
     ("basePipelineIndex", c_int32),
 ]
 
@@ -8125,7 +8126,7 @@ VkPipelineBinaryCreateInfoKHR._fields_ = [
     ("sType", c_int32),
     ("pNext", c_void_p),
     ("pKeysAndDataInfo", POINTER(VkPipelineBinaryKeysAndDataKHR)),
-    ("pipeline", c_void_p),
+    ("pipeline", VkPipeline),
     ("pPipelineCreateInfo", POINTER(VkPipelineCreateInfoKHR)),
 ]
 
@@ -8133,7 +8134,7 @@ VkPipelineBinaryHandlesInfoKHR._fields_ = [
     ("sType", c_int32),
     ("pNext", c_void_p),
     ("pipelineBinaryCount", c_uint32),
-    ("pPipelineBinaries", POINTER(c_void_p)),
+    ("pPipelineBinaries", POINTER(VkPipelineBinaryKHR)),
 ]
 
 VkPipelineBinaryDataKHR._fields_ = [
@@ -8158,19 +8159,19 @@ VkPipelineBinaryInfoKHR._fields_ = [
     ("sType", c_int32),
     ("pNext", c_void_p),
     ("binaryCount", c_uint32),
-    ("pPipelineBinaries", POINTER(c_void_p)),
+    ("pPipelineBinaries", POINTER(VkPipelineBinaryKHR)),
 ]
 
 VkReleaseCapturedPipelineDataInfoKHR._fields_ = [
     ("sType", c_int32),
     ("pNext", c_void_p),
-    ("pipeline", c_void_p),
+    ("pipeline", VkPipeline),
 ]
 
 VkPipelineBinaryDataInfoKHR._fields_ = [
     ("sType", c_int32),
     ("pNext", c_void_p),
-    ("pipelineBinary", c_void_p),
+    ("pipelineBinary", VkPipelineBinaryKHR),
 ]
 
 VkPipelineCreateInfoKHR._fields_ = [
@@ -8183,7 +8184,7 @@ VkPipelineLayoutCreateInfo._fields_ = [
     ("pNext", c_void_p),
     ("flags", c_uint32),
     ("setLayoutCount", c_uint32),
-    ("pSetLayouts", POINTER(c_void_p)),
+    ("pSetLayouts", POINTER(VkDescriptorSetLayout)),
     ("pushConstantRangeCount", c_uint32),
     ("pPushConstantRanges", POINTER(VkPushConstantRange)),
 ]
@@ -8219,7 +8220,7 @@ VkCommandPoolCreateInfo._fields_ = [
 VkCommandBufferAllocateInfo._fields_ = [
     ("sType", c_int32),
     ("pNext", c_void_p),
-    ("commandPool", c_void_p),
+    ("commandPool", VkCommandPool),
     ("level", c_int32),
     ("commandBufferCount", c_uint32),
 ]
@@ -8227,9 +8228,9 @@ VkCommandBufferAllocateInfo._fields_ = [
 VkCommandBufferInheritanceInfo._fields_ = [
     ("sType", c_int32),
     ("pNext", c_void_p),
-    ("renderPass", c_void_p),
+    ("renderPass", VkRenderPass),
     ("subpass", c_uint32),
-    ("framebuffer", c_void_p),
+    ("framebuffer", VkFramebuffer),
     ("occlusionQueryEnable", c_uint32),
     ("queryFlags", c_uint32),
     ("pipelineStatistics", c_uint32),
@@ -8245,8 +8246,8 @@ VkCommandBufferBeginInfo._fields_ = [
 VkRenderPassBeginInfo._fields_ = [
     ("sType", c_int32),
     ("pNext", c_void_p),
-    ("renderPass", c_void_p),
-    ("framebuffer", c_void_p),
+    ("renderPass", VkRenderPass),
+    ("framebuffer", VkFramebuffer),
     ("renderArea", VkRect2D),
     ("clearValueCount", c_uint32),
     ("pClearValues", POINTER(VkClearValue)),
@@ -8415,9 +8416,9 @@ VkFramebufferCreateInfo._fields_ = [
     ("sType", c_int32),
     ("pNext", c_void_p),
     ("flags", c_uint32),
-    ("renderPass", c_void_p),
+    ("renderPass", VkRenderPass),
     ("attachmentCount", c_uint32),
-    ("pAttachments", POINTER(c_void_p)),
+    ("pAttachments", POINTER(VkImageView)),
     ("width", c_uint32),
     ("height", c_uint32),
     ("layers", c_uint32),
@@ -8459,16 +8460,16 @@ VkSubmitInfo._fields_ = [
     ("sType", c_int32),
     ("pNext", c_void_p),
     ("waitSemaphoreCount", c_uint32),
-    ("pWaitSemaphores", POINTER(c_void_p)),
+    ("pWaitSemaphores", POINTER(VkSemaphore)),
     ("pWaitDstStageMask", POINTER(c_uint32)),
     ("commandBufferCount", c_uint32),
-    ("pCommandBuffers", POINTER(c_void_p)),
+    ("pCommandBuffers", POINTER(VkCommandBuffer)),
     ("signalSemaphoreCount", c_uint32),
-    ("pSignalSemaphores", POINTER(c_void_p)),
+    ("pSignalSemaphores", POINTER(VkSemaphore)),
 ]
 
 VkDisplayPropertiesKHR._fields_ = [
-    ("display", c_void_p),
+    ("display", VkDisplayKHR),
     ("displayName", c_char_p),
     ("physicalDimensions", VkExtent2D),
     ("physicalResolution", VkExtent2D),
@@ -8478,7 +8479,7 @@ VkDisplayPropertiesKHR._fields_ = [
 ]
 
 VkDisplayPlanePropertiesKHR._fields_ = [
-    ("currentDisplay", c_void_p),
+    ("currentDisplay", VkDisplayKHR),
     ("currentStackIndex", c_uint32),
 ]
 
@@ -8488,7 +8489,7 @@ VkDisplayModeParametersKHR._fields_ = [
 ]
 
 VkDisplayModePropertiesKHR._fields_ = [
-    ("displayMode", c_void_p),
+    ("displayMode", VkDisplayModeKHR),
     ("parameters", VkDisplayModeParametersKHR),
 ]
 
@@ -8515,7 +8516,7 @@ VkDisplaySurfaceCreateInfoKHR._fields_ = [
     ("sType", c_int32),
     ("pNext", c_void_p),
     ("flags", c_uint32),
-    ("displayMode", c_void_p),
+    ("displayMode", VkDisplayModeKHR),
     ("planeIndex", c_uint32),
     ("planeStackIndex", c_uint32),
     ("transform", c_int32),
@@ -8644,7 +8645,7 @@ VkSwapchainCreateInfoKHR._fields_ = [
     ("sType", c_int32),
     ("pNext", c_void_p),
     ("flags", c_uint32),
-    ("surface", c_void_p),
+    ("surface", VkSurfaceKHR),
     ("minImageCount", c_uint32),
     ("imageFormat", c_int32),
     ("imageColorSpace", c_int32),
@@ -8658,17 +8659,17 @@ VkSwapchainCreateInfoKHR._fields_ = [
     ("compositeAlpha", c_int32),
     ("presentMode", c_int32),
     ("clipped", c_uint32),
-    ("oldSwapchain", c_void_p),
-    ("oldSwapchain", c_void_p),
+    ("oldSwapchain", VkSwapchainKHR),
+    ("oldSwapchain", VkSwapchainKHR),
 ]
 
 VkPresentInfoKHR._fields_ = [
     ("sType", c_int32),
     ("pNext", c_void_p),
     ("waitSemaphoreCount", c_uint32),
-    ("pWaitSemaphores", POINTER(c_void_p)),
+    ("pWaitSemaphores", POINTER(VkSemaphore)),
     ("swapchainCount", c_uint32),
-    ("pSwapchains", POINTER(c_void_p)),
+    ("pSwapchains", POINTER(VkSwapchainKHR)),
     ("pImageIndices", POINTER(c_uint32)),
     ("pResults", POINTER(c_int32)),
 ]
@@ -8767,8 +8768,8 @@ VkDedicatedAllocationBufferCreateInfoNV._fields_ = [
 VkDedicatedAllocationMemoryAllocateInfoNV._fields_ = [
     ("sType", c_int32),
     ("pNext", c_void_p),
-    ("image", c_void_p),
-    ("buffer", c_void_p),
+    ("image", VkImage),
+    ("buffer", VkBuffer),
 ]
 
 VkExternalImageFormatPropertiesNV._fields_ = [
@@ -8820,7 +8821,7 @@ VkImportMemorySciBufInfoNV._fields_ = [
 VkMemoryGetSciBufInfoNV._fields_ = [
     ("sType", c_int32),
     ("pNext", c_void_p),
-    ("memory", c_void_p),
+    ("memory", VkDeviceMemory),
     ("handleType", c_int32),
 ]
 
@@ -8844,11 +8845,11 @@ VkWin32KeyedMutexAcquireReleaseInfoNV._fields_ = [
     ("sType", c_int32),
     ("pNext", c_void_p),
     ("acquireCount", c_uint32),
-    ("pAcquireSyncs", POINTER(c_void_p)),
+    ("pAcquireSyncs", POINTER(VkDeviceMemory)),
     ("pAcquireKeys", POINTER(c_uint64)),
     ("pAcquireTimeoutMilliseconds", POINTER(c_uint32)),
     ("releaseCount", c_uint32),
-    ("pReleaseSyncs", POINTER(c_void_p)),
+    ("pReleaseSyncs", POINTER(VkDeviceMemory)),
     ("pReleaseKeys", POINTER(c_uint64)),
 ]
 
@@ -9111,7 +9112,7 @@ VkGraphicsPipelineShaderGroupsCreateInfoNV._fields_ = [
     ("groupCount", c_uint32),
     ("pGroups", POINTER(VkGraphicsShaderGroupCreateInfoNV)),
     ("pipelineCount", c_uint32),
-    ("pPipelines", POINTER(c_void_p)),
+    ("pPipelines", POINTER(VkPipeline)),
 ]
 
 VkBindShaderGroupIndirectCommandNV._fields_ = [
@@ -9135,7 +9136,7 @@ VkSetStateFlagsIndirectCommandNV._fields_ = [
 ]
 
 VkIndirectCommandsStreamNV._fields_ = [
-    ("buffer", c_void_p),
+    ("buffer", VkBuffer),
     ("offset", c_uint64),
 ]
 
@@ -9147,7 +9148,7 @@ VkIndirectCommandsLayoutTokenNV._fields_ = [
     ("offset", c_uint32),
     ("vertexBindingUnit", c_uint32),
     ("vertexDynamicStride", c_uint32),
-    ("pushconstantPipelineLayout", c_void_p),
+    ("pushconstantPipelineLayout", VkPipelineLayout),
     ("pushconstantShaderStageFlags", c_uint32),
     ("pushconstantOffset", c_uint32),
     ("pushconstantSize", c_uint32),
@@ -9172,17 +9173,17 @@ VkGeneratedCommandsInfoNV._fields_ = [
     ("sType", c_int32),
     ("pNext", c_void_p),
     ("pipelineBindPoint", c_int32),
-    ("pipeline", c_void_p),
-    ("indirectCommandsLayout", c_void_p),
+    ("pipeline", VkPipeline),
+    ("indirectCommandsLayout", VkIndirectCommandsLayoutNV),
     ("streamCount", c_uint32),
     ("pStreams", POINTER(VkIndirectCommandsStreamNV)),
     ("sequencesCount", c_uint32),
-    ("preprocessBuffer", c_void_p),
+    ("preprocessBuffer", VkBuffer),
     ("preprocessOffset", c_uint64),
     ("preprocessSize", c_uint64),
-    ("sequencesCountBuffer", c_void_p),
+    ("sequencesCountBuffer", VkBuffer),
     ("sequencesCountOffset", c_uint64),
-    ("sequencesIndexBuffer", c_void_p),
+    ("sequencesIndexBuffer", VkBuffer),
     ("sequencesIndexOffset", c_uint64),
 ]
 
@@ -9190,8 +9191,8 @@ VkGeneratedCommandsMemoryRequirementsInfoNV._fields_ = [
     ("sType", c_int32),
     ("pNext", c_void_p),
     ("pipelineBindPoint", c_int32),
-    ("pipeline", c_void_p),
-    ("indirectCommandsLayout", c_void_p),
+    ("pipeline", VkPipeline),
+    ("indirectCommandsLayout", VkIndirectCommandsLayoutNV),
     ("maxSequencesCount", c_uint32),
 ]
 
@@ -9199,7 +9200,7 @@ VkPipelineIndirectDeviceAddressInfoNV._fields_ = [
     ("sType", c_int32),
     ("pNext", c_void_p),
     ("pipelineBindPoint", c_int32),
-    ("pipeline", c_void_p),
+    ("pipeline", VkPipeline),
 ]
 
 VkBindPipelineIndirectCommandNV._fields_ = [
@@ -9479,7 +9480,7 @@ VkMemoryZirconHandlePropertiesFUCHSIA._fields_ = [
 VkMemoryGetZirconHandleInfoFUCHSIA._fields_ = [
     ("sType", c_int32),
     ("pNext", c_void_p),
-    ("memory", c_void_p),
+    ("memory", VkDeviceMemory),
     ("handleType", c_int32),
 ]
 
@@ -9492,7 +9493,7 @@ VkMemoryWin32HandlePropertiesKHR._fields_ = [
 VkMemoryGetWin32HandleInfoKHR._fields_ = [
     ("sType", c_int32),
     ("pNext", c_void_p),
-    ("memory", c_void_p),
+    ("memory", VkDeviceMemory),
     ("handleType", c_int32),
 ]
 
@@ -9512,7 +9513,7 @@ VkMemoryFdPropertiesKHR._fields_ = [
 VkMemoryGetFdInfoKHR._fields_ = [
     ("sType", c_int32),
     ("pNext", c_void_p),
-    ("memory", c_void_p),
+    ("memory", VkDeviceMemory),
     ("handleType", c_int32),
 ]
 
@@ -9520,11 +9521,11 @@ VkWin32KeyedMutexAcquireReleaseInfoKHR._fields_ = [
     ("sType", c_int32),
     ("pNext", c_void_p),
     ("acquireCount", c_uint32),
-    ("pAcquireSyncs", POINTER(c_void_p)),
+    ("pAcquireSyncs", POINTER(VkDeviceMemory)),
     ("pAcquireKeys", POINTER(c_uint64)),
     ("pAcquireTimeouts", POINTER(c_uint32)),
     ("releaseCount", c_uint32),
-    ("pReleaseSyncs", POINTER(c_void_p)),
+    ("pReleaseSyncs", POINTER(VkDeviceMemory)),
     ("pReleaseKeys", POINTER(c_uint64)),
 ]
 
@@ -9544,7 +9545,7 @@ VkMemoryMetalHandlePropertiesEXT._fields_ = [
 VkMemoryGetMetalHandleInfoEXT._fields_ = [
     ("sType", c_int32),
     ("pNext", c_void_p),
-    ("memory", c_void_p),
+    ("memory", VkDeviceMemory),
     ("handleType", c_int32),
 ]
 
@@ -9580,7 +9581,7 @@ VkExportSemaphoreCreateInfoKHR._fields_ = [
 VkImportSemaphoreWin32HandleInfoKHR._fields_ = [
     ("sType", c_int32),
     ("pNext", c_void_p),
-    ("semaphore", c_void_p),
+    ("semaphore", VkSemaphore),
     ("flags", c_uint32),
     ("handleType", c_int32),
     ("handle", c_void_p),
@@ -9607,14 +9608,14 @@ VkD3D12FenceSubmitInfoKHR._fields_ = [
 VkSemaphoreGetWin32HandleInfoKHR._fields_ = [
     ("sType", c_int32),
     ("pNext", c_void_p),
-    ("semaphore", c_void_p),
+    ("semaphore", VkSemaphore),
     ("handleType", c_int32),
 ]
 
 VkImportSemaphoreFdInfoKHR._fields_ = [
     ("sType", c_int32),
     ("pNext", c_void_p),
-    ("semaphore", c_void_p),
+    ("semaphore", VkSemaphore),
     ("flags", c_uint32),
     ("handleType", c_int32),
     ("fd", c_int),
@@ -9623,14 +9624,14 @@ VkImportSemaphoreFdInfoKHR._fields_ = [
 VkSemaphoreGetFdInfoKHR._fields_ = [
     ("sType", c_int32),
     ("pNext", c_void_p),
-    ("semaphore", c_void_p),
+    ("semaphore", VkSemaphore),
     ("handleType", c_int32),
 ]
 
 VkImportSemaphoreZirconHandleInfoFUCHSIA._fields_ = [
     ("sType", c_int32),
     ("pNext", c_void_p),
-    ("semaphore", c_void_p),
+    ("semaphore", VkSemaphore),
     ("flags", c_uint32),
     ("handleType", c_int32),
     ("zirconHandle", c_uint32),
@@ -9639,7 +9640,7 @@ VkImportSemaphoreZirconHandleInfoFUCHSIA._fields_ = [
 VkSemaphoreGetZirconHandleInfoFUCHSIA._fields_ = [
     ("sType", c_int32),
     ("pNext", c_void_p),
-    ("semaphore", c_void_p),
+    ("semaphore", VkSemaphore),
     ("handleType", c_int32),
 ]
 
@@ -9675,7 +9676,7 @@ VkExportFenceCreateInfoKHR._fields_ = [
 VkImportFenceWin32HandleInfoKHR._fields_ = [
     ("sType", c_int32),
     ("pNext", c_void_p),
-    ("fence", c_void_p),
+    ("fence", VkFence),
     ("flags", c_uint32),
     ("handleType", c_int32),
     ("handle", c_void_p),
@@ -9693,14 +9694,14 @@ VkExportFenceWin32HandleInfoKHR._fields_ = [
 VkFenceGetWin32HandleInfoKHR._fields_ = [
     ("sType", c_int32),
     ("pNext", c_void_p),
-    ("fence", c_void_p),
+    ("fence", VkFence),
     ("handleType", c_int32),
 ]
 
 VkImportFenceFdInfoKHR._fields_ = [
     ("sType", c_int32),
     ("pNext", c_void_p),
-    ("fence", c_void_p),
+    ("fence", VkFence),
     ("flags", c_uint32),
     ("handleType", c_int32),
     ("fd", c_int),
@@ -9709,7 +9710,7 @@ VkImportFenceFdInfoKHR._fields_ = [
 VkFenceGetFdInfoKHR._fields_ = [
     ("sType", c_int32),
     ("pNext", c_void_p),
-    ("fence", c_void_p),
+    ("fence", VkFence),
     ("handleType", c_int32),
 ]
 
@@ -9722,7 +9723,7 @@ VkExportFenceSciSyncInfoNV._fields_ = [
 VkImportFenceSciSyncInfoNV._fields_ = [
     ("sType", c_int32),
     ("pNext", c_void_p),
-    ("fence", c_void_p),
+    ("fence", VkFence),
     ("handleType", c_int32),
     ("handle", c_void_p),
 ]
@@ -9730,7 +9731,7 @@ VkImportFenceSciSyncInfoNV._fields_ = [
 VkFenceGetSciSyncInfoNV._fields_ = [
     ("sType", c_int32),
     ("pNext", c_void_p),
-    ("fence", c_void_p),
+    ("fence", VkFence),
     ("handleType", c_int32),
 ]
 
@@ -9743,7 +9744,7 @@ VkExportSemaphoreSciSyncInfoNV._fields_ = [
 VkImportSemaphoreSciSyncInfoNV._fields_ = [
     ("sType", c_int32),
     ("pNext", c_void_p),
-    ("semaphore", c_void_p),
+    ("semaphore", VkSemaphore),
     ("handleType", c_int32),
     ("handle", c_void_p),
 ]
@@ -9751,7 +9752,7 @@ VkImportSemaphoreSciSyncInfoNV._fields_ = [
 VkSemaphoreGetSciSyncInfoNV._fields_ = [
     ("sType", c_int32),
     ("pNext", c_void_p),
-    ("semaphore", c_void_p),
+    ("semaphore", VkSemaphore),
     ("handleType", c_int32),
 ]
 
@@ -9789,7 +9790,7 @@ VkSemaphoreSciSyncPoolCreateInfoNV._fields_ = [
 VkSemaphoreSciSyncCreateInfoNV._fields_ = [
     ("sType", c_int32),
     ("pNext", c_void_p),
-    ("semaphorePool", c_void_p),
+    ("semaphorePool", VkSemaphoreSciSyncPoolNV),
     ("pFence", POINTER(c_void_p)),
 ]
 
@@ -9878,7 +9879,7 @@ VkPhysicalDeviceGroupProperties._fields_ = [
     ("sType", c_int32),
     ("pNext", c_void_p),
     ("physicalDeviceCount", c_uint32),
-    ("physicalDevices", (c_void_p * VK_MAX_DEVICE_GROUP_SIZE)),
+    ("physicalDevices", (VkPhysicalDevice * VK_MAX_DEVICE_GROUP_SIZE)),
     ("subsetAllocation", c_uint32),
 ]
 
@@ -9898,8 +9899,8 @@ VkMemoryAllocateFlagsInfoKHR._fields_ = [
 VkBindBufferMemoryInfo._fields_ = [
     ("sType", c_int32),
     ("pNext", c_void_p),
-    ("buffer", c_void_p),
-    ("memory", c_void_p),
+    ("buffer", VkBuffer),
+    ("memory", VkDeviceMemory),
     ("memoryOffset", c_uint64),
 ]
 
@@ -9919,8 +9920,8 @@ VkBindBufferMemoryDeviceGroupInfoKHR._fields_ = [
 VkBindImageMemoryInfo._fields_ = [
     ("sType", c_int32),
     ("pNext", c_void_p),
-    ("image", c_void_p),
-    ("memory", c_void_p),
+    ("image", VkImage),
+    ("memory", VkDeviceMemory),
     ("memoryOffset", c_uint64),
 ]
 
@@ -9993,23 +9994,23 @@ VkDeviceGroupPresentCapabilitiesKHR._fields_ = [
 VkImageSwapchainCreateInfoKHR._fields_ = [
     ("sType", c_int32),
     ("pNext", c_void_p),
-    ("swapchain", c_void_p),
+    ("swapchain", VkSwapchainKHR),
 ]
 
 VkBindImageMemorySwapchainInfoKHR._fields_ = [
     ("sType", c_int32),
     ("pNext", c_void_p),
-    ("swapchain", c_void_p),
+    ("swapchain", VkSwapchainKHR),
     ("imageIndex", c_uint32),
 ]
 
 VkAcquireNextImageInfoKHR._fields_ = [
     ("sType", c_int32),
     ("pNext", c_void_p),
-    ("swapchain", c_void_p),
+    ("swapchain", VkSwapchainKHR),
     ("timeout", c_uint64),
-    ("semaphore", c_void_p),
-    ("fence", c_void_p),
+    ("semaphore", VkSemaphore),
+    ("fence", VkFence),
     ("deviceMask", c_uint32),
 ]
 
@@ -10025,7 +10026,7 @@ VkDeviceGroupDeviceCreateInfo._fields_ = [
     ("sType", c_int32),
     ("pNext", c_void_p),
     ("physicalDeviceCount", c_uint32),
-    ("pPhysicalDevices", POINTER(c_void_p)),
+    ("pPhysicalDevices", POINTER(VkPhysicalDevice)),
 ]
 
 VkDeviceGroupDeviceCreateInfoKHR._fields_ = [
@@ -10056,9 +10057,9 @@ VkDescriptorUpdateTemplateCreateInfo._fields_ = [
     ("descriptorUpdateEntryCount", c_uint32),
     ("pDescriptorUpdateEntries", POINTER(VkDescriptorUpdateTemplateEntry)),
     ("templateType", c_int32),
-    ("descriptorSetLayout", c_void_p),
+    ("descriptorSetLayout", VkDescriptorSetLayout),
     ("pipelineBindPoint", c_int32),
-    ("pipelineLayout", c_void_p),
+    ("pipelineLayout", VkPipelineLayout),
     ("set", c_uint32),
 ]
 
@@ -10156,7 +10157,7 @@ VkPastPresentationTimingInfoEXT._fields_ = [
     ("sType", c_int32),
     ("pNext", c_void_p),
     ("flags", c_uint32),
-    ("swapchain", c_void_p),
+    ("swapchain", VkSwapchainKHR),
 ]
 
 VkPastPresentationTimingPropertiesEXT._fields_ = [
@@ -10200,7 +10201,7 @@ VkPresentTimingInfoEXT._fields_ = [
 VkSwapchainCalibratedTimestampInfoEXT._fields_ = [
     ("sType", c_int32),
     ("pNext", c_void_p),
-    ("swapchain", c_void_p),
+    ("swapchain", VkSwapchainKHR),
     ("presentStage", c_uint32),
     ("timeDomainId", c_uint64),
 ]
@@ -10353,7 +10354,7 @@ VkRenderPassInputAttachmentAspectCreateInfoKHR._fields_ = [
 VkPhysicalDeviceSurfaceInfo2KHR._fields_ = [
     ("sType", c_int32),
     ("pNext", c_void_p),
-    ("surface", c_void_p),
+    ("surface", VkSurfaceKHR),
 ]
 
 VkSurfaceCapabilities2KHR._fields_ = [
@@ -10395,7 +10396,7 @@ VkDisplayModeStereoPropertiesNV._fields_ = [
 VkDisplayPlaneInfo2KHR._fields_ = [
     ("sType", c_int32),
     ("pNext", c_void_p),
-    ("mode", c_void_p),
+    ("mode", VkDisplayModeKHR),
     ("planeIndex", c_uint32),
 ]
 
@@ -10444,7 +10445,7 @@ VkPhysicalDeviceShaderSubgroupExtendedTypesFeaturesKHR._fields_ = [
 VkBufferMemoryRequirementsInfo2._fields_ = [
     ("sType", c_int32),
     ("pNext", c_void_p),
-    ("buffer", c_void_p),
+    ("buffer", VkBuffer),
 ]
 
 VkBufferMemoryRequirementsInfo2KHR._fields_ = [
@@ -10462,7 +10463,7 @@ VkDeviceBufferMemoryRequirementsKHR._fields_ = [
 VkImageMemoryRequirementsInfo2._fields_ = [
     ("sType", c_int32),
     ("pNext", c_void_p),
-    ("image", c_void_p),
+    ("image", VkImage),
 ]
 
 VkImageMemoryRequirementsInfo2KHR._fields_ = [
@@ -10471,7 +10472,7 @@ VkImageMemoryRequirementsInfo2KHR._fields_ = [
 VkImageSparseMemoryRequirementsInfo2._fields_ = [
     ("sType", c_int32),
     ("pNext", c_void_p),
-    ("image", c_void_p),
+    ("image", VkImage),
 ]
 
 VkImageSparseMemoryRequirementsInfo2KHR._fields_ = [
@@ -10527,8 +10528,8 @@ VkMemoryDedicatedRequirementsKHR._fields_ = [
 VkMemoryDedicatedAllocateInfo._fields_ = [
     ("sType", c_int32),
     ("pNext", c_void_p),
-    ("image", c_void_p),
-    ("buffer", c_void_p),
+    ("image", VkImage),
+    ("buffer", VkBuffer),
 ]
 
 VkMemoryDedicatedAllocateInfoKHR._fields_ = [
@@ -10562,7 +10563,7 @@ VkPipelineTessellationDomainOriginStateCreateInfoKHR._fields_ = [
 VkSamplerYcbcrConversionInfo._fields_ = [
     ("sType", c_int32),
     ("pNext", c_void_p),
-    ("conversion", c_void_p),
+    ("conversion", VkSamplerYcbcrConversion),
 ]
 
 VkSamplerYcbcrConversionInfoKHR._fields_ = [
@@ -10629,7 +10630,7 @@ VkTextureLODGatherFormatPropertiesAMD._fields_ = [
 VkConditionalRenderingBeginInfoEXT._fields_ = [
     ("sType", c_int32),
     ("pNext", c_void_p),
-    ("buffer", c_void_p),
+    ("buffer", VkBuffer),
     ("offset", c_uint64),
     ("flags", c_uint32),
 ]
@@ -10847,7 +10848,7 @@ VkValidationCacheCreateInfoEXT._fields_ = [
 VkShaderModuleValidationCacheCreateInfoEXT._fields_ = [
     ("sType", c_int32),
     ("pNext", c_void_p),
-    ("validationCache", c_void_p),
+    ("validationCache", VkValidationCacheEXT),
 ]
 
 VkPhysicalDeviceMaintenance3Properties._fields_ = [
@@ -11555,7 +11556,7 @@ VkSemaphoreWaitInfo._fields_ = [
     ("pNext", c_void_p),
     ("flags", c_uint32),
     ("semaphoreCount", c_uint32),
-    ("pSemaphores", POINTER(c_void_p)),
+    ("pSemaphores", POINTER(VkSemaphore)),
     ("pValues", POINTER(c_uint64)),
 ]
 
@@ -11565,7 +11566,7 @@ VkSemaphoreWaitInfoKHR._fields_ = [
 VkSemaphoreSignalInfo._fields_ = [
     ("sType", c_int32),
     ("pNext", c_void_p),
-    ("semaphore", c_void_p),
+    ("semaphore", VkSemaphore),
     ("value", c_uint64),
 ]
 
@@ -11643,7 +11644,7 @@ VkAndroidHardwareBufferPropertiesANDROID._fields_ = [
 VkMemoryGetAndroidHardwareBufferInfoANDROID._fields_ = [
     ("sType", c_int32),
     ("pNext", c_void_p),
-    ("memory", c_void_p),
+    ("memory", VkDeviceMemory),
 ]
 
 VkAndroidHardwareBufferFormatPropertiesANDROID._fields_ = [
@@ -12101,8 +12102,8 @@ VkRayTracingPipelineCreateInfoNV._fields_ = [
     ("groupCount", c_uint32),
     ("pGroups", POINTER(VkRayTracingShaderGroupCreateInfoNV)),
     ("maxRecursionDepth", c_uint32),
-    ("layout", c_void_p),
-    ("basePipelineHandle", c_void_p),
+    ("layout", VkPipelineLayout),
+    ("basePipelineHandle", VkPipeline),
     ("basePipelineIndex", c_int32),
 ]
 
@@ -12118,31 +12119,31 @@ VkRayTracingPipelineCreateInfoKHR._fields_ = [
     ("pLibraryInfo", POINTER(VkPipelineLibraryCreateInfoKHR)),
     ("pLibraryInterface", POINTER(VkRayTracingPipelineInterfaceCreateInfoKHR)),
     ("pDynamicState", POINTER(VkPipelineDynamicStateCreateInfo)),
-    ("layout", c_void_p),
-    ("basePipelineHandle", c_void_p),
+    ("layout", VkPipelineLayout),
+    ("basePipelineHandle", VkPipeline),
     ("basePipelineIndex", c_int32),
 ]
 
 VkGeometryTrianglesNV._fields_ = [
     ("sType", c_int32),
     ("pNext", c_void_p),
-    ("vertexData", c_void_p),
+    ("vertexData", VkBuffer),
     ("vertexOffset", c_uint64),
     ("vertexCount", c_uint32),
     ("vertexStride", c_uint64),
     ("vertexFormat", c_int32),
-    ("indexData", c_void_p),
+    ("indexData", VkBuffer),
     ("indexOffset", c_uint64),
     ("indexCount", c_uint32),
     ("indexType", c_int32),
-    ("transformData", c_void_p),
+    ("transformData", VkBuffer),
     ("transformOffset", c_uint64),
 ]
 
 VkGeometryAABBNV._fields_ = [
     ("sType", c_int32),
     ("pNext", c_void_p),
-    ("aabbData", c_void_p),
+    ("aabbData", VkBuffer),
     ("numAABBs", c_uint32),
     ("stride", c_uint32),
     ("offset", c_uint64),
@@ -12171,8 +12172,8 @@ VkAccelerationStructureCreateInfoNV._fields_ = [
 VkBindAccelerationStructureMemoryInfoNV._fields_ = [
     ("sType", c_int32),
     ("pNext", c_void_p),
-    ("accelerationStructure", c_void_p),
-    ("memory", c_void_p),
+    ("accelerationStructure", VkAccelerationStructureNV),
+    ("memory", VkDeviceMemory),
     ("memoryOffset", c_uint64),
     ("deviceIndexCount", c_uint32),
     ("pDeviceIndices", POINTER(c_uint32)),
@@ -12182,21 +12183,21 @@ VkWriteDescriptorSetAccelerationStructureKHR._fields_ = [
     ("sType", c_int32),
     ("pNext", c_void_p),
     ("accelerationStructureCount", c_uint32),
-    ("pAccelerationStructures", POINTER(c_void_p)),
+    ("pAccelerationStructures", POINTER(VkAccelerationStructureKHR)),
 ]
 
 VkWriteDescriptorSetAccelerationStructureNV._fields_ = [
     ("sType", c_int32),
     ("pNext", c_void_p),
     ("accelerationStructureCount", c_uint32),
-    ("pAccelerationStructures", POINTER(c_void_p)),
+    ("pAccelerationStructures", POINTER(VkAccelerationStructureNV)),
 ]
 
 VkAccelerationStructureMemoryRequirementsInfoNV._fields_ = [
     ("sType", c_int32),
     ("pNext", c_void_p),
     ("type", c_int32),
-    ("accelerationStructure", c_void_p),
+    ("accelerationStructure", VkAccelerationStructureNV),
 ]
 
 VkPhysicalDeviceAccelerationStructureFeaturesKHR._fields_ = [
@@ -12504,7 +12505,7 @@ VkPhysicalDeviceBufferAddressFeaturesEXT._fields_ = [
 VkBufferDeviceAddressInfo._fields_ = [
     ("sType", c_int32),
     ("pNext", c_void_p),
-    ("buffer", c_void_p),
+    ("buffer", VkBuffer),
 ]
 
 VkBufferDeviceAddressInfoKHR._fields_ = [
@@ -12579,7 +12580,7 @@ VkRenderPassAttachmentBeginInfo._fields_ = [
     ("sType", c_int32),
     ("pNext", c_void_p),
     ("attachmentCount", c_uint32),
-    ("pAttachments", POINTER(c_void_p)),
+    ("pAttachments", POINTER(VkImageView)),
 ]
 
 VkRenderPassAttachmentBeginInfoKHR._fields_ = [
@@ -12616,9 +12617,9 @@ VkPhysicalDeviceYcbcrImageArraysFeaturesEXT._fields_ = [
 VkImageViewHandleInfoNVX._fields_ = [
     ("sType", c_int32),
     ("pNext", c_void_p),
-    ("imageView", c_void_p),
+    ("imageView", VkImageView),
     ("descriptorType", c_int32),
-    ("sampler", c_void_p),
+    ("sampler", VkSampler),
 ]
 
 VkImageViewAddressPropertiesNVX._fields_ = [
@@ -12928,7 +12929,7 @@ VkPhysicalDevicePipelineExecutablePropertiesFeaturesKHR._fields_ = [
 VkPipelineInfoKHR._fields_ = [
     ("sType", c_int32),
     ("pNext", c_void_p),
-    ("pipeline", c_void_p),
+    ("pipeline", VkPipeline),
 ]
 
 VkPipelineInfoEXT._fields_ = [
@@ -12946,7 +12947,7 @@ VkPipelineExecutablePropertiesKHR._fields_ = [
 VkPipelineExecutableInfoKHR._fields_ = [
     ("sType", c_int32),
     ("pNext", c_void_p),
-    ("pipeline", c_void_p),
+    ("pipeline", VkPipeline),
     ("executableIndex", c_uint32),
 ]
 
@@ -13040,7 +13041,7 @@ VkShaderRequiredSubgroupSizeCreateInfoEXT._fields_ = [
 VkSubpassShadingPipelineCreateInfoHUAWEI._fields_ = [
     ("sType", c_int32),
     ("pNext", c_void_p),
-    ("renderPass", c_void_p),
+    ("renderPass", VkRenderPass),
     ("subpass", c_uint32),
 ]
 
@@ -13071,7 +13072,7 @@ VkMemoryOpaqueCaptureAddressAllocateInfoKHR._fields_ = [
 VkDeviceMemoryOpaqueCaptureAddressInfo._fields_ = [
     ("sType", c_int32),
     ("pNext", c_void_p),
-    ("memory", c_void_p),
+    ("memory", VkDeviceMemory),
 ]
 
 VkDeviceMemoryOpaqueCaptureAddressInfoKHR._fields_ = [
@@ -13567,8 +13568,8 @@ VkAccelerationStructureBuildGeometryInfoKHR._fields_ = [
     ("type", c_int32),
     ("flags", c_uint32),
     ("mode", c_int32),
-    ("srcAccelerationStructure", c_void_p),
-    ("dstAccelerationStructure", c_void_p),
+    ("srcAccelerationStructure", VkAccelerationStructureKHR),
+    ("dstAccelerationStructure", VkAccelerationStructureKHR),
     ("geometryCount", c_uint32),
     ("pGeometries", POINTER(VkAccelerationStructureGeometryKHR)),
     ("ppGeometries", POINTER(POINTER(VkAccelerationStructureGeometryKHR))),
@@ -13586,7 +13587,7 @@ VkAccelerationStructureCreateInfoKHR._fields_ = [
     ("sType", c_int32),
     ("pNext", c_void_p),
     ("createFlags", c_uint32),
-    ("buffer", c_void_p),
+    ("buffer", VkBuffer),
     ("offset", c_uint64),
     ("size", c_uint64),
     ("type", c_int32),
@@ -13627,7 +13628,7 @@ VkAccelerationStructureInstanceNV._fields_ = [
 VkAccelerationStructureDeviceAddressInfoKHR._fields_ = [
     ("sType", c_int32),
     ("pNext", c_void_p),
-    ("accelerationStructure", c_void_p),
+    ("accelerationStructure", VkAccelerationStructureKHR),
 ]
 
 VkAccelerationStructureVersionInfoKHR._fields_ = [
@@ -13639,15 +13640,15 @@ VkAccelerationStructureVersionInfoKHR._fields_ = [
 VkCopyAccelerationStructureInfoKHR._fields_ = [
     ("sType", c_int32),
     ("pNext", c_void_p),
-    ("src", c_void_p),
-    ("dst", c_void_p),
+    ("src", VkAccelerationStructureKHR),
+    ("dst", VkAccelerationStructureKHR),
     ("mode", c_int32),
 ]
 
 VkCopyAccelerationStructureToMemoryInfoKHR._fields_ = [
     ("sType", c_int32),
     ("pNext", c_void_p),
-    ("src", c_void_p),
+    ("src", VkAccelerationStructureKHR),
     ("dst", VkDeviceOrHostAddressKHR),
     ("mode", c_int32),
 ]
@@ -13656,7 +13657,7 @@ VkCopyMemoryToAccelerationStructureInfoKHR._fields_ = [
     ("sType", c_int32),
     ("pNext", c_void_p),
     ("src", VkDeviceOrHostAddressConstKHR),
-    ("dst", c_void_p),
+    ("dst", VkAccelerationStructureKHR),
     ("mode", c_int32),
 ]
 
@@ -13671,7 +13672,7 @@ VkPipelineLibraryCreateInfoKHR._fields_ = [
     ("sType", c_int32),
     ("pNext", c_void_p),
     ("libraryCount", c_uint32),
-    ("pLibraries", POINTER(c_void_p)),
+    ("pLibraries", POINTER(VkPipeline)),
 ]
 
 VkRefreshObjectKHR._fields_ = [
@@ -14046,8 +14047,8 @@ VkImageResolve2KHR._fields_ = [
 VkCopyBufferInfo2._fields_ = [
     ("sType", c_int32),
     ("pNext", c_void_p),
-    ("srcBuffer", c_void_p),
-    ("dstBuffer", c_void_p),
+    ("srcBuffer", VkBuffer),
+    ("dstBuffer", VkBuffer),
     ("regionCount", c_uint32),
     ("pRegions", POINTER(VkBufferCopy2)),
 ]
@@ -14058,9 +14059,9 @@ VkCopyBufferInfo2KHR._fields_ = [
 VkCopyImageInfo2._fields_ = [
     ("sType", c_int32),
     ("pNext", c_void_p),
-    ("srcImage", c_void_p),
+    ("srcImage", VkImage),
     ("srcImageLayout", c_int32),
-    ("dstImage", c_void_p),
+    ("dstImage", VkImage),
     ("dstImageLayout", c_int32),
     ("regionCount", c_uint32),
     ("pRegions", POINTER(VkImageCopy2)),
@@ -14072,9 +14073,9 @@ VkCopyImageInfo2KHR._fields_ = [
 VkBlitImageInfo2._fields_ = [
     ("sType", c_int32),
     ("pNext", c_void_p),
-    ("srcImage", c_void_p),
+    ("srcImage", VkImage),
     ("srcImageLayout", c_int32),
-    ("dstImage", c_void_p),
+    ("dstImage", VkImage),
     ("dstImageLayout", c_int32),
     ("regionCount", c_uint32),
     ("pRegions", POINTER(VkImageBlit2)),
@@ -14087,8 +14088,8 @@ VkBlitImageInfo2KHR._fields_ = [
 VkCopyBufferToImageInfo2._fields_ = [
     ("sType", c_int32),
     ("pNext", c_void_p),
-    ("srcBuffer", c_void_p),
-    ("dstImage", c_void_p),
+    ("srcBuffer", VkBuffer),
+    ("dstImage", VkImage),
     ("dstImageLayout", c_int32),
     ("regionCount", c_uint32),
     ("pRegions", POINTER(VkBufferImageCopy2)),
@@ -14100,9 +14101,9 @@ VkCopyBufferToImageInfo2KHR._fields_ = [
 VkCopyImageToBufferInfo2._fields_ = [
     ("sType", c_int32),
     ("pNext", c_void_p),
-    ("srcImage", c_void_p),
+    ("srcImage", VkImage),
     ("srcImageLayout", c_int32),
-    ("dstBuffer", c_void_p),
+    ("dstBuffer", VkBuffer),
     ("regionCount", c_uint32),
     ("pRegions", POINTER(VkBufferImageCopy2)),
 ]
@@ -14113,9 +14114,9 @@ VkCopyImageToBufferInfo2KHR._fields_ = [
 VkResolveImageInfo2._fields_ = [
     ("sType", c_int32),
     ("pNext", c_void_p),
-    ("srcImage", c_void_p),
+    ("srcImage", VkImage),
     ("srcImageLayout", c_int32),
-    ("dstImage", c_void_p),
+    ("dstImage", VkImage),
     ("dstImageLayout", c_int32),
     ("regionCount", c_uint32),
     ("pRegions", POINTER(VkImageResolve2)),
@@ -14339,21 +14340,21 @@ VkPhysicalDeviceDeviceGeneratedCommandsPropertiesEXT._fields_ = [
 VkGeneratedCommandsPipelineInfoEXT._fields_ = [
     ("sType", c_int32),
     ("pNext", c_void_p),
-    ("pipeline", c_void_p),
+    ("pipeline", VkPipeline),
 ]
 
 VkGeneratedCommandsShaderInfoEXT._fields_ = [
     ("sType", c_int32),
     ("pNext", c_void_p),
     ("shaderCount", c_uint32),
-    ("pShaders", POINTER(c_void_p)),
+    ("pShaders", POINTER(VkShaderEXT)),
 ]
 
 VkGeneratedCommandsMemoryRequirementsInfoEXT._fields_ = [
     ("sType", c_int32),
     ("pNext", c_void_p),
-    ("indirectExecutionSet", c_void_p),
-    ("indirectCommandsLayout", c_void_p),
+    ("indirectExecutionSet", VkIndirectExecutionSetEXT),
+    ("indirectCommandsLayout", VkIndirectCommandsLayoutEXT),
     ("maxSequenceCount", c_uint32),
     ("maxDrawCount", c_uint32),
 ]
@@ -14361,7 +14362,7 @@ VkGeneratedCommandsMemoryRequirementsInfoEXT._fields_ = [
 VkIndirectExecutionSetPipelineInfoEXT._fields_ = [
     ("sType", c_int32),
     ("pNext", c_void_p),
-    ("initialPipeline", c_void_p),
+    ("initialPipeline", VkPipeline),
     ("maxPipelineCount", c_uint32),
 ]
 
@@ -14369,14 +14370,14 @@ VkIndirectExecutionSetShaderLayoutInfoEXT._fields_ = [
     ("sType", c_int32),
     ("pNext", c_void_p),
     ("setLayoutCount", c_uint32),
-    ("pSetLayouts", POINTER(c_void_p)),
+    ("pSetLayouts", POINTER(VkDescriptorSetLayout)),
 ]
 
 VkIndirectExecutionSetShaderInfoEXT._fields_ = [
     ("sType", c_int32),
     ("pNext", c_void_p),
     ("shaderCount", c_uint32),
-    ("pInitialShaders", POINTER(c_void_p)),
+    ("pInitialShaders", POINTER(VkShaderEXT)),
     ("pSetLayoutInfos", POINTER(VkIndirectExecutionSetShaderLayoutInfoEXT)),
     ("maxShaderCount", c_uint32),
     ("pushConstantRangeCount", c_uint32),
@@ -14399,8 +14400,8 @@ VkGeneratedCommandsInfoEXT._fields_ = [
     ("sType", c_int32),
     ("pNext", c_void_p),
     ("shaderStages", c_uint32),
-    ("indirectExecutionSet", c_void_p),
-    ("indirectCommandsLayout", c_void_p),
+    ("indirectExecutionSet", VkIndirectExecutionSetEXT),
+    ("indirectCommandsLayout", VkIndirectCommandsLayoutEXT),
     ("indirectAddress", c_uint64),
     ("indirectAddressSize", c_uint64),
     ("preprocessAddress", c_uint64),
@@ -14414,14 +14415,14 @@ VkWriteIndirectExecutionSetPipelineEXT._fields_ = [
     ("sType", c_int32),
     ("pNext", c_void_p),
     ("index", c_uint32),
-    ("pipeline", c_void_p),
+    ("pipeline", VkPipeline),
 ]
 
 VkWriteIndirectExecutionSetShaderEXT._fields_ = [
     ("sType", c_int32),
     ("pNext", c_void_p),
     ("index", c_uint32),
-    ("shader", c_void_p),
+    ("shader", VkShaderEXT),
 ]
 
 VkIndirectCommandsLayoutCreateInfoEXT._fields_ = [
@@ -14430,7 +14431,7 @@ VkIndirectCommandsLayoutCreateInfoEXT._fields_ = [
     ("flags", c_uint32),
     ("shaderStages", c_uint32),
     ("indirectStride", c_uint32),
-    ("pipelineLayout", c_void_p),
+    ("pipelineLayout", VkPipelineLayout),
     ("tokenCount", c_uint32),
     ("pTokens", POINTER(VkIndirectCommandsLayoutTokenEXT)),
 ]
@@ -14576,7 +14577,7 @@ VkImageMemoryBarrier2._fields_ = [
     ("newLayout", c_int32),
     ("srcQueueFamilyIndex", c_uint32),
     ("dstQueueFamilyIndex", c_uint32),
-    ("image", c_void_p),
+    ("image", VkImage),
     ("subresourceRange", VkImageSubresourceRange),
 ]
 
@@ -14592,7 +14593,7 @@ VkBufferMemoryBarrier2._fields_ = [
     ("dstAccessMask", c_uint64),
     ("srcQueueFamilyIndex", c_uint32),
     ("dstQueueFamilyIndex", c_uint32),
-    ("buffer", c_void_p),
+    ("buffer", VkBuffer),
     ("offset", c_uint64),
     ("size", c_uint64),
 ]
@@ -14625,7 +14626,7 @@ VkDependencyInfoKHR._fields_ = [
 VkSemaphoreSubmitInfo._fields_ = [
     ("sType", c_int32),
     ("pNext", c_void_p),
-    ("semaphore", c_void_p),
+    ("semaphore", VkSemaphore),
     ("value", c_uint64),
     ("stageMask", c_uint64),
     ("deviceIndex", c_uint32),
@@ -14637,7 +14638,7 @@ VkSemaphoreSubmitInfoKHR._fields_ = [
 VkCommandBufferSubmitInfo._fields_ = [
     ("sType", c_int32),
     ("pNext", c_void_p),
-    ("commandBuffer", c_void_p),
+    ("commandBuffer", VkCommandBuffer),
     ("deviceMask", c_uint32),
 ]
 
@@ -14743,7 +14744,7 @@ VkCopyMemoryToImageInfo._fields_ = [
     ("sType", c_int32),
     ("pNext", c_void_p),
     ("flags", c_uint32),
-    ("dstImage", c_void_p),
+    ("dstImage", VkImage),
     ("dstImageLayout", c_int32),
     ("regionCount", c_uint32),
     ("pRegions", POINTER(VkMemoryToImageCopy)),
@@ -14756,7 +14757,7 @@ VkCopyImageToMemoryInfo._fields_ = [
     ("sType", c_int32),
     ("pNext", c_void_p),
     ("flags", c_uint32),
-    ("srcImage", c_void_p),
+    ("srcImage", VkImage),
     ("srcImageLayout", c_int32),
     ("regionCount", c_uint32),
     ("pRegions", POINTER(VkImageToMemoryCopy)),
@@ -14769,9 +14770,9 @@ VkCopyImageToImageInfo._fields_ = [
     ("sType", c_int32),
     ("pNext", c_void_p),
     ("flags", c_uint32),
-    ("srcImage", c_void_p),
+    ("srcImage", VkImage),
     ("srcImageLayout", c_int32),
-    ("dstImage", c_void_p),
+    ("dstImage", VkImage),
     ("dstImageLayout", c_int32),
     ("regionCount", c_uint32),
     ("pRegions", POINTER(VkImageCopy2)),
@@ -14783,7 +14784,7 @@ VkCopyImageToImageInfoEXT._fields_ = [
 VkHostImageLayoutTransitionInfo._fields_ = [
     ("sType", c_int32),
     ("pNext", c_void_p),
-    ("image", c_void_p),
+    ("image", VkImage),
     ("oldLayout", c_int32),
     ("newLayout", c_int32),
     ("subresourceRange", VkImageSubresourceRange),
@@ -15077,7 +15078,7 @@ VkBindVideoSessionMemoryInfoKHR._fields_ = [
     ("sType", c_int32),
     ("pNext", c_void_p),
     ("memoryBindIndex", c_uint32),
-    ("memory", c_void_p),
+    ("memory", VkDeviceMemory),
     ("memoryOffset", c_uint64),
     ("memorySize", c_uint64),
 ]
@@ -15088,7 +15089,7 @@ VkVideoPictureResourceInfoKHR._fields_ = [
     ("codedOffset", VkOffset2D),
     ("codedExtent", VkExtent2D),
     ("baseArrayLayer", c_uint32),
-    ("imageViewBinding", c_void_p),
+    ("imageViewBinding", VkImageView),
 ]
 
 VkVideoReferenceSlotInfoKHR._fields_ = [
@@ -15114,7 +15115,7 @@ VkVideoDecodeInfoKHR._fields_ = [
     ("sType", c_int32),
     ("pNext", c_void_p),
     ("flags", c_uint32),
-    ("srcBuffer", c_void_p),
+    ("srcBuffer", VkBuffer),
     ("srcBufferOffset", c_uint64),
     ("srcBufferRange", c_uint64),
     ("dstPictureResource", VkVideoPictureResourceInfoKHR),
@@ -15138,7 +15139,7 @@ VkPhysicalDeviceVideoMaintenance2FeaturesKHR._fields_ = [
 VkVideoInlineQueryInfoKHR._fields_ = [
     ("sType", c_int32),
     ("pNext", c_void_p),
-    ("queryPool", c_void_p),
+    ("queryPool", VkQueryPool),
     ("firstQuery", c_uint32),
     ("queryCount", c_uint32),
 ]
@@ -15286,8 +15287,8 @@ VkVideoSessionParametersCreateInfoKHR._fields_ = [
     ("sType", c_int32),
     ("pNext", c_void_p),
     ("flags", c_uint32),
-    ("videoSessionParametersTemplate", c_void_p),
-    ("videoSession", c_void_p),
+    ("videoSessionParametersTemplate", VkVideoSessionParametersKHR),
+    ("videoSession", VkVideoSessionKHR),
 ]
 
 VkVideoSessionParametersUpdateInfoKHR._fields_ = [
@@ -15299,7 +15300,7 @@ VkVideoSessionParametersUpdateInfoKHR._fields_ = [
 VkVideoEncodeSessionParametersGetInfoKHR._fields_ = [
     ("sType", c_int32),
     ("pNext", c_void_p),
-    ("videoSessionParameters", c_void_p),
+    ("videoSessionParameters", VkVideoSessionParametersKHR),
 ]
 
 VkVideoEncodeSessionParametersFeedbackInfoKHR._fields_ = [
@@ -15312,8 +15313,8 @@ VkVideoBeginCodingInfoKHR._fields_ = [
     ("sType", c_int32),
     ("pNext", c_void_p),
     ("flags", c_uint32),
-    ("videoSession", c_void_p),
-    ("videoSessionParameters", c_void_p),
+    ("videoSession", VkVideoSessionKHR),
+    ("videoSessionParameters", VkVideoSessionParametersKHR),
     ("referenceSlotCount", c_uint32),
     ("pReferenceSlots", POINTER(VkVideoReferenceSlotInfoKHR)),
 ]
@@ -15342,7 +15343,7 @@ VkVideoEncodeInfoKHR._fields_ = [
     ("sType", c_int32),
     ("pNext", c_void_p),
     ("flags", c_uint32),
-    ("dstBuffer", c_void_p),
+    ("dstBuffer", VkBuffer),
     ("dstBufferOffset", c_uint64),
     ("dstBufferRange", c_uint64),
     ("srcPictureResource", VkVideoPictureResourceInfoKHR),
@@ -15355,7 +15356,7 @@ VkVideoEncodeInfoKHR._fields_ = [
 VkVideoEncodeQuantizationMapInfoKHR._fields_ = [
     ("sType", c_int32),
     ("pNext", c_void_p),
-    ("quantizationMap", c_void_p),
+    ("quantizationMap", VkImageView),
     ("quantizationMapExtent", VkExtent2D),
 ]
 
@@ -15841,14 +15842,14 @@ VkCuModuleTexturingModeCreateInfoNVX._fields_ = [
 VkCuFunctionCreateInfoNVX._fields_ = [
     ("sType", c_int32),
     ("pNext", c_void_p),
-    ("module", c_void_p),
+    ("module", VkCuModuleNVX),
     ("pName", c_char_p),
 ]
 
 VkCuLaunchInfoNVX._fields_ = [
     ("sType", c_int32),
     ("pNext", c_void_p),
-    ("function", c_void_p),
+    ("function", VkCuFunctionNVX),
     ("gridDimX", c_uint32),
     ("gridDimY", c_uint32),
     ("gridDimZ", c_uint32),
@@ -15933,11 +15934,11 @@ VkDescriptorBufferBindingInfoEXT._fields_ = [
 VkDescriptorBufferBindingPushDescriptorBufferHandleEXT._fields_ = [
     ("sType", c_int32),
     ("pNext", c_void_p),
-    ("buffer", c_void_p),
+    ("buffer", VkBuffer),
 ]
 
 VkDescriptorDataEXT._fields_ = [
-    ("pSampler", POINTER(c_void_p)),
+    ("pSampler", POINTER(VkSampler)),
     ("pCombinedImageSampler", POINTER(VkDescriptorImageInfo)),
     ("pInputAttachmentImage", POINTER(VkDescriptorImageInfo)),
     ("pSampledImage", POINTER(VkDescriptorImageInfo)),
@@ -15959,32 +15960,32 @@ VkDescriptorGetInfoEXT._fields_ = [
 VkBufferCaptureDescriptorDataInfoEXT._fields_ = [
     ("sType", c_int32),
     ("pNext", c_void_p),
-    ("buffer", c_void_p),
+    ("buffer", VkBuffer),
 ]
 
 VkImageCaptureDescriptorDataInfoEXT._fields_ = [
     ("sType", c_int32),
     ("pNext", c_void_p),
-    ("image", c_void_p),
+    ("image", VkImage),
 ]
 
 VkImageViewCaptureDescriptorDataInfoEXT._fields_ = [
     ("sType", c_int32),
     ("pNext", c_void_p),
-    ("imageView", c_void_p),
+    ("imageView", VkImageView),
 ]
 
 VkSamplerCaptureDescriptorDataInfoEXT._fields_ = [
     ("sType", c_int32),
     ("pNext", c_void_p),
-    ("sampler", c_void_p),
+    ("sampler", VkSampler),
 ]
 
 VkAccelerationStructureCaptureDescriptorDataInfoEXT._fields_ = [
     ("sType", c_int32),
     ("pNext", c_void_p),
-    ("accelerationStructure", c_void_p),
-    ("accelerationStructureNV", c_void_p),
+    ("accelerationStructure", VkAccelerationStructureKHR),
+    ("accelerationStructureNV", VkAccelerationStructureNV),
 ]
 
 VkOpaqueCaptureDescriptorDataCreateInfoEXT._fields_ = [
@@ -16158,28 +16159,28 @@ VkAccelerationStructureMotionInstanceNV._fields_ = [
 VkMemoryGetRemoteAddressInfoNV._fields_ = [
     ("sType", c_int32),
     ("pNext", c_void_p),
-    ("memory", c_void_p),
+    ("memory", VkDeviceMemory),
     ("handleType", c_int32),
 ]
 
 VkImportMemoryBufferCollectionFUCHSIA._fields_ = [
     ("sType", c_int32),
     ("pNext", c_void_p),
-    ("collection", c_void_p),
+    ("collection", VkBufferCollectionFUCHSIA),
     ("index", c_uint32),
 ]
 
 VkBufferCollectionImageCreateInfoFUCHSIA._fields_ = [
     ("sType", c_int32),
     ("pNext", c_void_p),
-    ("collection", c_void_p),
+    ("collection", VkBufferCollectionFUCHSIA),
     ("index", c_uint32),
 ]
 
 VkBufferCollectionBufferCreateInfoFUCHSIA._fields_ = [
     ("sType", c_int32),
     ("pNext", c_void_p),
-    ("collection", c_void_p),
+    ("collection", VkBufferCollectionFUCHSIA),
     ("index", c_uint32),
 ]
 
@@ -16259,14 +16260,14 @@ VkCudaModuleCreateInfoNV._fields_ = [
 VkCudaFunctionCreateInfoNV._fields_ = [
     ("sType", c_int32),
     ("pNext", c_void_p),
-    ("module", c_void_p),
+    ("module", VkCudaModuleNV),
     ("pName", c_char_p),
 ]
 
 VkCudaLaunchInfoNV._fields_ = [
     ("sType", c_int32),
     ("pNext", c_void_p),
-    ("function", c_void_p),
+    ("function", VkCudaFunctionNV),
     ("gridDimX", c_uint32),
     ("gridDimY", c_uint32),
     ("gridDimZ", c_uint32),
@@ -16363,10 +16364,10 @@ VkRenderingEndInfoEXT._fields_ = [
 VkRenderingAttachmentInfo._fields_ = [
     ("sType", c_int32),
     ("pNext", c_void_p),
-    ("imageView", c_void_p),
+    ("imageView", VkImageView),
     ("imageLayout", c_int32),
     ("resolveMode", c_int32),
-    ("resolveImageView", c_void_p),
+    ("resolveImageView", VkImageView),
     ("resolveImageLayout", c_int32),
     ("loadOp", c_int32),
     ("storeOp", c_int32),
@@ -16379,7 +16380,7 @@ VkRenderingAttachmentInfoKHR._fields_ = [
 VkRenderingFragmentShadingRateAttachmentInfoKHR._fields_ = [
     ("sType", c_int32),
     ("pNext", c_void_p),
-    ("imageView", c_void_p),
+    ("imageView", VkImageView),
     ("imageLayout", c_int32),
     ("shadingRateAttachmentTexelSize", VkExtent2D),
 ]
@@ -16387,7 +16388,7 @@ VkRenderingFragmentShadingRateAttachmentInfoKHR._fields_ = [
 VkRenderingFragmentDensityMapAttachmentInfoEXT._fields_ = [
     ("sType", c_int32),
     ("pNext", c_void_p),
-    ("imageView", c_void_p),
+    ("imageView", VkImageView),
     ("imageLayout", c_int32),
 ]
 
@@ -16531,7 +16532,7 @@ VkPhysicalDeviceDescriptorSetHostMappingFeaturesVALVE._fields_ = [
 VkDescriptorSetBindingReferenceVALVE._fields_ = [
     ("sType", c_int32),
     ("pNext", c_void_p),
-    ("descriptorSetLayout", c_void_p),
+    ("descriptorSetLayout", VkDescriptorSetLayout),
     ("binding", c_uint32),
 ]
 
@@ -16673,7 +16674,7 @@ VkMicromapBuildInfoEXT._fields_ = [
     ("type", c_int32),
     ("flags", c_uint32),
     ("mode", c_int32),
-    ("dstMicromap", c_void_p),
+    ("dstMicromap", VkMicromapEXT),
     ("usageCountsCount", c_uint32),
     ("pUsageCounts", POINTER(VkMicromapUsageEXT)),
     ("ppUsageCounts", POINTER(POINTER(VkMicromapUsageEXT))),
@@ -16687,7 +16688,7 @@ VkMicromapCreateInfoEXT._fields_ = [
     ("sType", c_int32),
     ("pNext", c_void_p),
     ("createFlags", c_uint32),
-    ("buffer", c_void_p),
+    ("buffer", VkBuffer),
     ("offset", c_uint64),
     ("size", c_uint64),
     ("type", c_int32),
@@ -16703,15 +16704,15 @@ VkMicromapVersionInfoEXT._fields_ = [
 VkCopyMicromapInfoEXT._fields_ = [
     ("sType", c_int32),
     ("pNext", c_void_p),
-    ("src", c_void_p),
-    ("dst", c_void_p),
+    ("src", VkMicromapEXT),
+    ("dst", VkMicromapEXT),
     ("mode", c_int32),
 ]
 
 VkCopyMicromapToMemoryInfoEXT._fields_ = [
     ("sType", c_int32),
     ("pNext", c_void_p),
-    ("src", c_void_p),
+    ("src", VkMicromapEXT),
     ("dst", VkDeviceOrHostAddressKHR),
     ("mode", c_int32),
 ]
@@ -16720,7 +16721,7 @@ VkCopyMemoryToMicromapInfoEXT._fields_ = [
     ("sType", c_int32),
     ("pNext", c_void_p),
     ("src", VkDeviceOrHostAddressConstKHR),
-    ("dst", c_void_p),
+    ("dst", VkMicromapEXT),
     ("mode", c_int32),
 ]
 
@@ -16769,7 +16770,7 @@ VkAccelerationStructureTrianglesOpacityMicromapEXT._fields_ = [
     ("usageCountsCount", c_uint32),
     ("pUsageCounts", POINTER(VkMicromapUsageEXT)),
     ("ppUsageCounts", POINTER(POINTER(VkMicromapUsageEXT))),
-    ("micromap", c_void_p),
+    ("micromap", VkMicromapEXT),
 ]
 
 VkPhysicalDeviceDisplacementMicromapFeaturesNV._fields_ = [
@@ -16802,7 +16803,7 @@ VkAccelerationStructureTrianglesDisplacementMicromapNV._fields_ = [
     ("usageCountsCount", c_uint32),
     ("pUsageCounts", POINTER(VkMicromapUsageEXT)),
     ("ppUsageCounts", POINTER(POINTER(VkMicromapUsageEXT))),
-    ("micromap", c_void_p),
+    ("micromap", VkMicromapEXT),
 ]
 
 VkPipelinePropertiesIdentifierEXT._fields_ = [
@@ -16849,14 +16850,14 @@ VkExportMetalDeviceInfoEXT._fields_ = [
 VkExportMetalCommandQueueInfoEXT._fields_ = [
     ("sType", c_int32),
     ("pNext", c_void_p),
-    ("queue", c_void_p),
+    ("queue", VkQueue),
     ("mtlCommandQueue", c_void_p),
 ]
 
 VkExportMetalBufferInfoEXT._fields_ = [
     ("sType", c_int32),
     ("pNext", c_void_p),
-    ("memory", c_void_p),
+    ("memory", VkDeviceMemory),
     ("mtlBuffer", c_void_p),
 ]
 
@@ -16869,9 +16870,9 @@ VkImportMetalBufferInfoEXT._fields_ = [
 VkExportMetalTextureInfoEXT._fields_ = [
     ("sType", c_int32),
     ("pNext", c_void_p),
-    ("image", c_void_p),
-    ("imageView", c_void_p),
-    ("bufferView", c_void_p),
+    ("image", VkImage),
+    ("imageView", VkImageView),
+    ("bufferView", VkBufferView),
     ("plane", c_int32),
     ("mtlTexture", c_void_p),
 ]
@@ -16886,7 +16887,7 @@ VkImportMetalTextureInfoEXT._fields_ = [
 VkExportMetalIOSurfaceInfoEXT._fields_ = [
     ("sType", c_int32),
     ("pNext", c_void_p),
-    ("image", c_void_p),
+    ("image", VkImage),
     ("ioSurface", c_void_p),
 ]
 
@@ -16899,8 +16900,8 @@ VkImportMetalIOSurfaceInfoEXT._fields_ = [
 VkExportMetalSharedEventInfoEXT._fields_ = [
     ("sType", c_int32),
     ("pNext", c_void_p),
-    ("semaphore", c_void_p),
-    ("event", c_void_p),
+    ("semaphore", VkSemaphore),
+    ("event", VkEvent),
     ("mtlSharedEvent", c_void_p),
 ]
 
@@ -16991,7 +16992,7 @@ VkTilePropertiesQCOM._fields_ = [
 VkTileMemoryBindInfoQCOM._fields_ = [
     ("sType", c_int32),
     ("pNext", c_void_p),
-    ("memory", c_void_p),
+    ("memory", VkDeviceMemory),
 ]
 
 VkPhysicalDeviceAmigoProfilingFeaturesSEC._fields_ = [
@@ -17271,9 +17272,9 @@ VkFrameBoundaryEXT._fields_ = [
     ("flags", c_uint32),
     ("frameID", c_uint64),
     ("imageCount", c_uint32),
-    ("pImages", POINTER(c_void_p)),
+    ("pImages", POINTER(VkImage)),
     ("bufferCount", c_uint32),
-    ("pBuffers", POINTER(c_void_p)),
+    ("pBuffers", POINTER(VkBuffer)),
     ("tagName", c_uint64),
     ("tagSize", c_size_t),
     ("pTag", c_void_p),
@@ -17342,7 +17343,7 @@ VkSwapchainPresentFenceInfoKHR._fields_ = [
     ("sType", c_int32),
     ("pNext", c_void_p),
     ("swapchainCount", c_uint32),
-    ("pFences", POINTER(c_void_p)),
+    ("pFences", POINTER(VkFence)),
 ]
 
 VkSwapchainPresentFenceInfoEXT._fields_ = [
@@ -17382,7 +17383,7 @@ VkSwapchainPresentScalingCreateInfoEXT._fields_ = [
 VkReleaseSwapchainImagesInfoKHR._fields_ = [
     ("sType", c_int32),
     ("pNext", c_void_p),
-    ("swapchain", c_void_p),
+    ("swapchain", VkSwapchainKHR),
     ("imageIndexCount", c_uint32),
     ("pImageIndices", POINTER(c_uint32)),
 ]
@@ -17506,7 +17507,7 @@ VkMemoryMapInfo._fields_ = [
     ("sType", c_int32),
     ("pNext", c_void_p),
     ("flags", c_uint32),
-    ("memory", c_void_p),
+    ("memory", VkDeviceMemory),
     ("offset", c_uint64),
     ("size", c_uint64),
 ]
@@ -17518,7 +17519,7 @@ VkMemoryUnmapInfo._fields_ = [
     ("sType", c_int32),
     ("pNext", c_void_p),
     ("flags", c_uint32),
-    ("memory", c_void_p),
+    ("memory", VkDeviceMemory),
 ]
 
 VkMemoryUnmapInfoKHR._fields_ = [
@@ -17548,7 +17549,7 @@ VkShaderCreateInfoEXT._fields_ = [
     ("pCode", c_void_p),
     ("pName", c_char_p),
     ("setLayoutCount", c_uint32),
-    ("pSetLayouts", POINTER(c_void_p)),
+    ("pSetLayouts", POINTER(VkDescriptorSetLayout)),
     ("pushConstantRangeCount", c_uint32),
     ("pPushConstantRanges", POINTER(VkPushConstantRange)),
     ("pSpecializationInfo", POINTER(VkSpecializationInfo)),
@@ -17668,8 +17669,8 @@ VkExecutionGraphPipelineCreateInfoAMDX._fields_ = [
     ("stageCount", c_uint32),
     ("pStages", POINTER(VkPipelineShaderStageCreateInfo)),
     ("pLibraryInfo", POINTER(VkPipelineLibraryCreateInfoKHR)),
-    ("layout", c_void_p),
-    ("basePipelineHandle", c_void_p),
+    ("layout", VkPipelineLayout),
+    ("basePipelineHandle", VkPipeline),
     ("basePipelineIndex", c_int32),
 ]
 
@@ -17761,10 +17762,10 @@ VkBindDescriptorSetsInfo._fields_ = [
     ("sType", c_int32),
     ("pNext", c_void_p),
     ("stageFlags", c_uint32),
-    ("layout", c_void_p),
+    ("layout", VkPipelineLayout),
     ("firstSet", c_uint32),
     ("descriptorSetCount", c_uint32),
-    ("pDescriptorSets", POINTER(c_void_p)),
+    ("pDescriptorSets", POINTER(VkDescriptorSet)),
     ("dynamicOffsetCount", c_uint32),
     ("pDynamicOffsets", POINTER(c_uint32)),
 ]
@@ -17775,7 +17776,7 @@ VkBindDescriptorSetsInfoKHR._fields_ = [
 VkPushConstantsInfo._fields_ = [
     ("sType", c_int32),
     ("pNext", c_void_p),
-    ("layout", c_void_p),
+    ("layout", VkPipelineLayout),
     ("stageFlags", c_uint32),
     ("offset", c_uint32),
     ("size", c_uint32),
@@ -17789,7 +17790,7 @@ VkPushDescriptorSetInfo._fields_ = [
     ("sType", c_int32),
     ("pNext", c_void_p),
     ("stageFlags", c_uint32),
-    ("layout", c_void_p),
+    ("layout", VkPipelineLayout),
     ("set", c_uint32),
     ("descriptorWriteCount", c_uint32),
     ("pDescriptorWrites", POINTER(VkWriteDescriptorSet)),
@@ -17801,8 +17802,8 @@ VkPushDescriptorSetInfoKHR._fields_ = [
 VkPushDescriptorSetWithTemplateInfo._fields_ = [
     ("sType", c_int32),
     ("pNext", c_void_p),
-    ("descriptorUpdateTemplate", c_void_p),
-    ("layout", c_void_p),
+    ("descriptorUpdateTemplate", VkDescriptorUpdateTemplate),
+    ("layout", VkPipelineLayout),
     ("set", c_uint32),
     ("pData", c_void_p),
 ]
@@ -17814,7 +17815,7 @@ VkSetDescriptorBufferOffsetsInfoEXT._fields_ = [
     ("sType", c_int32),
     ("pNext", c_void_p),
     ("stageFlags", c_uint32),
-    ("layout", c_void_p),
+    ("layout", VkPipelineLayout),
     ("firstSet", c_uint32),
     ("setCount", c_uint32),
     ("pBufferIndices", POINTER(c_uint32)),
@@ -17825,7 +17826,7 @@ VkBindDescriptorBufferEmbeddedSamplersInfoEXT._fields_ = [
     ("sType", c_int32),
     ("pNext", c_void_p),
     ("stageFlags", c_uint32),
-    ("layout", c_void_p),
+    ("layout", VkPipelineLayout),
     ("set", c_uint32),
 ]
 
@@ -17935,7 +17936,7 @@ VkLatencySleepModeInfoNV._fields_ = [
 VkLatencySleepInfoNV._fields_ = [
     ("sType", c_int32),
     ("pNext", c_void_p),
-    ("signalSemaphore", c_void_p),
+    ("signalSemaphore", VkSemaphore),
     ("value", c_uint64),
 ]
 
@@ -18449,7 +18450,7 @@ VkExternalComputeQueueDeviceCreateInfoNV._fields_ = [
 VkExternalComputeQueueCreateInfoNV._fields_ = [
     ("sType", c_int32),
     ("pNext", c_void_p),
-    ("preferredQueue", c_void_p),
+    ("preferredQueue", VkQueue),
 ]
 
 VkExternalComputeQueueDataParamsNV._fields_ = [
@@ -18529,21 +18530,21 @@ VkTensorViewCreateInfoARM._fields_ = [
     ("sType", c_int32),
     ("pNext", c_void_p),
     ("flags", c_uint64),
-    ("tensor", c_void_p),
+    ("tensor", VkTensorARM),
     ("format", c_int32),
 ]
 
 VkTensorMemoryRequirementsInfoARM._fields_ = [
     ("sType", c_int32),
     ("pNext", c_void_p),
-    ("tensor", c_void_p),
+    ("tensor", VkTensorARM),
 ]
 
 VkBindTensorMemoryInfoARM._fields_ = [
     ("sType", c_int32),
     ("pNext", c_void_p),
-    ("tensor", c_void_p),
-    ("memory", c_void_p),
+    ("tensor", VkTensorARM),
+    ("memory", VkDeviceMemory),
     ("memoryOffset", c_uint64),
 ]
 
@@ -18551,7 +18552,7 @@ VkWriteDescriptorSetTensorARM._fields_ = [
     ("sType", c_int32),
     ("pNext", c_void_p),
     ("tensorViewCount", c_uint32),
-    ("pTensorViews", POINTER(c_void_p)),
+    ("pTensorViews", POINTER(VkTensorViewARM)),
 ]
 
 VkTensorFormatPropertiesARM._fields_ = [
@@ -18588,7 +18589,7 @@ VkTensorMemoryBarrierARM._fields_ = [
     ("dstAccessMask", c_uint64),
     ("srcQueueFamilyIndex", c_uint32),
     ("dstQueueFamilyIndex", c_uint32),
-    ("tensor", c_void_p),
+    ("tensor", VkTensorARM),
 ]
 
 VkTensorDependencyInfoARM._fields_ = [
@@ -18618,8 +18619,8 @@ VkDeviceTensorMemoryRequirementsARM._fields_ = [
 VkCopyTensorInfoARM._fields_ = [
     ("sType", c_int32),
     ("pNext", c_void_p),
-    ("srcTensor", c_void_p),
-    ("dstTensor", c_void_p),
+    ("srcTensor", VkTensorARM),
+    ("dstTensor", VkTensorARM),
     ("regionCount", c_uint32),
     ("pRegions", POINTER(VkTensorCopyARM)),
 ]
@@ -18636,7 +18637,7 @@ VkTensorCopyARM._fields_ = [
 VkMemoryDedicatedAllocateInfoTensorARM._fields_ = [
     ("sType", c_int32),
     ("pNext", c_void_p),
-    ("tensor", c_void_p),
+    ("tensor", VkTensorARM),
 ]
 
 VkPhysicalDeviceDescriptorBufferTensorPropertiesARM._fields_ = [
@@ -18656,26 +18657,26 @@ VkPhysicalDeviceDescriptorBufferTensorFeaturesARM._fields_ = [
 VkTensorCaptureDescriptorDataInfoARM._fields_ = [
     ("sType", c_int32),
     ("pNext", c_void_p),
-    ("tensor", c_void_p),
+    ("tensor", VkTensorARM),
 ]
 
 VkTensorViewCaptureDescriptorDataInfoARM._fields_ = [
     ("sType", c_int32),
     ("pNext", c_void_p),
-    ("tensorView", c_void_p),
+    ("tensorView", VkTensorViewARM),
 ]
 
 VkDescriptorGetTensorInfoARM._fields_ = [
     ("sType", c_int32),
     ("pNext", c_void_p),
-    ("tensorView", c_void_p),
+    ("tensorView", VkTensorViewARM),
 ]
 
 VkFrameBoundaryTensorsARM._fields_ = [
     ("sType", c_int32),
     ("pNext", c_void_p),
     ("tensorCount", c_uint32),
-    ("pTensors", POINTER(c_void_p)),
+    ("pTensors", POINTER(VkTensorARM)),
 ]
 
 VkPhysicalDeviceExternalTensorInfoARM._fields_ = [
@@ -18761,7 +18762,7 @@ VkDataGraphPipelineCreateInfoARM._fields_ = [
     ("sType", c_int32),
     ("pNext", c_void_p),
     ("flags", c_uint64),
-    ("layout", c_void_p),
+    ("layout", VkPipelineLayout),
     ("resourceInfoCount", c_uint32),
     ("pResourceInfos", POINTER(VkDataGraphPipelineResourceInfoARM)),
 ]
@@ -18769,7 +18770,7 @@ VkDataGraphPipelineCreateInfoARM._fields_ = [
 VkDataGraphPipelineShaderModuleCreateInfoARM._fields_ = [
     ("sType", c_int32),
     ("pNext", c_void_p),
-    ("module", c_void_p),
+    ("module", VkShaderModule),
     ("pName", c_char_p),
     ("pSpecializationInfo", POINTER(VkSpecializationInfo)),
     ("constantCount", c_uint32),
@@ -18780,13 +18781,13 @@ VkDataGraphPipelineSessionCreateInfoARM._fields_ = [
     ("sType", c_int32),
     ("pNext", c_void_p),
     ("flags", c_uint64),
-    ("dataGraphPipeline", c_void_p),
+    ("dataGraphPipeline", VkPipeline),
 ]
 
 VkDataGraphPipelineSessionBindPointRequirementsInfoARM._fields_ = [
     ("sType", c_int32),
     ("pNext", c_void_p),
-    ("session", c_void_p),
+    ("session", VkDataGraphPipelineSessionARM),
 ]
 
 VkDataGraphPipelineSessionBindPointRequirementARM._fields_ = [
@@ -18800,7 +18801,7 @@ VkDataGraphPipelineSessionBindPointRequirementARM._fields_ = [
 VkDataGraphPipelineSessionMemoryRequirementsInfoARM._fields_ = [
     ("sType", c_int32),
     ("pNext", c_void_p),
-    ("session", c_void_p),
+    ("session", VkDataGraphPipelineSessionARM),
     ("bindPoint", c_int32),
     ("objectIndex", c_uint32),
 ]
@@ -18808,17 +18809,17 @@ VkDataGraphPipelineSessionMemoryRequirementsInfoARM._fields_ = [
 VkBindDataGraphPipelineSessionMemoryInfoARM._fields_ = [
     ("sType", c_int32),
     ("pNext", c_void_p),
-    ("session", c_void_p),
+    ("session", VkDataGraphPipelineSessionARM),
     ("bindPoint", c_int32),
     ("objectIndex", c_uint32),
-    ("memory", c_void_p),
+    ("memory", VkDeviceMemory),
     ("memoryOffset", c_uint64),
 ]
 
 VkDataGraphPipelineInfoARM._fields_ = [
     ("sType", c_int32),
     ("pNext", c_void_p),
-    ("dataGraphPipeline", c_void_p),
+    ("dataGraphPipeline", VkPipeline),
 ]
 
 VkDataGraphPipelinePropertyQueryResultARM._fields_ = [
@@ -18995,7 +18996,7 @@ VkImportNativeBufferInfoOHOS._fields_ = [
 VkMemoryGetNativeBufferInfoOHOS._fields_ = [
     ("sType", c_int32),
     ("pNext", c_void_p),
-    ("memory", c_void_p),
+    ("memory", VkDeviceMemory),
 ]
 
 VkExternalFormatOHOS._fields_ = [
@@ -19399,7 +19400,7 @@ VkDeviceMemoryImageCopyKHR._fields_ = [
 VkCopyDeviceMemoryImageInfoKHR._fields_ = [
     ("sType", c_int32),
     ("pNext", c_void_p),
-    ("image", c_void_p),
+    ("image", VkImage),
     ("regionCount", c_uint32),
     ("pRegions", POINTER(VkDeviceMemoryImageCopyKHR)),
 ]

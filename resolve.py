@@ -66,7 +66,7 @@ def resolve_type(name: str, registry: Registry) -> str:
     if name in EXTERNAL_VALUE_TYPES:
         return EXTERNAL_VALUE_TYPES[name]
     if name in registry.handles:
-        return "c_void_p"
+        return name
     if name in registry.basetypes:
         return resolve_type(registry.basetypes[name].type.name, registry)
     if name in registry.bitmasks:
